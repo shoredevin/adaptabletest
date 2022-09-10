@@ -99,7 +99,7 @@ const initTodo = () => {
 
 initTodo();
 
-function yeet(id) {
-    alert('ID:' + " " + id);
+async function yeet(id) {
+    // alert('ID:' + " " + id);
     await apiFetch("/todos", "DELETE", { id: id });
 }
