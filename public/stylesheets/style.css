@@ -11,3 +11,8 @@ a {
   max-width: 600px;
   margin: auto;
 }
+
+.delete-button {
+  background: none;
+  border: none;
+}
