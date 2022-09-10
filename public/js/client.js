@@ -32,6 +32,7 @@ const initTodo = () => {
                 ${done ? "checked" : ""}
                 onchange="handleTodoChange(event, '${id}')"
             />
+            <button>Delete</button>
             <div style="flex-grow: 1;">
                 ${renderTitle({ title, done })}
             </div>
