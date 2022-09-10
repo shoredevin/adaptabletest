@@ -29,11 +29,7 @@ const initTodo = () => {
     // };
 
 
-    const yeet = async(id) => {
-        // alert('ID:' + " " + id);
-        await apiFetch("/todos", "DELETE", { id: id });
-        refreshList();
-    }
+
     const renderItem = ({ id, title, done }) => `
         <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded" style="background-color: #f4f6f7;">
             <input
@@ -102,5 +98,9 @@ const initTodo = () => {
 
     refreshList();
 }
-
+async function yeet(id) {
+    // alert('ID:' + " " + id);
+    await apiFetch("/todos", "DELETE", { id: id });
+    refreshList();
+}
 initTodo();
