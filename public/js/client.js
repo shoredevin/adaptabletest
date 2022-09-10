@@ -18,18 +18,22 @@ const apiFetch = async (url, method, body) => {
 
 const initTodo = () => {
     // INSERT handleTodoDelete HERE
+    const handleTodoDelete = (ev, id) => {
+        const doDelete = async () => {
+            await apiFetch(`/todos`, "DELETE", { id: id });
+    
+            refreshList();
+        }
+    
+        doDelete().catch(err => console.log("Error changing todo done state", err));
+    };
+    window.handleTodoDelete = handleTodoDelete;
 
     const renderTitle = ({ title, done }) => {
         if (!done) return title;
         return `<s>${title}</s>`;
     };
-    // const renderID = ({ id, done }) => {
-    //     if (!done) return id;
-    //     return `<s>${id}</s>`;
-    // };
-
-
-
+    
     const renderItem = ({ id, title, done }) => `
         <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded" style="background-color: #f4f6f7;">
             <input
@@ -39,7 +43,7 @@ const initTodo = () => {
                 ${done ? "checked" : ""}
                 onchange="handleTodoChange(event, '${id}')"
             />
-            <button onclick="yeet('${id}')">Delete</button>
+            <button onclick="handleTodoDelete(event, '${id}')">Delete</button>
             <div style="flex-grow: 1;">
                 ${renderTitle({ title, done })}
             </div>
@@ -103,4 +107,5 @@ async function yeet(id) {
     await apiFetch("/todos", "DELETE", { id: id });
     refreshList();
 }
+
 initTodo();
