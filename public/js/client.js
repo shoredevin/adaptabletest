@@ -27,6 +27,13 @@ const initTodo = () => {
     //     if (!done) return id;
     //     return `<s>${id}</s>`;
     // };
+
+
+    const yeet = async(id) => {
+        // alert('ID:' + " " + id);
+        await apiFetch("/todos", "DELETE", { id: id });
+        refreshList();
+    }
     const renderItem = ({ id, title, done }) => `
         <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded" style="background-color: #f4f6f7;">
             <input
@@ -36,7 +43,8 @@ const initTodo = () => {
                 ${done ? "checked" : ""}
                 onchange="handleTodoChange(event, '${id}')"
             />
-            <button onclick="yeet('${id}')">Delete</button>
+            <button onclick="${yeet(id)}
+            ">Delete</button>
             <div style="flex-grow: 1;">
                 ${renderTitle({ title, done })}
             </div>
@@ -92,12 +100,6 @@ const initTodo = () => {
         ev.preventDefault();
         addItem().catch(err => console.log("Error adding item", err));
     };
-
-    async function yeet(id) {
-        // alert('ID:' + " " + id);
-        await apiFetch("/todos", "DELETE", { id: id });
-        refreshList();
-    }
 
     refreshList();
 }
