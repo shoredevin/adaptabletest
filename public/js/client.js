@@ -93,14 +93,13 @@ const initTodo = () => {
         addItem().catch(err => console.log("Error adding item", err));
     };
 
+    async function yeet(id) {
+        // alert('ID:' + " " + id);
+        await apiFetch("/todos", "DELETE", { id: id });
+        refreshList();
+    }
 
     refreshList();
 }
 
 initTodo();
-
-async function yeet(id) {
-    // alert('ID:' + " " + id);
-    await apiFetch("/todos", "DELETE", { id: id });
-    refreshList();
-}
