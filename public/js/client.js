@@ -32,7 +32,7 @@ const initTodo = () => {
                 ${done ? "checked" : ""}
                 onchange="handleTodoChange(event, '${id}')"
             />
-            <button>Delete</button>
+            <button onclick="yeet()">Delete</button>
             <div style="flex-grow: 1;">
                 ${renderTitle({ title, done })}
             </div>
@@ -94,3 +94,7 @@ const initTodo = () => {
 }
 
 initTodo();
+
+function yeet() {
+    alert('Hello world');
+}
