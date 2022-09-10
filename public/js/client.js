@@ -99,8 +99,8 @@ const initTodo = () => {
     refreshList();
 }
 async function yeet(id) {
-    // alert('ID:' + " " + id);
-    await apiFetch("/todos", "DELETE", { id: id });
-    refreshList();
+    alert('ID:' + " " + id);
+//     await apiFetch("/todos", "DELETE", { id: id });
+//     refreshList();
 }
 initTodo();
