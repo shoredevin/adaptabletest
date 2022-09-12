@@ -81,12 +81,15 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
   //     'a': [ 'href' ]
   //   },
   // });
+  const dexnum = req.body.dexnum;
+  const name = req.body.name;
+  const caught = req.body.caught;
 
   const result = await prisma.TodoItem.create({
     data: {
-      dexnum: "001",
-      name:   "bulb",
-      caught: "false"
+      dexnum,
+      name,
+      caught
     }
   });
   res.json(result);
