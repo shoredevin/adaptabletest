@@ -73,9 +73,9 @@ router.delete('/', asyncMiddleware(async (req, res) => {
 
 router.get('/dex', asyncMiddleware(async (req, res) => {
   const todos = await prisma.Pokedex.findMany({
-    orderBy: [
-      { dexnum: 'desc' }
-    ],
+    orderBy: {
+      dexnum: { test: 'desc' }
+    }
   });
   res.json(todos);
 }));
