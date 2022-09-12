@@ -71,7 +71,10 @@ router.delete('/', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
-
+router.get('/dex', asyncMiddleware(async (req, res) => {
+  const todos = await prisma.Pokedex.findMany();
+  res.json(todos);
+}));
 
 router.post("/dex", asyncMiddleware(async (req, res) => {
   // const { title: titleIn, done } = req.body;
