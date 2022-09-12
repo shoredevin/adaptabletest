@@ -104,7 +104,7 @@ const initTodo = () => {
 }
 async function yeetGet() {
     const resp = await apiFetch("/todos");
-    console.log(resp.body);
+    console.log(JSON.stringify(resp.body));
 }
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
