@@ -103,8 +103,10 @@ const initTodo = () => {
     refreshList();
 }
 async function yeet() {
+    const dexnum = document.getElementById('dexnum').value;
+    const name = document.getElementById('name').value;
     // alert('hello world 2')
-    await apiFetch("/todos/dex", "POST", { dexnum: "001", name: "bulb", caught: false});
+    await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false});
     // alert('ID:' + " " + id);
     // await apiFetch("/todos", "DELETE", { id: id });
     // refreshList();
