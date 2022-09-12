@@ -91,7 +91,7 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
       'a': [ 'href' ]
     },
   });
-  const result = await prisma.TodoItem.create({
+  const result = await prisma.Pokedex.create({
     data: {
       dexnum,
       name,
