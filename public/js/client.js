@@ -105,7 +105,7 @@ const initTodo = () => {
 async function yeetGet() {
     // const resp = await apiFetch("/todos");
     // console.log(JSON.stringify(resp.body));
-    await fetch('/todos')
+    await fetch('/todos/dex')
      .then((response) => response.json())
      .then((data) => console.log(data));
 }
