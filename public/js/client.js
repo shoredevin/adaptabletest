@@ -103,7 +103,8 @@ const initTodo = () => {
     refreshList();
 }
 async function yeet() {
-    alert('hello world 2')
+    // alert('hello world 2')
+    await apiFetch("/todos/dex", "POST");
     // alert('ID:' + " " + id);
     // await apiFetch("/todos", "DELETE", { id: id });
     // refreshList();

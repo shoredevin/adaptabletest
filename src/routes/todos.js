@@ -71,4 +71,27 @@ router.delete('/', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
+
+
+router.post("/dex", asyncMiddleware(async (req, res) => {
+  // const { title: titleIn, done } = req.body;
+  // const title = sanitizeHtml(titleIn, {
+  //   allowedTags: [ 'a' ],
+  //   allowedAttributes: {
+  //     'a': [ 'href' ]
+  //   },
+  // });
+
+  const result = await prisma.TodoItem.create({
+    data: {
+      dexnum: "001",
+      name:   "bulb",
+      caught: "false"
+    }
+  });
+  res.json(result);
+}));
+
+
+
 module.exports = router;
