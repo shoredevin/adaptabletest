@@ -15,3 +15,11 @@ model TodoItem {
   title  String
   done   Boolean @default(false)
 }
+
+
+model Pokedex {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  dexNum  String
+  name    String
+  caught  Boolean
+}
