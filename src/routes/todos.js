@@ -72,28 +72,16 @@ router.delete('/', asyncMiddleware(async (req, res) => {
 }));
 
 router.get('/dex', asyncMiddleware(async (req, res) => {
-  const todos = await prisma.Pokedex.findMany();
+  const todos = await prisma.Pokedex.findMany({
+    orderBy: [
+      { dexnum: 'desc' }
+    ]
+  });
   res.json(todos);
 }));
 
 router.post("/dex", asyncMiddleware(async (req, res) => {
-  // const { title: titleIn, done } = req.body;
-  // const title = sanitizeHtml(titleIn, {
-  //   allowedTags: [ 'a' ],
-  //   allowedAttributes: {
-  //     'a': [ 'href' ]
-  //   },
-  // });
   const { dexnum, name, caught } = req.body;
-  // const dexnum = req.body.dexnum;
-  // const name = req.body.name;
-  // const caught = req.body.caught;
-  // const dexnum = sanitizeHtml(dexnumIn, {
-  //   allowedTags: [ 'a' ],
-  //   allowedAttributes: {
-  //     'a': [ 'href' ]
-  //   },
-  // });
   const result = await prisma.Pokedex.create({
     data: {
       dexnum,
