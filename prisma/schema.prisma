@@ -19,7 +19,7 @@ model TodoItem {
 
 model Pokedex {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
-  dexnum  String
+  dexnum  Int
   name    String
   caught  Boolean
 }
