@@ -114,7 +114,11 @@ async function yeet() {
     const name = document.getElementById('name').value;
     if(!dexnum || !name) return
     // alert('hello world 2')
-    await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false});
+    // await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false});
+    await fetch('/todos/dex', {
+        method: 'POST',
+        body: { dexnum: dexnum, name: name, caught: false },
+    })
     // alert('ID:' + " " + id);
     // await apiFetch("/todos", "DELETE", { id: id });
     // refreshList();
