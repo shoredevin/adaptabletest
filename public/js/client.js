@@ -111,19 +111,17 @@ async function yeetGet() {
 }
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
-
-
-    
     const name = document.getElementById('name').value;
+
     if(!dexnum || !name) return
     // alert('hello world 2')
-    // await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false});
-    await fetch('/todos/dex', {
-        method: 'POST',
-        body: JSON.stringify({ dexnum: dexnum, name: name, caught: false }),
-    })
-     .then((response) => response.json())
-     .then((data) => console.log(data));
+    await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false});
+    // await fetch('/todos/dex', {
+    //     method: 'POST',
+    //     body: JSON.stringify({ dexnum: dexnum, name: name, caught: false }),
+    // })
+    //  .then((response) => response.json())
+    //  .then((data) => console.log(data));
     // alert('ID:' + " " + id);
     // await apiFetch("/todos", "DELETE", { id: id });
     // refreshList();

@@ -92,7 +92,7 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
     data: {
       dexnum,
       name,
-      caught,
+      caught
     }
   });
   res.json(result);
