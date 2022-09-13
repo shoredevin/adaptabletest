@@ -117,10 +117,10 @@ async function yeet() {
     // await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false});
     await fetch('/todos/dex', {
         method: 'POST',
-        body: { dexnum: dexnum, name: name, caught: false },
+        body: JSON.stringify({ dexnum: dexnum, name: name, caught: false }),
     })
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+     .then((response) => response.json())
+     .then((data) => console.log(data));
     // alert('ID:' + " " + id);
     // await apiFetch("/todos", "DELETE", { id: id });
     // refreshList();
