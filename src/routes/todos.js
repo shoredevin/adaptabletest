@@ -93,9 +93,9 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
   // });
   const result = await prisma.Pokedex.create({
     data: {
-      dexnum,
-      name,
-      caughtBool
+      dexnum: dexnum,
+      name: name,
+      caught: caughtBool
     }
   });
   res.json(result);
