@@ -103,11 +103,15 @@ const initTodo = () => {
     refreshList();
 }
 async function yeetGet() {
+    const jsonContainer = document.getElementById('json-container')
     // const resp = await apiFetch("/todos");
     // console.log(JSON.stringify(resp.body));
     await fetch('/todos/dex')
      .then((response) => response.json())
-     .then((data) => console.log(data));
+     .then((data) => {
+        console.log(data)
+        jsonContainer.innerHTML = data;
+    });
 }
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
