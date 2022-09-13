@@ -119,6 +119,8 @@ async function yeet() {
         method: 'POST',
         body: { dexnum: dexnum, name: name, caught: false },
     })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
     // alert('ID:' + " " + id);
     // await apiFetch("/todos", "DELETE", { id: id });
     // refreshList();
