@@ -82,7 +82,9 @@ router.get("/dex", asyncMiddleware(async (req, res) => {
 
 router.post("/dex", asyncMiddleware(async (req, res) => {
   console.log(req.body)
-  const { dexnum, name, caught } = req.body;
+  const { dexnum: dexnumIn, name, caught } = req.body;
+  const dexnum = parseInt(dexnumIn);
+  const caughtBool = (caught === 'true')
   // const dexnum = sanitizeHtml(dexnumIn, {
   //   allowedTags: [ 'a' ],
   //   allowedAttributes: {
@@ -93,7 +95,7 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
     data: {
       dexnum,
       name,
-      caught
+      caughtBool
     }
   });
   res.json(result);
