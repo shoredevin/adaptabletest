@@ -111,6 +111,9 @@ async function yeetGet() {
 }
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
+
+
+    
     const name = document.getElementById('name').value;
     if(!dexnum || !name) return
     // alert('hello world 2')

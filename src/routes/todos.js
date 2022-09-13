@@ -81,13 +81,13 @@ router.get("/dex", asyncMiddleware(async (req, res) => {
 }));
 
 router.post("/dex", asyncMiddleware(async (req, res) => {
-  const { dexnum: dexnumIn, name, caught } = req.body;
-  const dexnum = sanitizeHtml(dexnumIn, {
-    allowedTags: [ 'a' ],
-    allowedAttributes: {
-      'a': [ 'href' ]
-    },
-  });
+  const { dexnum, name, caught } = req.body;
+  // const dexnum = sanitizeHtml(dexnumIn, {
+  //   allowedTags: [ 'a' ],
+  //   allowedAttributes: {
+  //     'a': [ 'href' ]
+  //   },
+  // });
   const result = await prisma.Pokedex.create({
     data: {
       dexnum,
