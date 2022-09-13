@@ -116,7 +116,8 @@ async function yeetGet() {
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
     const name = document.getElementById('name').value;
-    console.log(dexnum);
+    // console.log(dexnum);
+    if(isNaN(dexnum)) { console.log("NaN"); return }
     if(!dexnum || !name) return
     // alert('hello world 2')
     // console.log(await apiFetch("/todos/dex", "POST", { dexnum: parseInt(dexnum), name: name, caught: false }));
