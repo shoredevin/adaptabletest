@@ -117,7 +117,7 @@ async function yeet() {
     // alert('hello world 2')
     // await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false });
     
-    await apiFetch("/todos/dex", "POST", { dexnum: "1", name: "bulb", caught: false});
+    console.log(await apiFetch("/todos/dex", "POST", { dexnum: "1", name: "bulb", caught: false}));
     
     // await fetch('/todos/dex', {
     //     method: 'POST',
