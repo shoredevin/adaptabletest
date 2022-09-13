@@ -112,7 +112,7 @@ async function yeetGet() {
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
     const name = document.getElementById('name').value;
-
+    console.log(dexnum);
     if(!dexnum || !name) return
     // alert('hello world 2')
     console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
