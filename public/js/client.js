@@ -110,7 +110,7 @@ async function yeetGet() {
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
-        jsonContainer.innerHTML = JSON.parse(data);
+        jsonContainer.innerHTML = JSON.stringify(data);
     });
 }
 async function yeet() {
