@@ -42,10 +42,10 @@ async function json2table(data) {
         let tr = document.createElement('tr');
         // for(let k = 0; k < rows[i].length; k++) {
         for(let [index, [key, value]] of Object.entries(rows[i])) {
-            console.log(`${key}: ${value}`)
-            console.log(index);
-            tr.appendChild(document.createElement('td'));
-            tr.cells[index].appendChild(document.createTextNode(value));
+            console.log(`${index} - ${key} - ${value}`)
+            // console.log(index);
+            // tr.appendChild(document.createElement('td'));
+            // tr.cells[index].appendChild(document.createTextNode(value));
         }
         tbdy.appendChild(tr);
     }
