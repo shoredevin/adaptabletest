@@ -75,11 +75,11 @@ async function handleEdit(e) {
     console.log(rows.length);
     // for(col of rows) { console.log(rows.contentEditable) };
     for(let i = 1; i < rows.length; i++) {
-        // const bool = rows[i].contentEditable;
+        const bool = rows[i].contentEditable;
         console.log(rows[i].contentEditable)
-        // if(bool == true) rows[i].contentEditable = false;
-        // if(bool == false) rows[i].contentEditable = true;
-        rows[i].contentEditable = true;
+        if(bool) rows[i].contentEditable = false;
+        if(!bool) rows[i].contentEditable = true;
+        // rows[i].contentEditable = true;
     }   
 
 }
