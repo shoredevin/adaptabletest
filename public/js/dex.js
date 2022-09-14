@@ -42,7 +42,7 @@ async function json2table(data) {
         let tr = document.createElement('tr');
         // for(let k = 0; k < rows[i].length; k++) {
         for(let key of Object.keys(rows[i])) {
-            console.log(p[key])
+            console.log(rows[key])
             // console.log(rows[key]);
             // tr.appendChild(document.createElement('td'));
             // tr.cells[k].appendChild(document.createTextNode(rows[key]));
