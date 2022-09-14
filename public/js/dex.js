@@ -1,10 +1,11 @@
 async function yeetGet() {
-    const jsonContainer = document.getElementById('json-container')
+    // const jsonContainer = document.getElementById('json-container')
     await fetch('/todos/dex')
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
-        jsonContainer.innerHTML = JSON.stringify(data, undefined, 2);
+        // jsonContainer.innerHTML = JSON.stringify(data, undefined, 2);
+        json2table(data);
     });
 }
 async function yeet() {
@@ -24,4 +25,22 @@ async function yeet() {
         console.log(data);
     })
     // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
+}
+
+
+
+async function json2table(data) {
+    let myTable = document.querySelector("#myTable");
+    myTable.style.display = "inline-block";
+    let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+    tbdy.innerHTML = "";
+    let rows = data.response;
+    for (let i = 0; i < rows.length; i++) {
+        let tr = document.createElement('tr');
+        for(let k = 0; k < rows[i].length; k++) {
+            tr.appendChild(document.createElement('td'));
+            tr.cells[k].appendChild(document.createTextNode(rows[i][k]));
+        }
+        tbdy.appendChild(tr);
+    }
 }
