@@ -43,8 +43,8 @@ async function json2table(data) {
         // for(let k = 0; k < rows[i].length; k++) {
         for(let [index, [key, value]] of Object.entries(rows[i])) {
             console.log(`${key}: ${value}`)
-            // console.log(rows[key]);
-            // tr.appendChild(document.createElement('td'));
+            console.log(index);
+            tr.appendChild(document.createElement('td'));
             tr.cells[index].appendChild(document.createTextNode(value));
         }
         tbdy.appendChild(tr);
