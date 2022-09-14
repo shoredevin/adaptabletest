@@ -74,8 +74,9 @@ async function handleEdit(e) {
     const rows = e.parentElement.parentElement.children;
     console.log(rows.length);
     // for(col of rows) { console.log(rows.contentEditable) };
-    for(let i = 0; i < rows.length; i++) {
-        console.log(rows[i].contentEditable)
+    for(let i = 1; i < rows.length; i++) {
+        // console.log(rows[i].contentEditable)
+        rows[i].contentEditable = true;
     }   
     // console.log(e.p  arentElement.parentElement);
     // console.log(e.parent Node
