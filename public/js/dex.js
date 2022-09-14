@@ -71,7 +71,7 @@ async function handleTodoDelete(ev, id) {
 
 async function handleEdit(e) {
     console.log(e.parentElement.parentElement);
-    const row = e.parentElement.parentElement;
+    const row = e.parentElement.parentElement.children;
     console.log(row);
     // for(col of row) { console.log(row) };
     // console.log(e.parentElement.parentElement);
