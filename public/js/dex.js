@@ -78,8 +78,8 @@ async function handleEdit(e) {
         const bool = rows[i].contentEditable;
         console.log(bool)
         console.log(!bool)
-        if(bool == true) rows[i].contentEditable = false;
-        if(bool == false) rows[i].contentEditable = true;
+        if(bool == 'true') rows[i].contentEditable = 'false';
+        if(bool == 'false') rows[i].contentEditable = 'true';
         // rows[i].contentEditable = true;
     }   
 
