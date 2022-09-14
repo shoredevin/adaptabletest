@@ -34,6 +34,8 @@ async function yeet() {
         // myTable.style.display = "inline-block";
         // let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
         // tbdy.innerHTML = data.map(json2table).join("")
+        document.getElementById('dexnum').value = "";
+        document.getElementById('name').value = "";
         yeetGet();
     })
     // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
