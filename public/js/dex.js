@@ -41,10 +41,11 @@ async function json2table(data) {
     for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
         // for(let k = 0; k < rows[i].length; k++) {
-        for(let key in rows[i]) {
-            console.log(rows[key]);
-            tr.appendChild(document.createElement('td'));
-            tr.cells[k].appendChild(document.createTextNode(rows[key]));
+        for(let key of Object.keys(rows[i])) {
+            console.log(p[key])
+            // console.log(rows[key]);
+            // tr.appendChild(document.createElement('td'));
+            // tr.cells[k].appendChild(document.createTextNode(rows[key]));
         }
         tbdy.appendChild(tr);
     }
