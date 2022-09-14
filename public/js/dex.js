@@ -54,15 +54,15 @@ async function yeet() {
 //     }
 // }
 
-async function json2table(dexnum, name, caught) {
+async function json2table({ dexnum, name, caught }) {
+    console.log('here');
     `
         <tr>
             <td>${dexnum}</td>
             <td>${name}</td>
             <td>${caught}</td>
         </tr>
-    `
-
+    `;
 }
 
 
