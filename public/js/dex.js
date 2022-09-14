@@ -55,7 +55,7 @@ async function yeet() {
 // }
 
 // async function json2table({ dexnum, name, caught }) {
-const json2table = ({ dexnum, name, caught }) => {
+const json2table = ({ dexnum, name, caught }) => 
     // console.log('here');
     `
         <tr>
@@ -64,7 +64,6 @@ const json2table = ({ dexnum, name, caught }) => {
             <td>Three</td>
         </tr>
     `;
-}
 
 
 // const resp = await apiFetch("/todos");
