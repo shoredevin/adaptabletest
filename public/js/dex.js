@@ -1,10 +1,14 @@
-const json2table = ({ dexnum, name, caught }) => `
-    <tr>
-        <td>${dexnum}</td>
-        <td>${name}</td>
-        <td>${caught}</td>
-    </tr>
-`;
+const init = () => {
+    const json2table = ({ dexnum, name, caught }) => `
+        <tr>
+            <td>${dexnum}</td>
+            <td>${name}</td>
+            <td>${caught}</td>
+        </tr>
+    `;
+}
+
+init();
 
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
