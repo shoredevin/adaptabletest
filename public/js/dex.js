@@ -72,11 +72,11 @@ async function handleTodoDelete(ev, id) {
 async function handleEdit(e) {
     console.log(e.parentElement.parentElement);
     const rows = e.parentElement.parentElement.children;
-    // console.log(rows);
+    console.log(rows.length);
     // for(col of rows) { console.log(rows.contentEditable) };
-    for(let i = 0; 1 < rows.length; i++) {
-        console.log(rows[i])
-    }   
+    // for(let i = 0; 1 < rows.length; i++) {
+    //     console.log(rows[i])
+    // }   
     // console.log(e.p  arentElement.parentElement);
     // console.log(e.parent Node
 }
