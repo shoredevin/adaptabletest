@@ -56,6 +56,7 @@ async function handleTodoDelete(ev, id) {
     });
     const todos = await resp.json();
     console.log(todos);
+    await yeetGet();
         // refreshList();
     // }
     // doDelete().catch(err => console.log("Error changing todo done state", err));
