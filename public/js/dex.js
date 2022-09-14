@@ -76,10 +76,8 @@ async function handleEdit(e) {
     // for(col of rows) { console.log(rows.contentEditable) };
     for(let i = 1; i < rows.length; i++) {
         const bool = (rows[i].contentEditable === 'true');
-        console.log(bool)
-        console.log(!bool)
-        if(bool) rows[i].contentEditable = 'false';
-        if(!bool) rows[i].contentEditable = 'true';
+        if(bool) rows[i].contentEditable = false;
+        if(!bool) rows[i].contentEditable = true;
         // rows[i].contentEditable = true;
     }   
 
