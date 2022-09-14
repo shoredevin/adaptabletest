@@ -101,6 +101,13 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
   res.json(result);
 }));
 
+router.delete('/dex', asyncMiddleware(async (req, res) => {
+  const id = req.body.id;
+  const updated = await prisma.Pokedex.delete({
+    where: { id }
+  });
+  res.json(updated);
+}));
 
 
 module.exports = router;

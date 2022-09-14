@@ -47,7 +47,7 @@ const json2table = ({ id, dexnum, name, caught }) => `
 // const handleTodoDelete = (ev, id) => {
 async function handleTodoDelete(ev, id) {
     // const doDelete = async () => {
-    const resp = await fetch(`/todos`, {
+    const resp = await fetch(`/todos/dex`, {
         method: "DELETE", 
         headers: {
             "Content-Type": "application/json",
