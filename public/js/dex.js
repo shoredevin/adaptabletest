@@ -1,3 +1,5 @@
+window.onload = yeetGet;
+
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
     await fetch('/todos/dex')
