@@ -58,9 +58,9 @@ async function json2table({ dexnum, name, caught }) {
     console.log('here');
     `
         <tr>
-            <td>${dexnum}</td>
-            <td>${name}</td>
-            <td>${caught}</td>
+            <td>One</td>
+            <td>Two</td>
+            <td>Three</td>
         </tr>
     `;
 }
