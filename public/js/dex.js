@@ -37,7 +37,7 @@ async function json2table(data) {
     // let rows = data.response;
     let rows = data;
     console.log(rows.length);
-    console.log(rows[1].length);
+    console.log(Object.keys(rows[1]).length);
     for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
         for(let k = 0; k < 4; k++) {
