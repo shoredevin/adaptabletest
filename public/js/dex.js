@@ -38,9 +38,9 @@ async function json2table(data) {
     let rows = data;
     // console.log(rows.length);
     const numCols = Object.keys(rows[1]).length;
-    for (let i = 1; i < rows.length; i++) {
+    for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
-        for(let k = 1; k < numCols; k++) {
+        for(let k = 0; k < numCols; k++) {
             //offset value by one (ignore col1)
             const val = Object.values(rows[i])[k + 1];
             tr.appendChild(document.createElement('td'));
