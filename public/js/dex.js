@@ -40,11 +40,10 @@ async function json2table(data) {
     const numCols = Object.keys(rows[1]).length;
     for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
-        for(let k = 0; k < numCols; k++) {
-            //offset value by one (ignore col1)
-            const val = Object.values(rows[i])[k + 1];
+        for(let k = 1; k < numCols; k++) {
+            const val = Object.values(rows[i])[k];
             tr.appendChild(document.createElement('td'));
-            tr.cells[k].appendChild(document.createTextNode(val));
+            tr.cells[k - 1].appendChild(document.createTextNode(val));
         }
         tbdy.appendChild(tr);
     }
