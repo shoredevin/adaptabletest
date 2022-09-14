@@ -44,9 +44,9 @@ const json2table = ({ id, dexnum, name, caught }) => `
                 <i class="fa-solid fa-trash-can"></i>
             </button>
         </td>
-        <td contentetiable="false">${dexnum}</td>
-        <td contentetiable="false">${name}</td>
-        <td contentetiable="false">${caught}</td>
+        <td contenteditable="false">${dexnum}</td>
+        <td contenteditable="false">${name}</td>
+        <td contenteditable="false">${caught}</td>
     </tr>
 `;
 
