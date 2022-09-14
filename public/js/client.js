@@ -102,26 +102,6 @@ const initTodo = () => {
 
     refreshList();
 }
-async function yeetGet() {
-    const jsonContainer = document.getElementById('json-container')
-    // const resp = await apiFetch("/todos");
-    // console.log(JSON.stringify(resp.body));
-    await fetch('/todos/dex')
-     .then((response) => response.json())
-     .then((data) => {
-        console.log(data)
-        jsonContainer.innerHTML = JSON.stringify(data, undefined, 2);
-    });
-}
-async function yeet() {
-    const dexnum = document.getElementById('dexnum').value;
-    const name = document.getElementById('name').value;
-    // console.log(dexnum);
-    if(isNaN(dexnum)) { console.log("NaN"); return }
-    if(!dexnum || !name) return
-    // alert('hello world 2')
-    // console.log(await apiFetch("/todos/dex", "POST", { dexnum: parseInt(dexnum), name: name, caught: false }));
-    console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
-}
+
 
 initTodo();
