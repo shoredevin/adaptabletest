@@ -81,6 +81,5 @@ async function handleEdit(e) {
         // if(bool == false) rows[i].contentEditable = true;
         rows[i].contentEditable = true;
     }   
-    // console.log(e.p  arentElement.parentElement);
-    // console.log(e.parent Node
+
 }
