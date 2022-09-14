@@ -47,7 +47,7 @@ const json2table = ({ id, dexnum, name, caught }) => `
 // const handleTodoDelete = (ev, id) => {
 function handleTodoDelete(ev, id) {
     const doDelete = async () => {
-        await apiFetch(`/todos`, "DELETE", { id: id });
+        await fetch(`/todos`, "DELETE", { id: id });
 
         refreshList();
     }
