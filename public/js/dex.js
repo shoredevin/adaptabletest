@@ -44,9 +44,9 @@ const json2table = ({ id, dexnum, name, caught }) => `
                 <i class="fa-solid fa-trash-can"></i>
             </button>
         </td>
-        <td>${dexnum}</td>
-        <td>${name}</td>
-        <td>${caught}</td>
+        <td contentetiable="false">${dexnum}</td>
+        <td contentetiable="false">${name}</td>
+        <td contentetiable="false">${caught}</td>
     </tr>
 `;
 
@@ -75,8 +75,8 @@ async function handleEdit(e) {
     console.log(rows.length);
     // for(col of rows) { console.log(rows.contentEditable) };
     for(let i = 1; i < rows.length; i++) {
-        // console.log(rows[i].contentEditable)
-        rows[i].contentEditable = true;
+        console.log(rows[i].contentEditable)
+        rows[i].contentEditable = !rows[i].contentEditable;
     }   
     // console.log(e.p  arentElement.parentElement);
     // console.log(e.parent Node
