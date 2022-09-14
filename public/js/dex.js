@@ -54,8 +54,9 @@ async function yeet() {
 //     }
 // }
 
-async function json2table({ dexnum, name, caught }) {
-    console.log('here');
+// async function json2table({ dexnum, name, caught }) {
+const json2table = ({ dexnum, name, caught }) => {
+    // console.log('here');
     `
         <tr>
             <td>One</td>
