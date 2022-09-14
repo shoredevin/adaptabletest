@@ -1,3 +1,11 @@
+const json2table = ({ dexnum, name, caught }) => `
+    <tr>
+        <td>${dexnum}</td>
+        <td>${name}</td>
+        <td>${caught}</td>
+    </tr>
+`;
+
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
     await fetch('/todos/dex')
@@ -55,17 +63,10 @@ async function yeet() {
 // }
 
 // async function json2table({ dexnum, name, caught }) {
-const json2table = ({ dexnum, name, caught }) => 
-    // console.log('here');
-    `
-        <tr>
-            <td>One</td>
-            <td>Two</td>
-            <td>Three</td>
-        </tr>
-    `;
+
 
 
 // const resp = await apiFetch("/todos");
 // const todos = await resp.json();
 // list.innerHTML = todos.map(renderItem).join("");
+// const renderItem = ({ id, title, done }) => `
