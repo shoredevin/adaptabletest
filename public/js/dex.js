@@ -1,4 +1,6 @@
 window.onload = yeetGet;
+document.getElementById('sub').onclick = yeet;
+document.getElementById('get').onclick = yeetGet;
 
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
