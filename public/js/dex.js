@@ -14,7 +14,10 @@ async function yeet() {
     if(!dexnum || !name) return
     await fetch('/todos/dex', {
         method: 'POST',
-        body: { dexnum: dexnum, name: name, caught: false }
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ dexnum: dexnum, name: name, caught: false })
     })
     .then((response) => response.json())
     .then((data) => {
