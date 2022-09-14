@@ -34,7 +34,8 @@ async function json2table(data) {
     myTable.style.display = "inline-block";
     let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
     tbdy.innerHTML = "";
-    let rows = data.response;
+    // let rows = data.response;
+    let rows = data;
     for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
         for(let k = 0; k < rows[i].length; k++) {
