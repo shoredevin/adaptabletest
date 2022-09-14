@@ -69,7 +69,9 @@ async function handleTodoDelete(ev, id) {
     // doDelete().catch(err => console.log("Error changing todo done state", err));
 };
 
-async function handleEdit(e) { 
-    console.log(e.parentElement.parentElement);
+async function handleEdit(e) {
+    const row = e.parentElement.parentElement
+    for(col of row) { console.log(row) };
+    // console.log(e.parentElement.parentElement);
     // console.log(e.parentNode
 }
