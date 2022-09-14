@@ -47,7 +47,14 @@ const json2table = ({ id, dexnum, name, caught }) => `
 // const handleTodoDelete = (ev, id) => {
 async function handleTodoDelete(ev, id) {
     // const doDelete = async () => {
-    await fetch(`/todos`, "DELETE", { id: id });
+    await fetch(`/todos`, {
+        method: "DELETE", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: id })
+    
+    });
         // refreshList();
     // }
     // doDelete().catch(err => console.log("Error changing todo done state", err));
