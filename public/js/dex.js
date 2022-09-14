@@ -36,11 +36,11 @@ async function json2table(data) {
     tbdy.innerHTML = "";
     // let rows = data.response;
     let rows = data;
-    console.log(rows.length);
-    console.log(Object.keys(rows[1]).length);
+    // console.log(rows.length);
+    const numCols = Object.keys(rows[1]).length;
     for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
-        for(let k = 0; k < 4; k++) {
+        for(let k = 0; k < numCols; k++) {
             const val = Object.values(rows[i])[k];
             tr.appendChild(document.createElement('td'));
             tr.cells[k].appendChild(document.createTextNode(val));
