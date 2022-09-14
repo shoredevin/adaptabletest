@@ -23,6 +23,7 @@ async function yeet() {
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
+        yeetGet();
     })
     // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
 }
