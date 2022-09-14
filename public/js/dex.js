@@ -76,7 +76,9 @@ async function handleEdit(e) {
     // for(col of rows) { console.log(rows.contentEditable) };
     for(let i = 1; i < rows.length; i++) {
         console.log(rows[i].contentEditable)
-        rows[i].contentEditable = !rows[i].contentEditable;
+        if(rows[i].contentEditable == true) rows[i].contentEditable = false;
+        if(rows[i].contentEditable == false) rows[i].contentEditable = true;
+        // rows[i].contentEditable = !rows[i].contentEditable;
     }   
     // console.log(e.p  arentElement.parentElement);
     // console.log(e.parent Node
