@@ -1,85 +1,39 @@
-const init = () => {
-    const json2table = ({ dexnum, name, caught }) => `
-        <tr>
-            <td>${dexnum}</td>
-            <td>${name}</td>
-            <td>${caught}</td>
-        </tr>
-    `;
-
-    const yeetGet = async() => {
-        // const jsonContainer = document.getElementById('json-container')
-        await fetch('/todos/dex')
-        .then((response) => response.json())
-        .then((data) => {
+async function yeetGet() {
+    // const jsonContainer = document.getElementById('json-container')
+    await fetch('/todos/dex')
+     .then((response) => response.json())
+     .then((data) => {
         console.log(data)
         // jsonContainer.innerHTML = JSON.stringify(data, undefined, 2);
-        json2table(data);
-        });
-    }
-    window.yeetGet = yeetGet;
-
-    const yeet = async() => {
-        const dexnum = document.getElementById('dexnum').value;
-        const name = document.getElementById('name').value;
-        if(isNaN(dexnum)) { console.log("NaN"); return }
-        if(!dexnum || !name) return
-        await fetch('/todos/dex', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ dexnum: dexnum, name: name, caught: false })
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            let myTable = document.querySelector("#myTable");
-            myTable.style.display = "inline-block";
-            let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-            tbdy.innerHTML = data.map(json2table).join("")
-            yeetGet();
-        })
-        // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
-    }
-    window.yeet = yeet;
+        let myTable = document.querySelector("#myTable");
+        myTable.style.display = "inline-block";
+        let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+        tbdy.innerHTML = data.map(json2table).join("")
+    });
 }
-
-init();
-
-// async function yeetGet() {
-//     // const jsonContainer = document.getElementById('json-container')
-//     await fetch('/todos/dex')
-//      .then((response) => response.json())
-//      .then((data) => {
-//         console.log(data)
-//         // jsonContainer.innerHTML = JSON.stringify(data, undefined, 2);
-//         json2table(data);
-//     });
-// }
-// async function yeet() {
-//     const dexnum = document.getElementById('dexnum').value;
-//     const name = document.getElementById('name').value;
-//     if(isNaN(dexnum)) { console.log("NaN"); return }
-//     if(!dexnum || !name) return
-//     await fetch('/todos/dex', {
-//         method: 'POST',
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({ dexnum: dexnum, name: name, caught: false })
-//     })
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data);
-//         let myTable = document.querySelector("#myTable");
-//         myTable.style.display = "inline-block";
-//         let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-//         tbdy.innerHTML = data.map(json2table).join("")
-//         yeetGet();
-//     })
-//     // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
-// }
+async function yeet() {
+    const dexnum = document.getElementById('dexnum').value;
+    const name = document.getElementById('name').value;
+    if(isNaN(dexnum)) { console.log("NaN"); return }
+    if(!dexnum || !name) return
+    await fetch('/todos/dex', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ dexnum: dexnum, name: name, caught: false })
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        // let myTable = document.querySelector("#myTable");
+        // myTable.style.display = "inline-block";
+        // let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+        // tbdy.innerHTML = data.map(json2table).join("")
+        yeetGet();
+    })
+    // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
+}
 
 
 
@@ -104,7 +58,13 @@ init();
 // }
 
 // async function json2table({ dexnum, name, caught }) {
-
+const json2table = ({ dexnum, name, caught }) => `
+    <tr>
+        <td>${dexnum}</td>
+        <td>${name}</td>
+        <td>${caught}</td>
+    </tr>
+`;
 
 
 // const resp = await apiFetch("/todos");
