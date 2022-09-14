@@ -36,9 +36,21 @@ async function yeet() {
 
 const json2table = ({ id, dexnum, name, caught }) => `
     <tr>
-        <td><button class="delete-button" onclick="alert('${id}')"><i class="fa-solid fa-trash-can"></i></button></td>
+        <td><button class="delete-button" onclick="handleTodoDelete(event, '${id}')"><i class="fa-solid fa-trash-can"></i></button></td>
         <td>${dexnum}</td>
         <td>${name}</td>
         <td>${caught}</td>
     </tr>
 `;
+
+
+// const handleTodoDelete = (ev, id) => {
+function handleTodoDelete(ev, id) {
+    const doDelete = async () => {
+        await apiFetch(`/todos`, "DELETE", { id: id });
+
+        refreshList();
+    }
+
+    doDelete().catch(err => console.log("Error changing todo done state", err));
+};
