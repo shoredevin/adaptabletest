@@ -63,10 +63,14 @@ async function yeet() {
 //     }
 // }
 
+function handleTodoDelete() {
+    alert('hello world');
+}
+
 // async function json2table({ dexnum, name, caught }) {
 const json2table = ({ dexnum, name, caught }) => `
     <tr>
-        <td>${dexnum}</td>
+        <td>${dexnum}<button class="delete-button" onclick="handleTodoDelete()"><i class="fa-solid fa-trash-can"></i></button></td>
         <td>${name}</td>
         <td>${caught}</td>
     </tr>
