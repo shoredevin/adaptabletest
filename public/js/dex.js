@@ -37,7 +37,7 @@ async function yeet() {
 const json2table = ({ id, dexnum, name, caught }) => `
     <tr>
         <td>
-            button class="edit-button" onclick="alert('hello')">
+            <button class="edit-button" onclick="alert('hello')">
                 <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="delete-button" onclick="handleTodoDelete(event, '${id}')">
