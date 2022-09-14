@@ -17,6 +17,7 @@ const init = () => {
         json2table(data);
         });
     }
+    window.yeetGet = yeetGet;
 
     const yeet = async() => {
         const dexnum = document.getElementById('dexnum').value;
@@ -41,6 +42,7 @@ const init = () => {
         })
         // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
     }
+    window.yeet = yeet;
 }
 
 init();
