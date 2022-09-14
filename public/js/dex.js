@@ -40,15 +40,7 @@ async function json2table(data) {
     console.log(rows[1].length);
     for (let i = 0; i < rows.length; i++) {
         let tr = document.createElement('tr');
-        // for(let k = 0; k < rows[i].length; k++) {
-        // for(let [index, [key, value]] of Object.entries(rows[i])) {
-        // Object.entries(rows[i]).forEach(([[key, value], index]) => {
-            // console.log(`${index} - ${key} - ${value}`)
-            // console.log(index);
-            // tr.appendChild(document.createElement('td'));
-            // tr.cells[index].appendChild(document.createTextNode(value));
-        // });
-        for(let k = 0; k < 4; k++) {
+        for(let k = 1; k < 4; k++) {
             const val = Object.values(rows[i])[k];
             tr.appendChild(document.createElement('td'));
             tr.cells[k].appendChild(document.createTextNode(val));
