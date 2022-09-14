@@ -37,7 +37,7 @@ async function yeet() {
 const json2table = ({ id, dexnum, name, caught }) => `
     <tr>
         <td>
-            <button class="edit-button" title="Edit" onclick="alert('hello')">
+            <button class="edit-button" title="Edit" onclick="handleEdit(this)">
                 <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
@@ -68,3 +68,7 @@ async function handleTodoDelete(ev, id) {
     // }
     // doDelete().catch(err => console.log("Error changing todo done state", err));
 };
+
+async function handleEdit(e) { 
+    console.log(e);
+}
