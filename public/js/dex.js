@@ -70,6 +70,6 @@ async function handleTodoDelete(ev, id) {
 };
 
 async function handleEdit(e) { 
-    console.log(e.parentElement);
-    console.log(e.parentNode)
+    console.log(e.parentElement.parentElement);
+    // console.log(e.parentNode
 }
