@@ -1,4 +1,6 @@
-
+window.onload = yeetGet;
+document.getElementById('sub').onclick = yeet;
+// document.getElementById('get').onclick = yeetGet;
 
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
@@ -73,7 +75,3 @@ const json2table = ({ dexnum, name, caught }) => `
 // const todos = await resp.json();
 // list.innerHTML = todos.map(renderItem).join("");
 // const renderItem = ({ id, title, done }) => `
-
-window.onload = yeetGet;
-document.getElementById('sub').onclick = yeet;
-document.getElementById('get').onclick = yeetGet;
