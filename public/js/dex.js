@@ -23,6 +23,10 @@ async function yeet() {
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
+        let myTable = document.querySelector("#myTable");
+        myTable.style.display = "inline-block";
+        let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+        tbdy.innerHTML = data.map(json2table).join("")
         yeetGet();
     })
     // console.log(await apiFetch("/todos/dex", "POST", { dexnum: dexnum, name: name, caught: false }));
@@ -50,6 +54,18 @@ async function yeet() {
 //     }
 // }
 
-async function json2table(data) {
-    console.log('here');
+async function json2table(dexnum, name, caught) {
+    `
+        <tr>
+            <td>${dexnum}</td>
+            <td>${name}</td>
+            <td>${caught}</td>
+        </tr>
+    `
+
 }
+
+
+// const resp = await apiFetch("/todos");
+// const todos = await resp.json();
+// list.innerHTML = todos.map(renderItem).join("");
