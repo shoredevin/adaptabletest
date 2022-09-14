@@ -2,13 +2,13 @@ window.onload = yeetGet;
 document.getElementById('sub').onclick = yeet;
 document.getElementById('get').onclick = yeetGet;
 
-const json2table = ({ dexnum, name, caught }) => `
+async function json2table ({ dexnum, name, caught }) {`
     <tr>
         <td>${dexnum}<button class="delete-button" onclick="handleTodoDelete()"><i class="fa-solid fa-trash-can"></i></button></td>
         <td>${name}</td>
         <td>${caught}</td>
     </tr>
-`;
+`};
 
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
