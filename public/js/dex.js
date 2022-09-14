@@ -2,14 +2,6 @@ window.onload = yeetGet;
 document.getElementById('sub').onclick = yeet;
 document.getElementById('get').onclick = yeetGet;
 
-async function json2table ({ dexnum, name, caught }) {`
-    <tr>
-        <td>${dexnum}<button class="delete-button" onclick="handleTodoDelete()"><i class="fa-solid fa-trash-can"></i></button></td>
-        <td>${name}</td>
-        <td>${caught}</td>
-    </tr>
-`};
-
 async function yeetGet() {
     // const jsonContainer = document.getElementById('json-container')
     await fetch('/todos/dex')
@@ -71,12 +63,14 @@ async function yeet() {
 //     }
 // }
 
-function handleTodoDelete() {
-    alert('hello world');
-}
-
 // async function json2table({ dexnum, name, caught }) {
-
+const json2table = ({ dexnum, name, caught }) => `
+    <tr>
+        <td>${dexnum}</td>
+        <td>${name}</td>
+        <td>${caught}</td>
+    </tr>
+`;
 
 
 // const resp = await apiFetch("/todos");
