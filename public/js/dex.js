@@ -49,7 +49,7 @@ async function json2table(data) {
             // tr.cells[index].appendChild(document.createTextNode(value));
         // });
         for(let k = 0; k < 4; k++) {
-            const val = Object.values(rows[i][k]);
+            const val = Object.values(rows[i])[k];
             tr.appendChild(document.createElement('td'));
             tr.cells[k].appendChild(document.createTextNode(val));
         }
