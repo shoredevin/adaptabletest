@@ -70,5 +70,6 @@ async function handleTodoDelete(ev, id) {
 };
 
 async function handleEdit(e) { 
-    console.log(e.parentElement.querySelector('td'));
+    console.log(e.parentElement);
+    console.log(e.parentNode)
 }
