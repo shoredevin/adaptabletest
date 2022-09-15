@@ -113,7 +113,7 @@ async function handleEdit(e) {
 
 async function patchJob(e, id, bool) {
     console.log(e);
-    console.log(e.target.parentElement.nextElementSibling)
+    console.log(e.target.parentElement.nextElementSibling.children)
     //caught button clicked
     if(e.target.classList.contains("caught-button")) {
         console.log(e.nextSibling)
