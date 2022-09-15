@@ -15,9 +15,9 @@ const json2table = ({ id, dexnum, name, caught }) =>
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
             </td>
-            <td contenteditable="false">${dexnum}</td>
-            <td contenteditable="false">${name}</td>
-            <td contenteditable="false">${caught[true] ? "t" : "f"}</td>
+            <td contenteditable="false">${ dexnum }</td>
+            <td contenteditable="false">${ name }</td>
+            <td contenteditable="false">${ caught[true] ? <i class="fa-solid fa-star"></i> : <i class="fa-regular fa-star"></i> }</td>
         </tr>
     `
 // };
