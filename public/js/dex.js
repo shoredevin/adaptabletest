@@ -15,7 +15,10 @@ const json2table = ({ id, dexnum, name, caught }) => `
         </td>
         <td contenteditable="false">${ dexnum }</td>
         <td contenteditable="false">${ name }</td>
+        <td contenteditable="false">${ type1 }</td>
+        <td contenteditable="false">${ type2 }</td>
         <td contenteditable="false">${ caught ? `<i class="fa-solid fa-star caught-button" onclick="patchJob('${id}', { caught: false })"></i>` : `<i class="fa-regular fa-star caught-button" onclick="patchJob('${id}', { caught: true })"></i>` }</td>
+        <td contenteditable="false">${ shiny }</td>
     </tr>
 `;
     
