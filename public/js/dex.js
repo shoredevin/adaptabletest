@@ -13,7 +13,7 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
             <i class="fa-regular fa-pen-to-square edit-button" onclick="handleEdit(this)"></i>
             <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
         </td>
-        <td contenteditable="false">${ del() }</td>
+        <td contenteditable="false">${ pad(dexnum, 3) }</td>
         <td contenteditable="false">${ name }</td>
         <td contenteditable="false">${ type1 }</td>
         <td contenteditable="false">${ type2 }</td>
@@ -22,8 +22,9 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     </tr>
 `;
 
-function del () {
-    return "hello"
+function pad (str, max) {
+    str = str.toString();
+    return str.length < max ? pad("0" + str, max) : str
 }
 // <i class="fa-regular fa-heart"></i>
 // <i class="fa-solid fa-heart"></i>
