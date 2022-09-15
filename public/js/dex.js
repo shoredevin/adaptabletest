@@ -8,12 +8,12 @@ const json2table = ({ id, dexnum, name, caught }) =>
     `
         <tr>
             <td>
-                <button class="edit-button" title="Edit" onclick="handleEdit(this)">
+                // <button class="edit-button" title="Edit" onclick="handleEdit(this)">
                     <i class="fa-regular fa-pen-to-square"></i>
-                </button>
-                <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
+                // </button>
+                // <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
                     <i class="fa-solid fa-trash-can"></i>
-                </button>
+                // </button>
                 <i class="fa-solid fa-star"></i>
             </td>
             <td contenteditable="false">${ dexnum }</td>
