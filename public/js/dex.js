@@ -34,7 +34,7 @@ async function yeet() {
     })
 }
 
-const json2table = ({ id, dexnum, name, caught }) => {
+const json2table = ({ id, dexnum, name, caught }) => 
 `
     <tr>
         <td>
@@ -49,8 +49,7 @@ const json2table = ({ id, dexnum, name, caught }) => {
         <td contenteditable="false">${name}</td>
         <td contenteditable="false">${caught}</td>
     </tr>
-`
-};
+`;
 
 
 // const handleTodoDelete = (ev, id) => {
