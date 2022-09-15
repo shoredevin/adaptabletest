@@ -11,7 +11,7 @@ const json2table = ({ id, dexnum, name, caught }) => `
     <tr>
         <td>
             <i class="fa-regular fa-pen-to-square edit-button" onclick="handleEdit(this)></i>
-            <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
+            <i class="fa-regular fa-trash-can delete-button"></i>
             <i class="fa-solid fa-star"></i>
         </td>
         <td contenteditable="false">${ dexnum }</td>
