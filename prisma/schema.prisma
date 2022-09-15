@@ -21,5 +21,8 @@ model Pokedex {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   dexnum  Int
   name    String
+  type1   String
+  type2   String
   caught  Boolean
+  shiny   Boolean
 }
