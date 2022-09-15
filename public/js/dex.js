@@ -3,25 +3,22 @@ document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
 
-const json2table = ({ id, dexnum, name, caught }) => 
-// {
-    `
-        <tr>
-            <td>
-                // <button class="edit-button" title="Edit" onclick="handleEdit(this)">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                // </button>
-                // <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
-                    <i class="fa-solid fa-trash-can"></i>
-                // </button>
-                <i class="fa-solid fa-star"></i>
-            </td>
-            <td contenteditable="false">${ dexnum }</td>
-            <td contenteditable="false">${ name }</td>
-            <td contenteditable="false">${ caught ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>' }</td>
-        </tr>
-    `;
-// };
+// <button class="edit-button" title="Edit" onclick="handleEdit(this)">
+// </button>
+// <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
+// </button>
+const json2table = ({ id, dexnum, name, caught }) => `
+    <tr>
+        <td>
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-star"></i>
+        </td>
+        <td contenteditable="false">${ dexnum }</td>
+        <td contenteditable="false">${ name }</td>
+        <td contenteditable="false">${ caught ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>' }</td>
+    </tr>
+`;
     
 
 async function yeetGet() {
