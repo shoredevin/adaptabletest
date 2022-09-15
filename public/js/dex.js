@@ -112,8 +112,9 @@ async function handleEdit(e) {
 }
 
 async function patchJob(e, id, bool) {
-    console.log(e.target.classlist);
-    console.log(e.target.classlist[2]); // if() {}
+    console.log(e);
+    console.log(e.target.classList);
+    console.log(e.target.classList[2]); // if() {}
     const resp = await fetch(`/todos/dex/${id}`, {
         method: "PATCH", 
         headers: {
