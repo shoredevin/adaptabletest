@@ -105,7 +105,7 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
 
 router.patch('/dex/:id', asyncMiddleware(async (req, res) => {
   const { id } = req.params;
-  const updated = await prisma.TodoItem.update({
+  const updated = await prisma.Pokedex.update({
     where: { id },
     caught: req.body,
   });
