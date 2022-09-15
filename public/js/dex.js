@@ -12,11 +12,10 @@ const json2table = ({ id, dexnum, name, caught }) => `
         <td>
             <i class="fa-regular fa-pen-to-square edit-button" onclick="handleEdit(this)"></i>
             <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
-            <i class="fa-solid fa-star"></i>
         </td>
         <td contenteditable="false">${ dexnum }</td>
         <td contenteditable="false">${ name }</td>
-        <td contenteditable="false">${ caught ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>' }</td>
+        <td contenteditable="false">${ caught ? '<i class="fa-solid fa-star" onclick="patchJob(false)"></i>' : '<i class="fa-regular fa-star" onclick="patchJob(true)"></i>' }</td>
     </tr>
 `;
     
@@ -86,6 +85,9 @@ async function handleEdit(e) {
 
 }
 
+async function patchJob(bool) {
+    alert(bool);
+}
 
 // async function json2table(data) {
 //     let myTable = document.querySelector("#myTable");
