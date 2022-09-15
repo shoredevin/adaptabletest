@@ -103,6 +103,16 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
   res.json(result);
 }));
 
+router.patch('/dex/:id', asyncMiddleware(async (req, res) => {
+  const { id } = req.params;
+  const updated = await prisma.TodoItem.update({
+    where: { id },
+    caught: req.body,
+  });
+  res.json(updated);
+}));
+
+
 router.delete('/dex', asyncMiddleware(async (req, res) => {
   const id = req.body.id;
   const updated = await prisma.Pokedex.delete({

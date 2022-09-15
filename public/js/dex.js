@@ -86,7 +86,7 @@ async function handleEdit(e) {
 }
 
 async function patchJob(id, bool) {
-    /*const resp = await fetch(`/todos/dex/${id}`, {
+    const resp = await fetch(`/todos/dex/${id}`, {
         method: "PATCH", 
         headers: {
             "Content-Type": "application/json",
@@ -94,8 +94,8 @@ async function patchJob(id, bool) {
         body: JSON.stringify({ caught: bool})
     });
     const todos = await resp.json();
-    console.log(todos)*/
-    alert(id + " : " + bool);
+    console.log(todos)
+    // alert(id + " : " + bool);
     // await apiFetch(`/todos/${id}`, "PATCH", { done: ev.target.checked });
     // await yeetGet();
 }
