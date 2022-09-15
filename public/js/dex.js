@@ -112,9 +112,15 @@ async function handleEdit(e) {
 }
 
 async function patchJob(e, id, bool) {
-    // console.log(e);
-    console.log(e.target.classList.contains("caught-button"));
-    // console.log(e.target.classList[2]); // if() {}
+
+    //caught button clicked
+    if(e.target.classList.contains("caught-button")) {
+        console.log(e.nextSibling)
+    };
+    //shiny button clicked
+    if(e.target.classList.contains("shiny-button")) {
+        console.log(e.previousSibling)
+    };
     const resp = await fetch(`/todos/dex/${id}`, {
         method: "PATCH", 
         headers: {
