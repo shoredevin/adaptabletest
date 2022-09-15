@@ -3,22 +3,22 @@ document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
 
-const json2table = ({ id, dexnum, name, caught }) => {
-    `
-        <tr>
-            <td>
-                <button class="edit-button" title="Edit" onclick="handleEdit(this)">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                </button>
-                <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-            </td>
-            <td contenteditable="false">${dexnum}</td>
-            <td contenteditable="false">${name}</td>
-            <td contenteditable="false">${caught}</td>
-        </tr>
-    `};
+// const json2table = ({ id, dexnum, name, caught }) => {
+//     `
+//         <tr>
+//             <td>
+//                 <button class="edit-button" title="Edit" onclick="handleEdit(this)">
+//                     <i class="fa-regular fa-pen-to-square"></i>
+//                 </button>
+//                 <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
+//                     <i class="fa-solid fa-trash-can"></i>
+//                 </button>
+//             </td>
+//             <td contenteditable="false">${dexnum}</td>
+//             <td contenteditable="false">${name}</td>
+//             <td contenteditable="false">${caught}</td>
+//         </tr>
+//     `};
     
 
 async function yeetGet() {
@@ -26,10 +26,11 @@ async function yeetGet() {
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
-        let myTable = document.querySelector("#myTable");
-        myTable.style.display = "inline-block";
-        let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        tbdy.innerHTML = data.map(json2table).join("")
+        // let myTable = document.querySelector("#myTable");
+        // myTable.style.display = "inline-block";
+        // let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+        // tbdy.innerHTML = data.map(json2table).join("")
+        json2table(data);
     });
 }
 async function yeet() {
@@ -83,4 +84,25 @@ async function handleEdit(e) {
         // rows[i].contentEditable = true;
     }   
 
+}
+
+
+async function json2table(data) {
+    let myTable = document.querySelector("#myTable");
+    myTable.style.display = "inline-block";
+    let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+    tbdy.innerHTML = "";
+    // let rows = data.response;
+    let rows = data;
+    // console.log(rows.length);
+    const numCols = Object.keys(rows[1]).length;
+    for (let i = 0; i < rows.length; i++) {
+        let tr = document.createElement('tr');
+        for(let k = 1; k < numCols; k++) {
+            const val = Object.values(rows[i])[k];
+            tr.appendChild(document.createElement('td'));
+            tr.cells[k - 1].appendChild(document.createTextNode(val));
+        }
+        tbdy.appendChild(tr);
+    }
 }
