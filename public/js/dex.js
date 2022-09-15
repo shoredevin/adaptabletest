@@ -84,7 +84,7 @@ async function handleEdit(e) {
         }
         if(!bool) {
             rows[i].contentEditable = true;
-            e.style.color = "yellow";
+            e.style.color = "orange-red";
         }
         // rows[i].contentEditable = true;
     }   
