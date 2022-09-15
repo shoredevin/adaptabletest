@@ -15,7 +15,7 @@ const json2table = ({ id, dexnum, name, caught }) => `
         </td>
         <td contenteditable="false">${ dexnum }</td>
         <td contenteditable="false">${ name }</td>
-        <td contenteditable="false">${ caught ? '<i class="fa-solid fa-star" onclick="patchJob(false)"></i>' : '<i class="fa-regular fa-star" onclick="patchJob(true)"></i>' }</td>
+        <td contenteditable="false">${ caught ? `<i class="fa-solid fa-star" onclick="patchJob('${id}', false)"></i>` : `<i class="fa-regular fa-star" onclick="patchJob('${id}', true)"></i>` }</td>
     </tr>
 `;
     
@@ -85,8 +85,19 @@ async function handleEdit(e) {
 
 }
 
-async function patchJob(bool) {
-    alert(bool);
+async function patchJob(id, bool) {
+    const resp = await fetch(`/todos/dex/${id}`, {
+        method: "PATCH", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ caught: bool})
+    });
+    const todos = await resp.json();
+    console.log(todos)
+    // alert(bool);
+    // await apiFetch(`/todos/${id}`, "PATCH", { done: ev.target.checked });
+    // await yeetGet();
 }
 
 // async function json2table(data) {
