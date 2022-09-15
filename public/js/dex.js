@@ -3,7 +3,8 @@ document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
 
-const json2table = ({ id, dexnum, name, caught }) => {
+const json2table = ({ id, dexnum, name, caught }) => 
+// {
     `
         <tr>
             <td>
@@ -18,7 +19,8 @@ const json2table = ({ id, dexnum, name, caught }) => {
             <td contenteditable="false">${name}</td>
             <td contenteditable="false">${caught}</td>
         </tr>
-    `};
+    `
+// };
     
 
 async function yeetGet() {
