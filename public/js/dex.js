@@ -17,7 +17,7 @@ const json2table = ({ id, dexnum, name, caught }) =>
             </td>
             <td contenteditable="false">${dexnum}</td>
             <td contenteditable="false">${name}</td>
-            <td contenteditable="false">${caught}</td>
+            <td contenteditable="false">${caught[true] ? "t" : "f"}</td>
         </tr>
     `
 // };
