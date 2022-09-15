@@ -28,11 +28,11 @@ async function yeetGet() {
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
-        // let myTable = document.querySelector("#myTable");
-        // myTable.style.display = "inline-block";
-        // let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        // tbdy.innerHTML = data.map(json2table).join("")
-        json2table(data);
+        let myTable = document.querySelector("#myTable");
+        myTable.style.display = "inline-block";
+        let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+        tbdy.innerHTML = data.map(json2table).join("")
+        // json2table(data);
     });
 }
 async function yeet() {
