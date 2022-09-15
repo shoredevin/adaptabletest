@@ -56,6 +56,7 @@ async function yeet() {
 // const handleTodoDelete = (ev, id) => {
 async function handleTodoDelete(ev, id) {
     // const doDelete = async () => {
+    if(!window.confirm("Are you sure you want to delete?")) return;
     const resp = await fetch(`/todos/dex`, {
         method: "DELETE", 
         headers: {
@@ -84,7 +85,7 @@ async function handleEdit(e) {
         }
         if(!bool) {
             rows[i].contentEditable = true;
-            e.style.color = "orange-red";
+            e.style.color = "orange";
         }
         // rows[i].contentEditable = true;
     }   
