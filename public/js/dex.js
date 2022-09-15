@@ -14,6 +14,7 @@ const json2table = ({ id, dexnum, name, caught }) =>
                 <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
+                <i class="fa-solid fa-star"></i>
             </td>
             <td contenteditable="false">${ dexnum }</td>
             <td contenteditable="false">${ name }</td>
