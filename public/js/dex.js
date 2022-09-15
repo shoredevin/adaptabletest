@@ -102,7 +102,7 @@ async function json2table(data) {
             const val = Object.values(rows[i])[k];
             tr.appendChild(document.createElement('td'));
             if(k == 0) { 
-                tr.cells[k].appendChild(document.createTextNode(`<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`)); 
+                tr.cells[k].appendChild().innerHTML = `<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`; 
             } else {
                 tr.cells[k].appendChild(document.createTextNode(val));
             }
@@ -110,3 +110,5 @@ async function json2table(data) {
         tbdy.appendChild(tr);
     }
 }
+
+// document.createTextNode(`<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`)
