@@ -7,7 +7,7 @@ document.getElementById('sub').onclick = yeet;
 // </button>
 // <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
 // </button>
-const json2table = ({ id, dexnum, name, caught }) => `
+const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     <tr>
         <td>
             <i class="fa-regular fa-pen-to-square edit-button" onclick="handleEdit(this)"></i>
