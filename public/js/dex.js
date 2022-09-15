@@ -97,7 +97,7 @@ async function patchJob(id, bool) {
     console.log(todos)
     // alert(id + " : " + bool);
     // await apiFetch(`/todos/${id}`, "PATCH", { done: ev.target.checked });
-    // await yeetGet();
+    await yeetGet();
 }
 
 // async function json2table(data) {
