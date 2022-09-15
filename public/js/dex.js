@@ -3,22 +3,22 @@ document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
 
-// const json2table = ({ id, dexnum, name, caught }) => {
-//     `
-//         <tr>
-//             <td>
-//                 <button class="edit-button" title="Edit" onclick="handleEdit(this)">
-//                     <i class="fa-regular fa-pen-to-square"></i>
-//                 </button>
-//                 <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
-//                     <i class="fa-solid fa-trash-can"></i>
-//                 </button>
-//             </td>
-//             <td contenteditable="false">${dexnum}</td>
-//             <td contenteditable="false">${name}</td>
-//             <td contenteditable="false">${caught}</td>
-//         </tr>
-//     `};
+const json2table = ({ id, dexnum, name, caught }) => {
+    `
+        <tr>
+            <td>
+                <button class="edit-button" title="Edit" onclick="handleEdit(this)">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+                <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+            </td>
+            <td contenteditable="false">${dexnum}</td>
+            <td contenteditable="false">${name}</td>
+            <td contenteditable="false">${caught}</td>
+        </tr>
+    `};
     
 
 async function yeetGet() {
@@ -87,29 +87,29 @@ async function handleEdit(e) {
 }
 
 
-async function json2table(data) {
-    let myTable = document.querySelector("#myTable");
-    myTable.style.display = "inline-block";
-    let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-    tbdy.innerHTML = "";
-    // let rows = data.response;
-    let rows = data;
-    // console.log(rows.length);
-    const numCols = Object.keys(rows[1]).length;
-    for (let i = 0; i < rows.length; i++) {
-        let tr = document.createElement('tr');
-        for(let k = 0; k < numCols; k++) {
-            const val = Object.values(rows[i])[k];
-            tr.appendChild(document.createElement('td'));
-            if(k == 0) { 
-                tr.cells[k].appendChild(document.createElement("button"))
-                button.innerHTML = `<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`; 
-            } else {
-                tr.cells[k].appendChild(document.createTextNode(val));
-            }
-        }
-        tbdy.appendChild(tr);
-    }
-}
+// async function json2table(data) {
+//     let myTable = document.querySelector("#myTable");
+//     myTable.style.display = "inline-block";
+//     let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+//     tbdy.innerHTML = "";
+//     // let rows = data.response;
+//     let rows = data;
+//     // console.log(rows.length);
+//     const numCols = Object.keys(rows[1]).length;
+//     for (let i = 0; i < rows.length; i++) {
+//         let tr = document.createElement('tr');
+//         for(let k = 0; k < numCols; k++) {
+//             const val = Object.values(rows[i])[k];
+//             tr.appendChild(document.createElement('td'));
+//             if(k == 0) { 
+//                 tr.cells[k].appendChild(document.createElement("button"))
+//                 button.innerHTML = `<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`; 
+//             } else {
+//                 tr.cells[k].appendChild(document.createTextNode(val));
+//             }
+//         }
+//         tbdy.appendChild(tr);
+//     }
+// }
 
 // document.createTextNode(`<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`)
