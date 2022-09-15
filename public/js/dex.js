@@ -2,6 +2,25 @@ window.onload = yeetGet;
 document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
+
+const json2table = ({ id, dexnum, name, caught }) => {
+    `
+        <tr>
+            <td>
+                <button class="edit-button" title="Edit" onclick="handleEdit(this)">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+                <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+            </td>
+            <td contenteditable="false">${dexnum}</td>
+            <td contenteditable="false">${name}</td>
+            <td contenteditable="false">${caught}</td>
+        </tr>
+    `};
+    
+
 async function yeetGet() {
     await fetch('/todos/dex')
      .then((response) => response.json())
@@ -33,24 +52,6 @@ async function yeet() {
         yeetGet();
     })
 }
-
-const json2table = ({ id, dexnum, name, caught }) => 
-`
-    <tr>
-        <td>
-            <button class="edit-button" title="Edit" onclick="handleEdit(this)">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-            <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
-                <i class="fa-solid fa-trash-can"></i>
-            </button>
-        </td>
-        <td contenteditable="false">${dexnum}</td>
-        <td contenteditable="false">${name}</td>
-        <td contenteditable="false">${caught}</td>
-    </tr>
-`;
-
 
 // const handleTodoDelete = (ev, id) => {
 async function handleTodoDelete(ev, id) {
