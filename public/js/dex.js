@@ -91,7 +91,7 @@ async function patchJob(id, bool) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ caught: bool})
+        body: JSON.stringify({ caught: bool })
     });
     const todos = await resp.json();
     console.log(todos)
