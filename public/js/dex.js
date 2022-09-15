@@ -44,14 +44,24 @@ async function yeetGet() {
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
     const name = document.getElementById('name').value;
+    const type1 = document.getElementById('name').value;
+    const type2 = document.getElementById('name').value;
+
     if(isNaN(dexnum)) { console.log("NaN"); return }
-    if(!dexnum || !name) return
+    if(!dexnum || !name || !type1 || !type2) return
     await fetch('/todos/dex', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ dexnum: dexnum, name: name, caught: false })
+        body: JSON.stringify({ 
+            dexnum: dexnum, 
+            name: name,
+            type1: type1,
+            type2: type2,
+            caught: false,
+            shiny: false
+        })
     })
     .then((response) => response.json())
     .then((data) => {
