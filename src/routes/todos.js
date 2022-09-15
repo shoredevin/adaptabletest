@@ -55,6 +55,7 @@ router.get('/', asyncMiddleware(async (req, res) => {
 }));
 
 router.patch('/:id', asyncMiddleware(async (req, res) => {
+  console.log(req.body)
   const { id } = req.params;
   const updated = await prisma.TodoItem.update({
     where: { id },
