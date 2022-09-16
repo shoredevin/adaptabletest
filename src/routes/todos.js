@@ -54,10 +54,14 @@ router.post("/", asyncMiddleware(async (req, res) => {
 //   res.json(todos);
 // }));
 
-router.get('/', asyncMiddleware(async (req, res) => {
-  // const todos = await prisma.TodoItem.findMany();
-  res.sendFile(__dirname + '/secret.html');
-}));
+// router.get('/', asyncMiddleware(async (req, res) => {
+//   // const todos = await prisma.TodoItem.findMany();
+//   res.sendFile(__dirname, '/secret.html');
+// }));
+
+router.get("/", function(req, res) {
+  res.sendFile(__dirname + "/secret.html")
+});
 
 
 router.patch('/:id', asyncMiddleware(async (req, res) => {
