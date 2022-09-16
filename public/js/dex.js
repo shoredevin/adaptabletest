@@ -3,10 +3,6 @@ document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
 
-// <button class="edit-button" title="Edit" onclick="handleEdit(this)">
-// </button>
-// <button class="delete-button" title="Delete" onclick="handleTodoDelete(event, '${id}')">
-// </button>
 const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     <tr>
         <td>
@@ -26,8 +22,6 @@ function pad (str, max) {
     str = str.toString();
     return str.length < max ? pad("0" + str, max) : str
 }
-// <i class="fa-regular fa-heart"></i>
-// <i class="fa-solid fa-heart"></i>
 
 async function yeetGet() {
     await fetch('/todos/dex')
@@ -72,9 +66,7 @@ async function yeet() {
     })
 }
 
-// const handleTodoDelete = (ev, id) => {
 async function handleTodoDelete(ev, id) {
-    // const doDelete = async () => {
     if(!window.confirm("Are you sure you want to delete?")) return;
     const resp = await fetch(`/todos/dex`, {
         method: "DELETE", 
@@ -86,16 +78,12 @@ async function handleTodoDelete(ev, id) {
     const todos = await resp.json();
     console.log(todos);
     await yeetGet();
-        // refreshList();
-    // }
-    // doDelete().catch(err => console.log("Error changing todo done state", err));
 };
 
 async function handleEdit(e) {
     console.log(e.parentElement.parentElement);
     const rows = e.parentElement.parentElement.children;
     console.log(rows.length);
-    // for(col of rows) { console.log(rows.contentEditable) };
     for(let i = 1; i < rows.length; i++) {
         const bool = (rows[i].contentEditable === 'true');
         if(bool) {
@@ -106,25 +94,18 @@ async function handleEdit(e) {
             rows[i].contentEditable = true;
             e.style.color = "orange";
         }
-        // rows[i].contentEditable = true;
     }   
 
 }
 
 async function patchJob(e, id, bool) {
-    // console.log(e);
-    // console.log(e.target.parentElement.nextElementSibling.children[0].classList)
-    // caught button clicked
     if(e.target.classList.contains("caught-button")) {
-        // console.log(e.nextSibling)
         if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
             alert("Cannot make a shiny Pokemon uncaught");
             return;
         }
     };
-    //shiny button clicked
     if(e.target.classList.contains("shiny-button")) {
-        // console.log(e.previousSibling)
         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
             alert("Cannot make an uncaught Pokemon shiny");
             return;
@@ -139,8 +120,6 @@ async function patchJob(e, id, bool) {
     });
     const todos = await resp.json();
     console.log(todos)
-    // alert(id + " : " + bool);
-    // await apiFetch(`/todos/${id}`, "PATCH", { done: ev.target.checked });
     await yeetGet();
 }
 
@@ -168,5 +147,3 @@ async function patchJob(e, id, bool) {
 //         tbdy.appendChild(tr);
 //     }
 // }
-
-// document.createTextNode(`<button class="edit-button" title="Edit" onclick="handleEdit(this)"><i class="fa-regular fa-pen-to-square"></i></button>`)
