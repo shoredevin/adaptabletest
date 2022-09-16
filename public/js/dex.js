@@ -229,5 +229,5 @@ function myFunction() {
                 };
             };
         };
-    logSortTotal();
+    // logSortTotal();
 }
