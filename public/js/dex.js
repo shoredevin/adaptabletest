@@ -38,8 +38,8 @@ async function yeetGet() {
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
     const name = document.getElementById('name').value;
-    const type1 = document.getElementById('type1').value;
-    const type2 = document.getElementById('type2').value;
+    const type1 = document.getElementById('type1-selector').value;
+    const type2 = document.getElementById('type2-selector').value;
 
     if(isNaN(dexnum)) { console.log("NaN"); return }
     if(!dexnum || !name || !type1 || !type2) return
