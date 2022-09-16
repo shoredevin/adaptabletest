@@ -105,3 +105,10 @@ const initTodo = () => {
 
 
 initTodo();
+
+
+const lb = document.getElementById('login-button');
+
+lb.onclick = () => {
+    console.log('logged in');
+}
