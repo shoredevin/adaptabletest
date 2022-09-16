@@ -25,24 +25,32 @@
         <button id="sub">Submit</button>
         <!-- <button id="get">Get</button> -->
         <pre id="json-container"></pre>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-        <table id="myTable">
-        <!-- style="display: none" -->
-            <thead>                
-                <!-- <th id="ID">ID</th> -->
-                <th id="action">Action</th>
-                <th id="dexnum">Dex #</th>
-                <th id="name">Name</th>
-                <th>Type 1</th>
-                <th>Type 2</th>
-                <th id="caught">Caught</th>
-                <th>Shiny</th>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
+        <div id="content-container">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+            <table id="myTable">
+            <!-- style="display: none" -->
+                <thead>                
+                    <!-- <th id="ID">ID</th> -->
+                    <th id="action">Action</th>
+                    <th id="dexnum">Dex #</th>
+                    <th id="name">Name</th>
+                    <th>Type 1</th>
+                    <th>Type 2</th>
+                    <th id="caught">Caught</th>
+                    <th>Shiny</th>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
     </body>
 
     <style>
+        #content-container {
+            width: 700px;
+        }
+        #myInput {
+            width: 100%;
+        }
         #myTable {
             user-select: none;
 			margin-top: 10px;
