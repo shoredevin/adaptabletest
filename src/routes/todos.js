@@ -56,7 +56,7 @@ router.post("/", asyncMiddleware(async (req, res) => {
 
 router.get('/', asyncMiddleware(async (req, res) => {
   // const todos = await prisma.TodoItem.findMany();
-  res.sendFile('secret.html');
+  res.sendFile(__dirname + '/secret.html');
 }));
 
 
