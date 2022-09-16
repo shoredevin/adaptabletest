@@ -148,22 +148,86 @@ async function patchJob(e, id, bool) {
 //     }
 // }
 
+// function myFunction() {
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("myInput");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("myTable");
+//   tr = table.getElementsByTagName("tr");
+//   for (i = 0; i < tr.length; i++) {
+//     td = tr[i].getElementsByTagName("td")[0];
+//     if (td) {
+//       txtValue = td.textContent || td.innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }       
+//   }
+// }
+
 function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
+    console.log('i am here...')
+        const regex = / & /gi;
+		let index;
+		
+        var value = document.querySelector('#myInput').value.toLowerCase().replace(regex, '&');
+        const caughtRegX = /caught/gi;
+        const uncaughtRegX = /!caught/gi;
+        const uncaughtExplicitRegX = /uncaught/gi;
+        const shinyRegX = /shiny/gi;
+        const notShinyRegX = /!shiny/gi;
+        value = value.replace(uncaughtRegX, '<i class="far fa-star" aria-hidden="true"></i>');
+        value = value.replace(uncaughtExplicitRegX, '<i class="far fa-star" aria-hidden="true"></i>');
+        value = value.replace(caughtRegX, '<i class="fas fa-star" aria-hidden="true"></i>');
+        value = value.replace(notShinyRegX, '<i class="far fa-heart" aria-hidden="true"></i>');
+        value = value.replace(shinyRegX, '<i class="fas fa-heart" aria-hidden="true"></i>');
+        var filter = [];
+        while (value.length > 0) {
+            if (value.indexOf('||') == -1) {
+                if (value.trim().length > 0) {
+                    filter.push(value.trim());
+                };
+                break;
+            } else {
+                index = value.indexOf('||');
+                filter.push(value.slice(0, index).trim())
+                value = value.slice(index+2, value.length);
+            };
+        };
+        var table = document.getElementById('tableBody');
+        var tr = table.getElementsByTagName('tr');
+        for (var i = 0; i < tr.length; i++) {
+            if (filter.length == 0) {
+                tr[i].style.display = '';
+            } else {
+                for (var k = 0; k < filter.length; k++) {
+                    if (filter[k].indexOf('&') > -1) {
+                        let string = filter[k];
+                        let countAmp =  string.match(/&/g).length;
+                        for (var m = 0; m <= countAmp + 1; m++) {
+							if (m == countAmp + 1) {
+								if (tr[i].innerHTML.toLowerCase().indexOf(string.slice(0, string.length)) > -1) {
+                                    tr[i].style.display = '';
+                                    break;
+								} else {
+                                    tr[i].style.display = 'none';
+								}
+							} else if (tr[i].innerHTML.toLowerCase().indexOf(string.slice(0, string.indexOf('&'))) > -1) {
+								string = string.slice(string.indexOf('&') + 1, string.length);
+                            } else {
+                                tr[i].style.display = 'none';      
+                            }
+                        }
+                    } else if (tr[i].innerHTML.toLowerCase().indexOf(filter[k]) > -1) {
+                        tr[i].style.display = '';
+                        break;
+                    } else {
+                        tr[i].style.display = 'none';
+                    };
+                };
+            };
+        };
+    logSortTotal();
 }
-// </sc
