@@ -49,10 +49,16 @@ router.post("/", asyncMiddleware(async (req, res) => {
   res.json(result);
 }));
 
+// router.get('/', asyncMiddleware(async (req, res) => {
+//   const todos = await prisma.TodoItem.findMany();
+//   res.json(todos);
+// }));
+
 router.get('/', asyncMiddleware(async (req, res) => {
-  const todos = await prisma.TodoItem.findMany();
-  res.json(todos);
+  // const todos = await prisma.TodoItem.findMany();
+  res.send("<h1>Hello world</h1>");
 }));
+
 
 router.patch('/:id', asyncMiddleware(async (req, res) => {
   console.log(req.body)

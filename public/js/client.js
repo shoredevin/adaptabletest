@@ -109,6 +109,9 @@
 
 const lb = document.getElementById('login-button');
 
-lb.onclick = () => {
-    console.log('logged in');
+lb.onclick = async () => {
+    const res = await fetch(`/todos`);
+    const data = await res.json();
+    console.log(data);
+    // console.log('logged in');
 }
