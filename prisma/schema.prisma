@@ -43,7 +43,7 @@ model PokemonDetails {
   fPercent              String
   spriteURL             String
   spriteURLShiny        String
-  femaleSpriteIRL       String
+  femaleSpriteURL       String
   femaleStringURLShiny  String
   forms                 Json
 }
