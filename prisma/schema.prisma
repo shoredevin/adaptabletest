@@ -26,3 +26,24 @@ model Pokedex {
   caught  Boolean
   shiny   Boolean
 }
+
+model PokemonDetails {
+  id                    String @id @default(auto()) @map("_id") @db.ObjectId
+  dexNum                Int
+  name                  String
+  nickname              String
+  ability1              String
+  ability2              String
+  hability              String
+  eggGroup              String
+  catchRate             String
+  hatchRate             String
+  levelingRate          String
+  mPercent              String
+  fPercent              String
+  spriteURL             String
+  spriteURLShiny        String
+  femaleSpriteIRL       String
+  femaleStringURLShiny  String
+  forms                 Json
+}
