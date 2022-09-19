@@ -44,6 +44,6 @@ model PokemonDetails {
   spriteURL             String
   spriteURLShiny        String
   femaleSpriteURL       String
-  femaleStringURLShiny  String
+  femaleSpriteURLShiny  String
   forms                 Json
 }
