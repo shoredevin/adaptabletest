@@ -16,3 +16,7 @@ a {
   background: none;
   border: none;
 }
+
+.flying-type {
+  background-color: blue;
+}
