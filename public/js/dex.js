@@ -10,7 +10,7 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
             <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
         </td>
         <td contenteditable="false">${ pad(dexnum, 3) }</td>
-        <td contenteditable="false"><a href="#">${ name }</a></td>
+        <td contenteditable="false"><a href="#" onclick="console.log(${ name })">${ name }</a></td>
         <td class="${ type1.toLowerCase() }-type"contenteditable="false">${ type1 }</td>
         <td class="${ type2.toLowerCase() }-type"contenteditable="false">${ type2 }</td>
         <td contenteditable="false">${ caught ? `<i class="fa-solid fa-star caught-button" onclick="patchJob(event, '${id}', { caught: false })"></i>` : `<i class="fa-regular fa-star caught-button" onclick="patchJob(event, '${id}', { caught: true })"></i>` }</td>
