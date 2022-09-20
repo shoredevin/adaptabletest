@@ -142,6 +142,7 @@ router.get("/details", asyncMiddleware(async (req, res) => {
   console.log('here');
   if (req.params) {
     console.log(req.params);
+    res.json({ res: "done" })
     return;
   }
   const details = await prisma.PokemonDetails.findMany();
