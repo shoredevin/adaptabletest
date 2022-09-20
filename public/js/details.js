@@ -1,5 +1,10 @@
-const clickMeButton = documnet.getElementById('click-me');
+const clickMeButton = document.getElementById('click-me');
 
-clickMeButton.addEventListener('click', function() {
+clickMeButton.addEventListener('click', async function() {
     console.log('clicked');
+    await fetch('/todos/details')
+     .then((response) => response.json())
+     .then((data) => {
+        console.log(data)
+     });
 })
