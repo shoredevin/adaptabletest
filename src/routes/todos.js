@@ -140,7 +140,10 @@ router.delete('/dex', asyncMiddleware(async (req, res) => {
 
 router.get("/details", asyncMiddleware(async (req, res) => {
   console.log('here');
-  
+  if (req.params) {
+    
+    return;
+  }
   const details = await prisma.PokemonDetails.findMany();
   res.json(details);
 }));
