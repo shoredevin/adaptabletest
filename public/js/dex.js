@@ -104,7 +104,7 @@ async function patchJob(e, id, bool) {
             alert("Cannot make a shiny Pokemon uncaught");
             return;
         };
-        e.classList.remove("caught-button");
+        e.classList.toggle("caught-button");
         e.classList.add("shiny-button");
     };
     if(e.target.classList.contains("shiny-button")) {
@@ -112,7 +112,7 @@ async function patchJob(e, id, bool) {
             alert("Cannot make an uncaught Pokemon shiny");
             return;
         };
-        e.classList.remove("shiny-button");
+        e.classList.toggle("shiny-button");
         e.classList.add("caught-button");
     };
     const resp = await fetch(`/todos/dex/${id}`, {
