@@ -242,7 +242,7 @@ function myFunction() {
 
 async function getPokemonDetails(id, name) {
     console.log(id, name);
-    await fetch(`/details/${name}`)
+    await fetch(`/todo/details/?name=${name}`)
     .then((response) => response.json())
     .then((data) => {
        console.log(data)
