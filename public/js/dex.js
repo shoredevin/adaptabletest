@@ -106,7 +106,8 @@ async function patchJob(e, id, bool) {
             return;
         };
         e.target.classList.toggle("caught-button");
-        // e.target.classList.toggle("shiny-button");
+        e.target.classList.toggle("fa-regular");
+        e.target.classList.toggle("fa-solid");
     };
     if(e.target.classList.contains("shiny-button")) {
         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
