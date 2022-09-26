@@ -99,6 +99,7 @@ async function handleEdit(e) {
 }
 
 async function patchJob(e, id, bool) {
+    console.log(e);
     if(e.target.classList.contains("caught-button")) {
         if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
             alert("Cannot make a shiny Pokemon uncaught");
