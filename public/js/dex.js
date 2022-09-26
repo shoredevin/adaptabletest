@@ -103,13 +103,17 @@ async function patchJob(e, id, bool) {
         if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
             alert("Cannot make a shiny Pokemon uncaught");
             return;
-        }
+        };
+        e.classList.remove("caught-button");
+        e.classList.add("shiny-button");
     };
     if(e.target.classList.contains("shiny-button")) {
         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
             alert("Cannot make an uncaught Pokemon shiny");
             return;
-        }
+        };
+        e.classList.remove("shiny-button");
+        e.classList.add("caught-button");
     };
     const resp = await fetch(`/todos/dex/${id}`, {
         method: "PATCH", 
