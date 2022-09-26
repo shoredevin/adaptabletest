@@ -99,22 +99,22 @@ async function handleEdit(e) {
 }
 
 async function patchJob(e, id, bool) {
-    console.log(e);
+    // console.log(e);
     if(e.target.classList.contains("caught-button")) {
         if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
             alert("Cannot make a shiny Pokemon uncaught");
             return;
         };
-        e.classList.toggle("caught-button");
-        e.classList.add("shiny-button");
+        e.target.classList.toggle("caught-button");
+        e.target.classList.toggle("shiny-button");
     };
     if(e.target.classList.contains("shiny-button")) {
         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
             alert("Cannot make an uncaught Pokemon shiny");
             return;
         };
-        e.classList.toggle("shiny-button");
-        e.classList.add("caught-button");
+        e.target.classList.toggle("shiny-button");
+        e.target.classList.toggle("caught-button");
     };
     const resp = await fetch(`/todos/dex/${id}`, {
         method: "PATCH", 
