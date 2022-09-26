@@ -120,7 +120,7 @@ async function patchJob(e, id, bool) {
     });
     const todos = await resp.json();
     console.log(todos)
-    await yeetGet();
+    // await yeetGet();
 }
 
 // async function json2table(data) {
