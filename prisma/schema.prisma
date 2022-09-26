@@ -23,14 +23,14 @@ model Pokedex {
   name    String
   type1   String
   type2   String
-  caught  Boolean
-  shiny   Boolean
-}
+  caught  Boolean @default(false)
+  shiny   Boolean @default(false)
+} 
 
 model PokemonDetails {
   id                    String @id @default(auto()) @map("_id") @db.ObjectId
   dexNum                Int
-  name                  String
+  name                  String @unique
   nickname              String
   ability1              String
   ability2              String
