@@ -106,7 +106,7 @@ async function patchJob(e, id, bool) {
             return;
         };
         e.target.classList.toggle("caught-button");
-        e.target.classList.toggle("shiny-button");
+        // e.target.classList.toggle("shiny-button");
     };
     if(e.target.classList.contains("shiny-button")) {
         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
@@ -114,7 +114,7 @@ async function patchJob(e, id, bool) {
             return;
         };
         e.target.classList.toggle("shiny-button");
-        e.target.classList.toggle("caught-button");
+        // e.target.classList.toggle("caught-button");
     };
     const resp = await fetch(`/todos/dex/${id}`, {
         method: "PATCH", 
