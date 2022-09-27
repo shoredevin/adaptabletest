@@ -258,3 +258,288 @@ function showSnackBar(msg) {
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+
+const card              = document.querySelector("#yo");
+const cardInner         = document.querySelector("#yoyo");
+const front             = document.getElementById('front');
+const back              = document.getElementById('back');
+const pokemonSprite     = document.getElementById('pokemon-sprite')
+const genderIcon        = document.getElementById('gender-icon');
+const shinyIcon         = document.getElementById('shiny-icon');
+const type1Icon         = document.getElementById('type1');
+const type2Icon         = document.getElementById('type2');
+const typeContainer     = document.getElementById("type-container");
+const nextButton        = document.getElementById("next");
+const prevButton        = document.getElementById("prev");
+const dexDetails        = document.getElementById("dex-details");
+// const formSelector      = document.getElementById("form-selector");
+
+let currentlyShiny = false;
+let currentlyMale = true;
+
+const typeColors = 
+{
+    "fire"      : "#ff4422",
+    "normal"    : "#aaaa99",
+    "water"     : "#3399ff",
+    "grass"     : "#77cc55",
+    "electric"  : "#ffcc33",
+    "ice"       : "#66ccff",
+    "fighting"  : "#bb5544",
+    "poison"    : "#aa5599",
+    "ground"    : "#ddbb55",
+    "flying"    : "#8899ff",
+    "psychic"   : "#ff5599",
+    "bug"       : "#aabb22",
+    "rock"      : "#bbaa66",
+    "ghost"     : "#6666bb",
+    "dark"      : "#775544",
+    "dragon"    : "#7766ee",
+    "steel"     : "#aaaabb",
+    "fairy"     : "#ee99ee"
+};
+
+function openCard(name, type1, type2, data) {
+    setBorder(type1, type2);
+    setImages(data.spriteURL);
+    setTypes(type1, type2);
+    if(data.femaleSpriteURL) {
+        genderIcon.classList.add("hoverable")
+        genderIcon.addEventListener("click", function() {
+            handleGenderButtonClick(this, data);
+        });
+    }
+    shinyIcon.addEventListener("click", () => {
+        handleShinyButtonClick(data);
+    });
+    // shinyIcon.onclick = handleShinyButtonClick;
+    setBack(name, data);
+    // setFormSelector();
+    card.style.display = "block";
+}
+function setBorder(type1, type2) {
+    const tbColor = typeColors[type1];
+    const lrColor = type2 ? typeColors[type2] : typeColors[type1];
+    const border = tbColor + " " + lrColor;
+    front.style.borderColor = border;
+    back.style.borderColor = border;
+}
+function setImages(url) {
+    pokemonSprite.src = url; 
+}
+function setTypes(type1, type2) {
+    type1Icon.innerHTML =  capitalizeFirstLetter(type1);
+    type1Icon.style.backgroundColor = typeColors[type1]
+    type1Icon.style.display = 'block';
+    typeContainer.style.marginLeft = "calc(50% - 3.5rem)";
+    if (type2) {
+        type2Icon.innerHTML = capitalizeFirstLetter(type2);
+        type2Icon.style.backgroundColor = typeColors[type2];
+        type2Icon.style.display = 'block';
+        typeContainer.style.marginLeft = "calc(50% - 7.5rem)";
+    } else {
+        type2Icon.style.display = 'none';
+    }
+}
+function setBack(name, data) {
+    // console.log(data.forms);
+    // console.log(Object.keys(data.forms).length);
+    // console.log(Object.keys(data.forms));
+    dexDetails.innerHTML = 
+    `
+        <h1>${capitalizeFirstLetter(name)}</h1> 
+        <h3>${data.nickname}</h3>
+        <p id="forms-p" style="display:none"><span class="title">Forms: </span><select id="form-selector" class="form-selector">${data.forms ? lager(data.forms) : ""}</select><p>
+        <p><span class="title">Ability:</span> ${data.ability1}${data.ability2 ? ", " + data.ability2 : ""}</p>
+        <p><span class="title">Hidden Ability:</span> ${data.hability}</p>
+        <p class="egg-groups"><span class="title">Egg Groups:</span> ${data.eggGroup}</p>
+        <p><span class="title">Catch Rate:</span> ${data.catchRate}</p>
+        <p><span class="title">Hatch Time:</span> ${data.hatchRate}</p>
+        <p><span class="title">Leveling Rate:</span> ${data.levelingRate}</p>
+        <p class="gender-rates"><span class="male"><i class="fa-solid fa-mars"></i></span>: ${data.mPercent}&nbsp;&nbsp;<span class="fmale"><i class="fa-solid fa-venus"></i></span>: ${data.fPercent}</p>
+    `
+    if(data.forms) document.getElementById("forms-p").style.display = "block"
+    const formSelect = document.getElementById('form-selector'); 
+    formSelect.addEventListener("change", function() {
+        // setFormSelector();
+        // console.log(formSelect.value);
+        // pokemonSprite.src = formSelect.value;
+        if(!currentlyShiny) pokemonSprite.src = formSelect.value;
+        if(currentlyShiny) {
+            let newURL = formSelect.value.replace(".gif", "").concat("", "-s.gif");
+            console.log(newURL);
+            pokemonSprite.src = newURL;
+        }
+    })
+}
+// Object.keys
+function lager(forms) {
+    console.log(forms);
+    console.log(forms.length);
+    let str;
+    // = `<option>Standard</option>`;
+    for (let i = 0; i < Object.keys(forms).length; i++) {
+        // console.log(form);
+        str += `<option value='${forms[Object.keys(forms)[i]].url}'>` + Object.keys(forms)[i] + `</option>`
+    }
+    // console.log(str);
+    return str
+}
+
+nextButton.onclick = handleNextButtonClick;
+function handleNextButtonClick() {
+    prevButton.style.display = "block";
+    nextButton.style.display = "none";
+    card.style.transform = "rotateY(180deg)";
+    cardInner.style.transform = "rotateY(180deg)";
+    front.style.display = "none";
+    back.style.display = "flex";
+}
+
+prevButton.onclick = handlePrevButtonClick;
+function handlePrevButtonClick() {
+    // console.log('by')
+    prevButton.style.display = "none";
+    nextButton.style.display = "block";
+    card.style.transform = "rotateY(0deg)";
+    cardInner.style.transform = "rotateY(0deg)";
+    
+    front.style.display = "flex";
+    back.style.display = "none";
+    
+    // dexDetails.style.transform = "scaleX(-1)";
+}
+
+function handleGenderButtonClick(e, data) {
+    e.classList.toggle("fa-mars");
+    e.classList.toggle("fa-venus");
+    if(e.classList.contains("fa-venus")) {
+        if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
+        if(currentlyShiny) pokemonSprite.src = data.femaleSpriteURLShiny;
+    }
+    if(e.classList.contains("fa-mars")) {
+        if(!currentlyShiny) pokemonSprite.src = data.spriteURL;
+        if(currentlyShiny) pokemonSprite.src = data.spriteURLShiny;
+    }
+    currentlyMale = !currentlyMale;
+}
+
+function handleShinyButtonClick(data) {
+    const formSelect = document.getElementById('form-selector'); 
+    // console.log(formSelect.value);
+    const url = data.forms ? formSelect.value : data.spriteURL;
+    console.log(url);
+    if(!currentlyShiny) {
+        shinyIcon.style.color = "gold";
+        if(currentlyMale) pokemonSprite.src = url.replace(".gif", "").concat("", "-s.gif");
+        if(!currentlyMale) pokemonSprite.src = url.replace(".gif", "").concat("", "f-s.gif");
+    }
+    if(currentlyShiny) {
+        shinyIcon.style.color = "white";
+        if(currentlyMale) pokemonSprite.src = url;
+        if(!currentlyMale) pokemonSprite.src = url.replace(".gif", "").concat("", "f.gif");
+    }
+    currentlyShiny = !currentlyShiny;
+}
+
+// function updateSpriteSource(data) {
+//     console.log('here')
+//     if(currentlyShiny) {
+//         console.log('shiny');
+//         if(currentlyMale) {pokemonSprite.src = data.spriteURLShiny}
+//         if(!currentlyMale) {pokemonSprite.src = data.femaleSpriteURLShiny}
+//     }
+//     if(!currentlyShiny) {
+//         console.log('not shiny');
+//         if(currentlyMale) {pokemonSprite.src = data.spriteURL}
+//         if(!currentlyMale) {pokemonSprite.src = data.femaleSpriteURL}
+//     }
+// }
+
+function setFormSelector() {
+    console.log('here')
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+const pokemonData = {
+    'bulbasaur': {
+        "nickname": "Seed Pokemon",
+        "ability1": "Overgrow",
+        "ability2": "",
+        "hability": "Chlorophyll",
+        "eggGroup": "Monster and Grass",
+        "catchRate": "11.9%",
+        "hatchRate": "5140 - 5396 steps",
+        "levelingRate": "Medium Slow",
+        "mPercent": "87.5%",
+        "fPercent": "12.5%",
+        "spriteURL": "https://poketools.info/images/sprites/001.gif",
+        "spriteURLShiny": "https://poketools.info/images/sprites/001-s.gif"
+    },
+    'pikachu': {
+        "nickname": "Mouse Pokemon",
+        "ability1": "Static",
+        "ability2": "",
+        "hability": "Lightning Rod",
+        "eggGroup": "Field and Fairy",
+        "catchRate": "35.2%",
+        "hatchRate": "2570 - 2826 steps",
+        "levelingRate": "Medium Fast",
+        "mPercent": "50%",
+        "fPercent": "50%",
+        "spriteURL": "https://poketools.info/images/sprites/025.gif",
+        "spriteURLShiny": "https://poketools.info/images/sprites/025-s.gif"
+    },
+    'burmy': {
+        "nickname": "Bagworm Pokemon",
+        "ability1": "Shed Skin",
+        "ability2": "",
+        "hability": "Overcoat",
+        "eggGroup": "Bug",
+        "catchRate": "24.9",
+        "hatchRate": "3855 - 4111 steps",
+        "levelingRate": "Medium Fast",
+        "mPercent": "50%",
+        "fPercent": "50%",
+        "spriteURL": "https://poketools.info/images/sprites/412.gif",
+        "spriteURLShiny": "https://poketools.info/images/sprites/412-s.gif",
+        "femaleSpriteURL": "",
+        "femaleSpriteURLShiny": "",
+        "forms": {
+            "Plant Cloak": {
+                "url": "https://poketools.info/images/sprites/412.gif", 
+                "type1": "Bug",
+                "type2": ""
+            },
+            "Sandy Cloak": {
+                "url": "https://poketools.info/images/sprites/412sc.gif", 
+                "type1": "Bug",
+                "type2": ""
+            },
+            "Trash Cloak": {
+                "url": "https://poketools.info/images/sprites/412tc.gif", 
+                "type1": "Bug",
+                "type2": ""
+            }
+        }
+    },
+    'combee': {
+        "nickname": "Tiny Bee Pokemon",
+        "ability1": "Honey Gather",
+        "ability2": "",
+        "hability": "Hustle",
+        "eggGroup": "Bug",
+        "catchRate": "24.9",
+        "hatchRate": "3855 - 4111 steps",
+        "levelingRate": "Medium Slow",
+        "mPercent": "87.5%",
+        "fPercent": "12.5%",
+        "spriteURL": "https://poketools.info/images/sprites/415.gif",
+        "spriteURLShiny": "https://poketools.info/images/sprites/415-s.gif",
+        "femaleSpriteURL": "https://poketools.info/images/sprites/415f.gif",
+        "femaleSpriteURLShiny": "https://poketools.info/images/sprites/415f-s.gif"
+    }
+}
