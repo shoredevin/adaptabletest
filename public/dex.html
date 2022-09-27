@@ -42,23 +42,23 @@
                 </thead>
                 <tbody id="tableBody"></tbody>
             </table>
-            <div id="yo" class="flip-card" style="display:none">
-                <div id="yoyo"class="flip-card-inner">
-                    <div id="front" class="flip-card-front">
-                        <img id="pokemon-sprite" alt="Avatar">
-                        <i id="gender-icon" class="fa-solid fa-mars gender-icon fmale"></i>
-                        <i id="shiny-icon" class="fa-solid fa-heart shiny-icon hoverable"></i>
-                        <i id="next" class="fa-solid fa-circle-right next hoverable"></i>
-                        <div id="type-container" class="type-container">
-                            <!-- <div class="vl"></div> -->
-                            <div class="type-icon"><p id="type1" class="type1" style="display:none"></p></div>
-                            <div class="type-icon"><p id="type2"class="type2" style="display:none"></p></div>
-                        </div>
+        </div>
+        <div id="yo" class="flip-card" style="display:none">
+            <div id="yoyo"class="flip-card-inner">
+                <div id="front" class="flip-card-front">
+                    <img id="pokemon-sprite" alt="Avatar">
+                    <i id="gender-icon" class="fa-solid fa-mars gender-icon fmale"></i>
+                    <i id="shiny-icon" class="fa-solid fa-heart shiny-icon hoverable"></i>
+                    <i id="next" class="fa-solid fa-circle-right next hoverable"></i>
+                    <div id="type-container" class="type-container">
+                        <!-- <div class="vl"></div> -->
+                        <div class="type-icon"><p id="type1" class="type1" style="display:none"></p></div>
+                        <div class="type-icon"><p id="type2"class="type2" style="display:none"></p></div>
                     </div>
-                    <div id="back" class="flip-card-back">
-                        <div id="dex-details" class="dex-details"></div>
-                        <i id="prev" class="fa-solid fa-circle-right prev hoverable"></i>
-                    </div>
+                </div>
+                <div id="back" class="flip-card-back">
+                    <div id="dex-details" class="dex-details"></div>
+                    <i id="prev" class="fa-solid fa-circle-right prev hoverable"></i>
                 </div>
             </div>
         </div>
@@ -82,6 +82,7 @@
         #myTable {
             user-select: none;
 			margin-top: 10px;
+            overflow: hidden;
 		}
 		table, th, td {
 			border-collapse: collapse;
