@@ -102,7 +102,7 @@ async function patchJob(e, id, bool) {
     // console.log(e);
     if(e.target.classList.contains("caught-button")) {
         if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
-            alert("Cannot make a shiny Pokemon uncaught");
+            showSnackBar("Cannot make a shiny Pokemon uncaught");
             return;
         };
         // e.target.classList.toggle("caught-button");
@@ -111,7 +111,7 @@ async function patchJob(e, id, bool) {
     };
     if(e.target.classList.contains("shiny-button")) {
         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
-            alert("Cannot make an uncaught Pokemon shiny");
+            showSnackBar("Cannot make an uncaught Pokemon shiny");
             return;
         };
         e.target.classList.toggle("fa-regular");
@@ -241,10 +241,20 @@ function myFunction() {
 }
 
 async function getPokemonDetails(id, name) {
-    console.log(id, name);
+    // console.log(id, name);
     await fetch(`/todos/details/?name=${name}`)
     .then((response) => response.json())
     .then((data) => {
        console.log(data)
    });
+}
+
+function showSnackBar(msg) {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+    x.innerHTML = msg;
+    // Add the "show" class to DIV
+    x.className = "show";
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
