@@ -237,17 +237,12 @@ function myFunction() {
                 };
             };
         };
-    // logSortTotal();
 }
 
 async function getPokemonDetails(id, name, type1, type2) {
-    // console.log(id, name);
     await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
     .then((response) => response.json())
     .then((data) => {
-    //    console.log(data);
-    //    console.log(Object.keys(data.forms).length)
-    //    console.log(data.forms ? true : false);
        currentlyShiny = false;
        currentlyMale = true;
        openCard(name, type1, type2, data);
@@ -304,21 +299,21 @@ const typeColors =
 };
 
 function openCard(name, type1, type2, data) {
+    genderIcon.removeEventListener("click", genderIconClick);
+    shinyIcon.removeEventListener("click", shinyIconClick);
     setBorder(type1, type2);
     setImages(data.spriteURL);
     setTypes(type1, type2);
     if(data.femaleSpriteURL) {
         genderIcon.classList.add("hoverable")
-        genderIcon.addEventListener("click", function() {
+        genderIcon.addEventListener("click", function genderIconClick() {
             handleGenderButtonClick(this, data);
         });
     }
-    shinyIcon.addEventListener("click", () => {
+    shinyIcon.addEventListener("click", function shinyIconClick() {
         handleShinyButtonClick(data);
     });
-    // shinyIcon.onclick = handleShinyButtonClick;
     setBack(name, data);
-    // setFormSelector();
     card.style.display = "block";
 }
 function setBorder(type1, type2) {
@@ -365,9 +360,6 @@ function setBack(name, data) {
     if(Object.keys(data.forms).length > 0) document.getElementById("forms-p").style.display = "block"
     const formSelect = document.getElementById('form-selector'); 
     formSelect.addEventListener("change", function() {
-        // setFormSelector();
-        // console.log(formSelect.value);
-        // pokemonSprite.src = formSelect.value;
         if(!currentlyShiny) pokemonSprite.src = formSelect.value;
         if(currentlyShiny) {
             let newURL = formSelect.value.replace(".gif", "").concat("", "-s.gif");
@@ -376,17 +368,14 @@ function setBack(name, data) {
         }
     })
 }
-// Object.keys
+
 function lager(forms) {
     console.log(forms);
     console.log(forms.length);
     let str;
-    // = `<option>Standard</option>`;
     for (let i = 0; i < Object.keys(forms).length; i++) {
-        // console.log(form);
         str += `<option value='${forms[Object.keys(forms)[i]].url}'>` + Object.keys(forms)[i] + `</option>`
     }
-    // console.log(str);
     return str
 }
 
@@ -402,16 +391,12 @@ function handleNextButtonClick() {
 
 prevButton.onclick = handlePrevButtonClick;
 function handlePrevButtonClick() {
-    // console.log('by')
     prevButton.style.display = "none";
     nextButton.style.display = "block";
     card.style.transform = "rotateY(0deg)";
     cardInner.style.transform = "rotateY(0deg)";
-    
     front.style.display = "flex";
     back.style.display = "none";
-    
-    // dexDetails.style.transform = "scaleX(-1)";
 }
 
 function handleGenderButtonClick(e, data) {
@@ -430,7 +415,6 @@ function handleGenderButtonClick(e, data) {
 
 function handleShinyButtonClick(data) {
     const formSelect = document.getElementById('form-selector'); 
-    // console.log(formSelect.value);
     const url = Object.keys(data.forms).length > 0 ? formSelect.value : data.spriteURL;
     console.log(url);
     if(!currentlyShiny) {
@@ -468,82 +452,82 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-const pokemonData = {
-    'bulbasaur': {
-        "nickname": "Seed Pokemon",
-        "ability1": "Overgrow",
-        "ability2": "",
-        "hability": "Chlorophyll",
-        "eggGroup": "Monster and Grass",
-        "catchRate": "11.9%",
-        "hatchRate": "5140 - 5396 steps",
-        "levelingRate": "Medium Slow",
-        "mPercent": "87.5%",
-        "fPercent": "12.5%",
-        "spriteURL": "https://poketools.info/images/sprites/001.gif",
-        "spriteURLShiny": "https://poketools.info/images/sprites/001-s.gif"
-    },
-    'pikachu': {
-        "nickname": "Mouse Pokemon",
-        "ability1": "Static",
-        "ability2": "",
-        "hability": "Lightning Rod",
-        "eggGroup": "Field and Fairy",
-        "catchRate": "35.2%",
-        "hatchRate": "2570 - 2826 steps",
-        "levelingRate": "Medium Fast",
-        "mPercent": "50%",
-        "fPercent": "50%",
-        "spriteURL": "https://poketools.info/images/sprites/025.gif",
-        "spriteURLShiny": "https://poketools.info/images/sprites/025-s.gif"
-    },
-    'burmy': {
-        "nickname": "Bagworm Pokemon",
-        "ability1": "Shed Skin",
-        "ability2": "",
-        "hability": "Overcoat",
-        "eggGroup": "Bug",
-        "catchRate": "24.9",
-        "hatchRate": "3855 - 4111 steps",
-        "levelingRate": "Medium Fast",
-        "mPercent": "50%",
-        "fPercent": "50%",
-        "spriteURL": "https://poketools.info/images/sprites/412.gif",
-        "spriteURLShiny": "https://poketools.info/images/sprites/412-s.gif",
-        "femaleSpriteURL": "",
-        "femaleSpriteURLShiny": "",
-        "forms": {
-            "Plant Cloak": {
-                "url": "https://poketools.info/images/sprites/412.gif", 
-                "type1": "Bug",
-                "type2": ""
-            },
-            "Sandy Cloak": {
-                "url": "https://poketools.info/images/sprites/412sc.gif", 
-                "type1": "Bug",
-                "type2": ""
-            },
-            "Trash Cloak": {
-                "url": "https://poketools.info/images/sprites/412tc.gif", 
-                "type1": "Bug",
-                "type2": ""
-            }
-        }
-    },
-    'combee': {
-        "nickname": "Tiny Bee Pokemon",
-        "ability1": "Honey Gather",
-        "ability2": "",
-        "hability": "Hustle",
-        "eggGroup": "Bug",
-        "catchRate": "24.9",
-        "hatchRate": "3855 - 4111 steps",
-        "levelingRate": "Medium Slow",
-        "mPercent": "87.5%",
-        "fPercent": "12.5%",
-        "spriteURL": "https://poketools.info/images/sprites/415.gif",
-        "spriteURLShiny": "https://poketools.info/images/sprites/415-s.gif",
-        "femaleSpriteURL": "https://poketools.info/images/sprites/415f.gif",
-        "femaleSpriteURLShiny": "https://poketools.info/images/sprites/415f-s.gif"
-    }
-}
+// const pokemonData = {
+//     'bulbasaur': {
+//         "nickname": "Seed Pokemon",
+//         "ability1": "Overgrow",
+//         "ability2": "",
+//         "hability": "Chlorophyll",
+//         "eggGroup": "Monster and Grass",
+//         "catchRate": "11.9%",
+//         "hatchRate": "5140 - 5396 steps",
+//         "levelingRate": "Medium Slow",
+//         "mPercent": "87.5%",
+//         "fPercent": "12.5%",
+//         "spriteURL": "https://poketools.info/images/sprites/001.gif",
+//         "spriteURLShiny": "https://poketools.info/images/sprites/001-s.gif"
+//     },
+//     'pikachu': {
+//         "nickname": "Mouse Pokemon",
+//         "ability1": "Static",
+//         "ability2": "",
+//         "hability": "Lightning Rod",
+//         "eggGroup": "Field and Fairy",
+//         "catchRate": "35.2%",
+//         "hatchRate": "2570 - 2826 steps",
+//         "levelingRate": "Medium Fast",
+//         "mPercent": "50%",
+//         "fPercent": "50%",
+//         "spriteURL": "https://poketools.info/images/sprites/025.gif",
+//         "spriteURLShiny": "https://poketools.info/images/sprites/025-s.gif"
+//     },
+//     'burmy': {
+//         "nickname": "Bagworm Pokemon",
+//         "ability1": "Shed Skin",
+//         "ability2": "",
+//         "hability": "Overcoat",
+//         "eggGroup": "Bug",
+//         "catchRate": "24.9",
+//         "hatchRate": "3855 - 4111 steps",
+//         "levelingRate": "Medium Fast",
+//         "mPercent": "50%",
+//         "fPercent": "50%",
+//         "spriteURL": "https://poketools.info/images/sprites/412.gif",
+//         "spriteURLShiny": "https://poketools.info/images/sprites/412-s.gif",
+//         "femaleSpriteURL": "",
+//         "femaleSpriteURLShiny": "",
+//         "forms": {
+//             "Plant Cloak": {
+//                 "url": "https://poketools.info/images/sprites/412.gif", 
+//                 "type1": "Bug",
+//                 "type2": ""
+//             },
+//             "Sandy Cloak": {
+//                 "url": "https://poketools.info/images/sprites/412sc.gif", 
+//                 "type1": "Bug",
+//                 "type2": ""
+//             },
+//             "Trash Cloak": {
+//                 "url": "https://poketools.info/images/sprites/412tc.gif", 
+//                 "type1": "Bug",
+//                 "type2": ""
+//             }
+//         }
+//     },
+//     'combee': {
+//         "nickname": "Tiny Bee Pokemon",
+//         "ability1": "Honey Gather",
+//         "ability2": "",
+//         "hability": "Hustle",
+//         "eggGroup": "Bug",
+//         "catchRate": "24.9",
+//         "hatchRate": "3855 - 4111 steps",
+//         "levelingRate": "Medium Slow",
+//         "mPercent": "87.5%",
+//         "fPercent": "12.5%",
+//         "spriteURL": "https://poketools.info/images/sprites/415.gif",
+//         "spriteURLShiny": "https://poketools.info/images/sprites/415-s.gif",
+//         "femaleSpriteURL": "https://poketools.info/images/sprites/415f.gif",
+//         "femaleSpriteURLShiny": "https://poketools.info/images/sprites/415f-s.gif"
+//     }
+// }
