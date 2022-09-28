@@ -246,7 +246,7 @@ async function getPokemonDetails(id, name, type1, type2) {
     .then((response) => response.json())
     .then((data) => {
        console.log(data);
-       console.log(data.forms.length)
+       console.log(Object.keys(data.forms).length)
        console.log(data.forms ? true : false);
        currentlyShiny = false;
        currentlyMale = true;
