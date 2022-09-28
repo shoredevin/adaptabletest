@@ -70,11 +70,30 @@
             font-size: 16pt;
         }
         body {
-            height: 100%;
-            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            font-family: 'Lora', sans-serif;
+            font-size: 16px;
+            background-color: var(--main-bg-color);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
         }
         #content-container {
-            width: 700px;
+            background-color: var(--main-light-color);
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            margin: auto;
+            box-shadow: 5px 5px 5px var(--main-dark-color);
+            border-radius: 10px 10px 20px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 81.75vh;
+            overflow: hidden;
         }
         #myInput {
             width: 100%;
