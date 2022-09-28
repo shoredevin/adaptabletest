@@ -242,7 +242,7 @@ function myFunction() {
 
 async function getPokemonDetails(id, name, type1, type2) {
     // console.log(id, name);
-    await fetch(`/todos/details/?name=${name}`)
+    await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
     .then((response) => response.json())
     .then((data) => {
        console.log(data)
