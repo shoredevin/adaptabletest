@@ -246,8 +246,8 @@ async function getPokemonDetails(id, name) {
     .then((response) => response.json())
     .then((data) => {
        console.log(data)
+       openCard("bulbasaur", "grass", "poison", data);
    });
-   openCard("burmy", "bug", "", pokemonData["burmy"]);
 }
 
 function showSnackBar(msg) {
