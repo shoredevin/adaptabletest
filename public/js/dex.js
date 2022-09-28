@@ -10,7 +10,7 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
             <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
         </td>
         <td contenteditable="false">${ pad(dexnum, 3) }</td>
-        <td contenteditable="false"><a href="#" onclick="getPokemonDetails('${id}', '${name}')">${ name }</a></td>
+        <td contenteditable="false"><a href="#" onclick="getPokemonDetails('${id}', '${name}', '${type1}', '${type2}')">${ name }</a></td>
         <td class="${ type1.toLowerCase() }-type"contenteditable="false">${ type1 }</td>
         <td class="${ type2.toLowerCase() }-type"contenteditable="false">${ type2 }</td>
         <td contenteditable="false">${ caught ? `<i class="fa-solid fa-star caught-button" onclick="patchJob(event, '${id}', { caught: false })"></i>` : `<i class="fa-regular fa-star caught-button" onclick="patchJob(event, '${id}', { caught: true })"></i>` }</td>
@@ -246,7 +246,7 @@ async function getPokemonDetails(id, name) {
     .then((response) => response.json())
     .then((data) => {
        console.log(data)
-       openCard("bulbasaur", "grass", "poison", data);
+       openCard(name, type1, type2, data);
    });
 }
 
