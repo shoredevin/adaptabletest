@@ -240,7 +240,7 @@ function myFunction() {
     // logSortTotal();
 }
 
-async function getPokemonDetails(id, name) {
+async function getPokemonDetails(id, name, type1, type2) {
     // console.log(id, name);
     await fetch(`/todos/details/?name=${name}`)
     .then((response) => response.json())
