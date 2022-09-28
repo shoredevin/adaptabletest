@@ -247,7 +247,7 @@ async function getPokemonDetails(id, name) {
     .then((data) => {
        console.log(data)
    });
-   show
+   openCard("burmy", "bug", "", pokemonData["burmy"]);
 }
 
 function showSnackBar(msg) {
@@ -257,7 +257,6 @@ function showSnackBar(msg) {
     // Add the "show" class to DIV
     x.className = "show";
     // After 3 seconds, remove the show class from DIV
-    openCard("burmy", "bug", "", pokemonData["burmy"]);
 }
 
 const card              = document.querySelector("#yo");
