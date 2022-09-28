@@ -362,7 +362,7 @@ function setBack(name, data) {
         <p><span class="title">Leveling Rate:</span> ${data.levelingRate}</p>
         <p class="gender-rates"><span class="male"><i class="fa-solid fa-mars"></i></span>: ${data.mPercent}&nbsp;&nbsp;<span class="fmale"><i class="fa-solid fa-venus"></i></span>: ${data.fPercent}</p>
     `
-    if(data.forms) document.getElementById("forms-p").style.display = "block"
+    if(Object.keys(data.forms).length > 0) document.getElementById("forms-p").style.display = "block"
     const formSelect = document.getElementById('form-selector'); 
     formSelect.addEventListener("change", function() {
         // setFormSelector();
@@ -431,7 +431,7 @@ function handleGenderButtonClick(e, data) {
 function handleShinyButtonClick(data) {
     const formSelect = document.getElementById('form-selector'); 
     // console.log(formSelect.value);
-    const url = data.forms ? formSelect.value : data.spriteURL;
+    const url = Object.keys(data.forms).length > 0 ? formSelect.value : data.spriteURL;
     console.log(url);
     if(!currentlyShiny) {
         shinyIcon.style.color = "gold";
