@@ -299,8 +299,8 @@ const typeColors =
 };
 
 function openCard(name, type1, type2, data) {
-    genderIcon.removeEventListener("click", genderIconClick);
-    shinyIcon.removeEventListener("click", shinyIconClick);
+    // genderIcon.removeEventListener("click", genderIconClick);
+    // shinyIcon.removeEventListener("click", shinyIconClick);
     setBorder(type1, type2);
     setImages(data.spriteURL);
     setTypes(type1, type2);
@@ -315,6 +315,10 @@ function openCard(name, type1, type2, data) {
     });
     setBack(name, data);
     card.style.display = "block";
+}
+function closeCard() {
+    // genderIcon.removeEventListener("click", genderIconClick);
+    // shinyIcon.removeEventListener("click", shinyIconClick);
 }
 function setBorder(type1, type2) {
     const tbColor = typeColors[type1];
