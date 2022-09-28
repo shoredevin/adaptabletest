@@ -245,9 +245,9 @@ async function getPokemonDetails(id, name, type1, type2) {
     await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
     .then((response) => response.json())
     .then((data) => {
-       console.log(data);
-       console.log(Object.keys(data.forms).length)
-       console.log(data.forms ? true : false);
+    //    console.log(data);
+    //    console.log(Object.keys(data.forms).length)
+    //    console.log(data.forms ? true : false);
        currentlyShiny = false;
        currentlyMale = true;
        openCard(name, type1, type2, data);
@@ -353,7 +353,7 @@ function setBack(name, data) {
     `
         <h1>${capitalizeFirstLetter(name)}</h1> 
         <h3>${data.nickname}</h3>
-        <p id="forms-p" style="display:none"><span class="title">Forms: </span><select id="form-selector" class="form-selector">${data.forms ? lager(data.forms) : ""}</select><p>
+        <p id="forms-p" style="display:none"><span class="title">Forms: </span><select id="form-selector" class="form-selector">${Object.keys(data.forms).length > 0 ? lager(data.forms) : ""}</select><p>
         <p><span class="title">Ability:</span> ${data.ability1}${data.ability2 ? ", " + data.ability2 : ""}</p>
         <p><span class="title">Hidden Ability:</span> ${data.hability}</p>
         <p class="egg-groups"><span class="title">Egg Groups:</span> ${data.eggGroup}</p>
