@@ -245,7 +245,10 @@ async function getPokemonDetails(id, name, type1, type2) {
     await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
     .then((response) => response.json())
     .then((data) => {
-       console.log(data)
+       console.log(data);
+       console.log(data.forms);
+       currentlyShiny = false;
+       currentlyMale = true;
        openCard(name, type1, type2, data);
    });
 }
