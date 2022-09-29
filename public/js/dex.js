@@ -410,13 +410,13 @@ function handlePrevButtonClick() {
 
 function handleGenderButtonClick() {
     // console.log(this);
-    shinyIcon.classList.toggle("fa-mars");
-    shinyIcon.classList.toggle("fa-venus");
-    if(shinyIcon.classList.contains("fa-venus")) {
+    genderIcon.classList.toggle("fa-mars");
+    genderIcon.classList.toggle("fa-venus");
+    if(genderIcon.classList.contains("fa-venus")) {
         if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
         if(currentlyShiny) pokemonSprite.src = data.femaleSpriteURLShiny;
     }
-    if(shinyIcon.classList.contains("fa-mars")) {
+    if(genderIcon.classList.contains("fa-mars")) {
         if(!currentlyShiny) pokemonSprite.src = data.spriteURL;
         if(currentlyShiny) pokemonSprite.src = data.spriteURLShiny;
     }
