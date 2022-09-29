@@ -272,10 +272,14 @@ const nextButton        = document.getElementById("next");
 const prevButton        = document.getElementById("prev");
 const dexDetails        = document.getElementById("dex-details");
 const overlay           = document.getElementById("overlay");
+
 // const formSelector      = document.getElementById("form-selector");
 
 let currentlyShiny = false;
 let currentlyMale = true;
+
+let shinyIconHasEvent = false;
+let genderIconHasEvent = false;
 
 const typeColors = 
 {
@@ -305,11 +309,13 @@ function openCard(name, type1, type2, data) {
     setImages(data.spriteURL);
     setTypes(type1, type2);
     if(data.femaleSpriteURL) {
+        genderIconHasEvent = true;
         genderIcon.classList.add("hoverable")
         genderIcon.addEventListener("click", function genderIconClick() {
             handleGenderButtonClick(this, data);
         });
     }
+    shinyIconHasEvent = true;
     shinyIcon.addEventListener("click", function shinyIconClick() {
         handleShinyButtonClick(data);
     });
@@ -538,8 +544,9 @@ function capitalizeFirstLetter(string) {
 
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
-    console.log(shinyIcon)
-    // genderIcon.removeEventListener("click", genderIconClick);
-    // shinyIcon.removeEventListener("click", shinyIconClick);
+    if (genderIconHasEvent) genderIcon.removeEventListener("click", genderIconClick);
+    if (shinyIconHasEvent) shinyIcon.removeEventListener("click", shinyIconClick);
+    genderIconHasEvent = false;
+    shinyIconHasEvent = false;
     card.style.display = "none";
 })
