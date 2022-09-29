@@ -1,5 +1,5 @@
 window.onload = yeetGet;
-document.getElementById('sub').onclick = yeet;
+// document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
 
