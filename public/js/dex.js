@@ -301,8 +301,6 @@ const typeColors =
 
 function openCard(name, type1, type2, data) {
     overlay.classList.toggle("active");
-    // genderIcon.removeEventListener("click", genderIconClick);
-    // shinyIcon.removeEventListener("click", shinyIconClick);
     setBorder(type1, type2);
     setImages(data.spriteURL);
     setTypes(type1, type2);
@@ -537,3 +535,10 @@ function capitalizeFirstLetter(string) {
 //         "femaleSpriteURLShiny": "https://poketools.info/images/sprites/415f-s.gif"
 //     }
 // }
+
+overlay.addEventListener('click', () => {
+    overlay.classList.toggle('active');
+    genderIcon.removeEventListener("click", genderIconClick);
+    shinyIcon.removeEventListener("click", shinyIconClick);
+    card.style.display = "none";
+})
