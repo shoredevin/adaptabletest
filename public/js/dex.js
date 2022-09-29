@@ -538,6 +538,7 @@ function capitalizeFirstLetter(string) {
 
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
+    console.log(shinyIcon)
     // genderIcon.removeEventListener("click", genderIconClick);
     // shinyIcon.removeEventListener("click", shinyIconClick);
     card.style.display = "none";
