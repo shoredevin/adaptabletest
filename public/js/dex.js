@@ -244,7 +244,7 @@ function setSearchLogic() {
 let totalRows;
 
 function setTotalRows() {
-    totalRows = table.getElementsByTagName('tr').length - 1;
+    totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
     document.getElementById('table-size').innerHTML = "Showing " + totalRows + " of " + totalRows + " rows";
 }
 
