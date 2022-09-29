@@ -59,7 +59,7 @@ body {
 #myTable tr:nth-child(even) {background-color: var(--main-light-color);}
 
 #myTable th {
-    background-color: var(--main-dark-color);
+    background-color: black;
     color: white;
     text-align: center;
     position: sticky;
