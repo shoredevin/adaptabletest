@@ -250,7 +250,7 @@ function setTotalRows() {
 
 function logSortTotal() {
     let sortTotal = -1;
-    var tr = table.getElementsByTagName('tr');
+    var tr = document.getElementById("myTable").getElementsByTagName('tr');
     for (var i = 0; i < tr.length; i++) {
         if(tr[i].style.display != 'none') {
             sortTotal++;
