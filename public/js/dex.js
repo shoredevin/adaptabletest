@@ -411,6 +411,7 @@ function handlePrevButtonClick() {
 }
 
 function handleGenderButtonClick(e) {
+    console.log(this);
     e.classList.toggle("fa-mars");
     e.classList.toggle("fa-venus");
     if(e.classList.contains("fa-venus")) {
