@@ -54,6 +54,20 @@ body {
     width: 750px;
     padding: 0px;
 }
+
+#myTable tr:nth-child(odd) {background-color: hsl(0, 0%, 100%);}
+#myTable tr:nth-child(even) {background-color: var(--main-light-color);}
+
+#myTable th {
+    background-color: var(--main-dark-color);
+    color: white;
+    text-align: center;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    border-left: 1px solid rgb(66,66,66);
+    border-right: 1px solid rgb(66,66,66);
+}
 table, th, td {
     border-collapse: collapse;
 }
