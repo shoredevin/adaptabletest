@@ -2,13 +2,12 @@ window.onload = yeetGet;
 // document.getElementById('sub').onclick = yeet;
 // document.getElementById('get').onclick = yeetGet;
 
-
+// <td>
+//     <i class="fa-regular fa-pen-to-square edit-button" onclick="handleEdit(this)"></i>
+//     <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
+// </td>
 const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     <tr>
-        // <td>
-        //     <i class="fa-regular fa-pen-to-square edit-button" onclick="handleEdit(this)"></i>
-        //     <i class="fa-regular fa-trash-can delete-button" onclick="handleTodoDelete(event, '${id}')"></i>
-        // </td>
         <td contenteditable="false">${ pad(dexnum, 3) }</td>
         <td contenteditable="false"><a href="#" onclick="getPokemonDetails('${id}', '${name.toLowerCase()}', '${type1.toLowerCase()}', '${type2.toLowerCase()}')">${ name }</a></td>
         <td class="${ type1.toLowerCase() }-type"contenteditable="false">${ type1 }</td>
