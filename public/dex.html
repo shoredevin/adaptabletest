@@ -71,23 +71,41 @@
         body {
             height: 100%;
             width: 100%;
-        }
-        #content-container {
-            /* width: 700px;*/
-            display: flex;
-            align-items: center;
+            /* display: flex; */
             justify-content: center;
-            flex-direction: column;
-        }
-        #myInput {
-            width: 100%;
-        }
-        #myTable {
-            user-select: none;
-			margin-top: 10px;
+            justify-items: center;
             overflow: hidden;
-            position: absolute;
-		}
+        }
+
+        #content-container {
+            /* width: 700px; */
+            display: flex;
+            /* align-items: center; */
+            /* justify-content: center; */
+            flex-direction: column;
+            /* position: absolute; */
+            /* margin-top: 500px; */
+            /* height: 100%; */
+            /* width: 100%; */
+            /* overflow: hidden; */
+        }
+
+        #myInput {
+            width: 750px;
+            /* position: absolute; */
+        }
+
+        #myTable {
+            /* margin-top: 1000px; */
+            user-select: none;
+            /* margin-top: 10px; */
+            /* overflow: hidden; */
+            overflow-y: auto;
+            /* position: absolute; */
+            height: 900px;
+            width: 750px;
+            padding: 0px;
+        }
 		table, th, td {
 			border-collapse: collapse;
 		}
@@ -144,13 +162,13 @@
 
         .flip-card {
             position: absolute;
-        user-select: none;
-        margin-top: 10px;
-        margin-left: 10px;
-        background-color: transparent;
-        width: 500px;
-        height: 500px;
-        perspective: 1000px;
+            user-select: none;
+            margin-top: 10px;
+            /* margin-left: calc(50% - 250px); */
+            background-color: transparent;
+            width: 500px;
+            height: 500px;
+            perspective: 1000px;
         }
         .flip-card-inner {
         border-radius: 5%;
