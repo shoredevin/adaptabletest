@@ -29,8 +29,11 @@
         <div id="content-container">
             <table id="myTable">
             <!-- style="display: none" -->
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
+            <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..." title="Type in a name"> -->
+            <div id="search-container">
+                <input class="form-control" id="myInput" type="text" placeholder="Search...">
+                <input type="button" id="clear-button" alt="Clear" onclick="clearSearch()" value="X">
+            </div>
                 <thead>                
                     <!-- <th id="ID">ID</th> -->
                     <th id="action">Action</th>

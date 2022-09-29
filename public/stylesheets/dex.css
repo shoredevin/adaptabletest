@@ -38,11 +38,54 @@ body {
     /* overflow: hidden; */
 }
 
-#myInput {
+/* #myInput {
     width: 743px;
-    /* position: absolute; */
+} */
+#search-container {
+    padding-top: 5px;
+    padding: 5px;
+    position: relative;
+    margin: auto;
 }
 
+#myInput {
+    background-image:url('/images/searchicon.png');
+    background-position: 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 99%;
+    border-radius: .5em;
+    border: 1px solid #ddd;
+    font-size: 1em;
+}
+
+#info-button {
+    width: 2.5%;
+    position: absolute;
+    right: 60px;
+    bottom: 5px;
+}
+
+#clear-button {
+    position: absolute;
+    right: 15px;
+    bottom: 21px;
+    height: 1.75em;
+    width: 1.75em;
+    text-align: center;
+    color: white;
+    background-color: orangered;
+    border: orangered;
+    border-radius: 50%;
+}
+
+#clear-button:hover, #clear-button:focus {
+    outline: none;
+    background-color: darkred;
+    cursor: pointer;
+}
 #myTable {
     /* margin-top: 1000px; */
     user-select: none;
