@@ -546,7 +546,7 @@ function clearSearch() {
     document.getElementById('myInput').value = '';
     document.getElementById('myInput').focus();
     document.activeElement.blur()
-    document.getElementById('table-container').scrollTo(0,0);
+    // document.getElementById('table-container').scrollTo(0,0);
     setSearchLogic();
 }
 
