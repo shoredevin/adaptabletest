@@ -45,28 +45,28 @@ body {
     padding-top: 5px;
     padding: 5px;
     position: relative;
-    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 99%;
 }
-
 #myInput {
-    background-image:url('../images/searchicon.png');
+    background-image: url(../images/searchicon.png);
     background-position: 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     margin-top: 10px;
     margin-bottom: 5px;
     width: 99%;
-    border-radius: .5em;
+    border-radius: 0.5em;
     border: 1px solid #ddd;
     font-size: 1em;
 }
-
-#info-button {
+/* #info-button {
     width: 2.5%;
     position: absolute;
     right: 60px;
     bottom: 5px;
-}
+} */
 
 #clear-button {
     position: absolute;
