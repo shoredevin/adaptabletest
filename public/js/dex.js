@@ -242,10 +242,11 @@ function myFunction() {
 async function getPokemonDetails(id, name, type1, type2) {
     await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
     .then((response) => response.json())
-    .then((data) => {
+    .then((d) => {
        currentlyShiny = false;
        currentlyMale = true;
-       openCard(name, type1, type2, data);
+       data = d;
+       openCard(name, type1, type2);
    });
 }
 
@@ -280,6 +281,8 @@ let currentlyMale = true;
 
 let shinyIconHasEvent = false;
 let genderIconHasEvent = false;
+
+let data;
 
 const typeColors = 
 {
@@ -316,9 +319,7 @@ function openCard(name, type1, type2, data) {
         });
     }
     shinyIconHasEvent = true;
-    shinyIcon.addEventListener("click", function shinyIconClick() {
-        handleShinyButtonClick(data);
-    });
+    shinyIcon.addEventListener("click", handleShinyButtonClick);
     setBack(name, data);
     card.style.display = "block";
 }
@@ -545,7 +546,7 @@ function capitalizeFirstLetter(string) {
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
     if (genderIconHasEvent) genderIcon.removeEventListener("click", genderIconClick);
-    if (shinyIconHasEvent) shinyIcon.removeEventListener("click", shinyIconClick);
+    if (shinyIconHasEvent) shinyIcon.removeEventListener("click", handleShinyButtonClick);
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
     card.style.display = "none";
