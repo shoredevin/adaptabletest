@@ -542,6 +542,14 @@ function capitalizeFirstLetter(string) {
 //     }
 // }
 
+function clearSearch() {
+    document.getElementById('myInput').value = '';
+    document.getElementById('myInput').focus();
+    document.activeElement.blur()
+    document.getElementById('table-container').scrollTo(0,0);
+    setSearchLogic();
+}
+
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
     if (genderIconHasEvent) genderIcon.removeEventListener("click", handleGenderButtonClick);
