@@ -423,7 +423,7 @@ function handleGenderButtonClick() {
     currentlyMale = !currentlyMale;
 }
 
-function handleShinyButtonClick(data) {
+function handleShinyButtonClick() {
     const formSelect = document.getElementById('form-selector'); 
     const url = Object.keys(data.forms).length > 0 ? formSelect.value : data.spriteURL;
     console.log(url);
