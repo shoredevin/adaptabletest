@@ -34,6 +34,7 @@ async function yeetGet() {
         tbdy.innerHTML = data.map(json2table).join("")
         // json2table(data);
     });
+    setTotalRows();
 }
 async function yeet() {
     const dexnum = document.getElementById('dexnum').value;
@@ -237,6 +238,29 @@ function setSearchLogic() {
                 };
             };
         };
+        logSortTotal();
+}
+
+let totalRows;
+
+function setTotalRows() {
+    totalRows = table.getElementsByTagName('tr').length - 1;
+    document.getElementById('table-size').innerHTML = "Showing " + totalRows + " of " + totalRows + " rows";
+}
+
+function logSortTotal() {
+    let sortTotal = -1;
+    var tr = table.getElementsByTagName('tr');
+    for (var i = 0; i < tr.length; i++) {
+        if(tr[i].style.display != 'none') {
+            sortTotal++;
+        }
+    }
+    if(sortTotal > -1 && sortTotal < totalRows) {
+        document.getElementById('table-size').innerHTML = "Showing " + sortTotal + " of " + totalRows + " rows";
+    } else {
+        document.getElementById('table-size').innerHTML = "Showing " + totalRows + " of " + totalRows + " rows";
+    }
 }
 
 async function getPokemonDetails(id, name, type1, type2) {
