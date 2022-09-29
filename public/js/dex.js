@@ -271,6 +271,7 @@ const typeContainer     = document.getElementById("type-container");
 const nextButton        = document.getElementById("next");
 const prevButton        = document.getElementById("prev");
 const dexDetails        = document.getElementById("dex-details");
+const overlay           = document.getElementById("overlay");
 // const formSelector      = document.getElementById("form-selector");
 
 let currentlyShiny = false;
@@ -299,6 +300,7 @@ const typeColors =
 };
 
 function openCard(name, type1, type2, data) {
+    overlay.classList.toggle("active");
     // genderIcon.removeEventListener("click", genderIconClick);
     // shinyIcon.removeEventListener("click", shinyIconClick);
     setBorder(type1, type2);
