@@ -544,7 +544,7 @@ function capitalizeFirstLetter(string) {
 
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
-    if (genderIconHasEvent) genderIcon.removeEventListener("click", genderIconClick);
+    if (genderIconHasEvent) genderIcon.removeEventListener("click", handleGenderButtonClick);
     if (shinyIconHasEvent) shinyIcon.removeEventListener("click", handleShinyButtonClick);
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
