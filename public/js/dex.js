@@ -314,9 +314,7 @@ function openCard(name, type1, type2) {
     if(data.femaleSpriteURL) {
         genderIconHasEvent = true;
         genderIcon.classList.add("hoverable")
-        genderIcon.addEventListener("click", function genderIconClick() {
-            handleGenderButtonClick(this);
-        });
+        genderIcon.addEventListener("click", handleGenderButtonClick);
     }
     shinyIconHasEvent = true;
     shinyIcon.addEventListener("click", handleShinyButtonClick);
@@ -410,15 +408,15 @@ function handlePrevButtonClick() {
     back.style.display = "none";
 }
 
-function handleGenderButtonClick(e) {
-    console.log(this);
-    e.classList.toggle("fa-mars");
-    e.classList.toggle("fa-venus");
-    if(e.classList.contains("fa-venus")) {
+function handleGenderButtonClick() {
+    // console.log(this);
+    shinyIcon.classList.toggle("fa-mars");
+    shinyIcon.classList.toggle("fa-venus");
+    if(shinyIcon.classList.contains("fa-venus")) {
         if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
         if(currentlyShiny) pokemonSprite.src = data.femaleSpriteURLShiny;
     }
-    if(e.classList.contains("fa-mars")) {
+    if(shinyIcon.classList.contains("fa-mars")) {
         if(!currentlyShiny) pokemonSprite.src = data.spriteURL;
         if(currentlyShiny) pokemonSprite.src = data.spriteURLShiny;
     }
