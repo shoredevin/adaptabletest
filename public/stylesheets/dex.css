@@ -3,11 +3,13 @@
 }
 body {
     height: 100vh;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: center;
     justify-items: center;
     overflow: hidden;
+    background: #334651;
+
     /* background-image: linear-gradient(135deg, red, blue, white); */
     /* background-size: cover; */
 }
