@@ -306,7 +306,7 @@ const typeColors =
     "fairy"     : "#ee99ee"
 };
 
-function openCard(name, type1, type2, data) {
+function openCard(name, type1, type2) {
     overlay.classList.toggle("active");
     setBorder(type1, type2);
     setImages(data.spriteURL);
@@ -315,7 +315,7 @@ function openCard(name, type1, type2, data) {
         genderIconHasEvent = true;
         genderIcon.classList.add("hoverable")
         genderIcon.addEventListener("click", function genderIconClick() {
-            handleGenderButtonClick(this, data);
+            handleGenderButtonClick(this);
         });
     }
     shinyIconHasEvent = true;
@@ -410,7 +410,7 @@ function handlePrevButtonClick() {
     back.style.display = "none";
 }
 
-function handleGenderButtonClick(e, data) {
+function handleGenderButtonClick(e) {
     e.classList.toggle("fa-mars");
     e.classList.toggle("fa-venus");
     if(e.classList.contains("fa-venus")) {
