@@ -175,7 +175,7 @@ async function patchJob(e, id, bool) {
 //   }
 // }
 
-function myFunction() {
+function setSearchLogic() {
     console.log('i am here...')
         const regex = / & /gi;
 		let index;
