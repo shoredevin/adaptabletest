@@ -201,7 +201,7 @@ td::first-letter {
 .flip-card {
     position: absolute;
     user-select: none;
-    margin-top: 10%;
+    margin-top: 125px;
     margin-left: calc(350px - 250px);
     background-color: transparent;
     width: 500px;
