@@ -89,11 +89,11 @@ body {
     border-radius: 50%;
 }
 
-#clear-button:hover, #clear-button:focus {
+/* #clear-button:hover, #clear-button:focus {
     outline: none;
     background-color: darkred;
     cursor: pointer;
-}
+} */
 #table-size {
     font-size: 16px;
     margin-top: 1px;
