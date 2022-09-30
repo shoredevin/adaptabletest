@@ -267,7 +267,10 @@ async function getPokemonDetails(id, name, type1, type2) {
         await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
          .then((response) => response.json())
          .then((d) => {
-            console.log(d);
+            if(!d) {
+                console.log(bad);
+            }
+            // console.log(d);
             currentlyShiny = false;
             currentlyMale = true;
             data = d;
