@@ -33,7 +33,7 @@ body {
     width: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     /* position: absolute; */
     /* margin-top: 500px; */
@@ -107,7 +107,7 @@ body {
 }
 #myTable {
     user-select: none;
-    overflow-y: auto;
+    overflow-y: scroll;
     border-collapse: collapse;
     table-layout: fixed;
     /* width: 700px;
