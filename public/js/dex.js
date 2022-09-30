@@ -443,13 +443,16 @@ function handlePrevButtonClick() {
 
 function handleGenderButtonClick() {
     // console.log(this);
-    genderIcon.classList.toggle("fa-mars");
-    genderIcon.classList.toggle("fa-venus");
-    if(genderIcon.classList.contains("fa-venus")) {
+    // genderIcon.classList.toggle("fa-mars");
+    // genderIcon.classList.toggle("fa-venus");
+    const currGender = genderIcon.innerHTML;
+    if(currGender == "female") {
+        genderIcon.innerHTML = "male";
         if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
         if(currentlyShiny) pokemonSprite.src = data.femaleSpriteURLShiny;
     }
-    if(genderIcon.classList.contains("fa-mars")) {
+    if(currGender == "male") {
+        genderIcon.innerHTML = "female";
         if(!currentlyShiny) pokemonSprite.src = data.spriteURL;
         if(currentlyShiny) pokemonSprite.src = data.spriteURLShiny;
     }
