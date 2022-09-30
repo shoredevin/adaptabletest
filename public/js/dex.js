@@ -447,13 +447,13 @@ function handleGenderButtonClick() {
     // genderIcon.classList.toggle("fa-venus");
     const currGender = genderIcon.innerHTML;
     console.log(currGender);
-    if(currGender == "female") {
-        genderIcon.innerHTML = "male";
+    if(currGender == "male") {
+        genderIcon.innerHTML = "female";
         if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
         if(currentlyShiny) pokemonSprite.src = data.femaleSpriteURLShiny;
     }
-    if(currGender == "male") {
-        genderIcon.innerHTML = "female";
+    if(currGender == "female") {
+        genderIcon.innerHTML = "male";
         if(!currentlyShiny) pokemonSprite.src = data.spriteURL;
         if(currentlyShiny) pokemonSprite.src = data.spriteURLShiny;
     }
