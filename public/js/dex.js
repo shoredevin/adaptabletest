@@ -28,7 +28,7 @@ async function yeetGet() {
      .then((data) => {
         console.log(data)
         let myTable = document.querySelector("#myTable");
-        myTable.style.display = "inline-block";
+        // myTable.style.display = "inline-block";
         let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
         tbdy.innerHTML = data.map(json2table).join("")
         // json2table(data);
