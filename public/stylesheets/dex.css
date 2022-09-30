@@ -150,6 +150,7 @@ thead {
 }
 tBody {
     background-color: whitesmoke;
+    font-size: .9rem;
 }
 th {
     font-weight: bold;
