@@ -372,12 +372,12 @@ function setTypes(type1, type2) {
     type1Icon.innerHTML =  capitalizeFirstLetter(type1);
     type1Icon.style.backgroundColor = typeColors[type1]
     type1Icon.style.display = 'block';
-    typeContainer.style.marginLeft = "calc(50% - 3.5rem)";
+    // typeContainer.style.marginLeft = "calc(50% - 3.5rem)";
     if (type2) {
         type2Icon.innerHTML = capitalizeFirstLetter(type2);
         type2Icon.style.backgroundColor = typeColors[type2];
         type2Icon.style.display = 'block';
-        typeContainer.style.marginLeft = "calc(50% - 7.5rem)";
+        // typeContainer.style.marginLeft = "calc(50% - 7.5rem)";
     } else {
         type2Icon.style.display = 'none';
     }
