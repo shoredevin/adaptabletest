@@ -268,7 +268,7 @@ async function getPokemonDetails(id, name, type1, type2) {
          .then((response) => response.json())
          .then((d) => {
             if(!d) {
-                console.log("bad");
+                showSnackBar("No dex details for this Pokemon.");
                 return;
             }
             // console.log(d);
