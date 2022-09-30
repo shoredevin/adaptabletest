@@ -446,6 +446,7 @@ function handleGenderButtonClick() {
     // genderIcon.classList.toggle("fa-mars");
     // genderIcon.classList.toggle("fa-venus");
     const currGender = genderIcon.innerHTML;
+    console.log(currGender);
     if(currGender == "female") {
         genderIcon.innerHTML = "male";
         if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
