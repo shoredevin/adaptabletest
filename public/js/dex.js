@@ -263,19 +263,18 @@ function logSortTotal() {
 }
 
 async function getPokemonDetails(id, name, type1, type2) {
-    // try {
+    try {
         await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
          .then((response) => response.json())
-         .catch((err) => console.log(err))
          .then((d) => {
             currentlyShiny = false;
             currentlyMale = true;
             data = d;
             openCard(name, type1, type2);
         });
-    // } catch(err) {
-    //     console.log(err);
-    // }
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 function showSnackBar(msg) {
