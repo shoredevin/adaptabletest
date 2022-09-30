@@ -298,7 +298,7 @@ td::first-letter {
     width: 7rem;
     border-radius: 5px;
     padding: .5rem;
-    /* text-align: center; */
+    text-align: center;
 }
 .title {
     font-weight: bold;
