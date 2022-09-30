@@ -320,10 +320,10 @@ td::first-letter {
     padding: .25rem;
     border-radius: 50%;
 }
-.gender-icon.fa-mars {
+.gender-icon.male {
     background-color: blue;
 }
-.gender-icon.fa-venus {
+.gender-icon.fmale {
     background-color: #ff77dd;
 }
 .hoverable:hover {
