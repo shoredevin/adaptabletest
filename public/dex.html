@@ -34,19 +34,21 @@
                 <input type="button" id="clear-button" alt="Clear" onclick="clearSearch()" value="X" onclick="clearSearch()">
             </div>
             <p id="table-size"></p>
-            <table id="myTable">
-                <thead>                
-                    <!-- <th id="ID">ID</th> -->
-                    <!-- <th id="action">Action</th> -->
-                    <th id="dexnum">Dex #</th>
-                    <th id="name">Name</th>
-                    <th>Type 1</th>
-                    <th>Type 2</th>
-                    <th id="caught">Caught</th>
-                    <th>Shiny</th>
-                </thead>
-                <tbody id="tableBody"></tbody>
-            </table>
+            <div id='table-container'>
+                <table id="myTable">
+                    <thead>                
+                        <!-- <th id="ID">ID</th> -->
+                        <!-- <th id="action">Action</th> -->
+                        <th id="dexnum">Dex #</th>
+                        <th id="name">Name</th>
+                        <th>Type 1</th>
+                        <th>Type 2</th>
+                        <th id="caught">Caught</th>
+                        <th>Shiny</th>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
             <div id="yo" class="flip-card" style="display:none">
                 <div id="yoyo"class="flip-card-inner">
                     <div id="front" class="flip-card-front">

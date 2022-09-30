@@ -100,13 +100,18 @@ body {
     background-color: darkred;
     cursor: pointer;
 }
+#table-container {
+    overflow: auto;
+    max-height: 70vh;
+    /* padding-bottom: 50px; */
+}
 #myTable {
     user-select: none;
     overflow-y: auto;
     border-collapse: collapse;
     table-layout: fixed;
-    width: 700px;
-    height: 900px;
+    /* width: 700px;
+    height: 900px; */
     /* width: 100%; */
     padding: 0px;
     text-align: center;
