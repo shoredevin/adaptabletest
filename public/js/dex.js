@@ -268,7 +268,8 @@ async function getPokemonDetails(id, name, type1, type2) {
          .then((response) => response.json())
          .then((d) => {
             if(!d) {
-                console.log(bad);
+                console.log("bad");
+                return;
             }
             // console.log(d);
             currentlyShiny = false;
