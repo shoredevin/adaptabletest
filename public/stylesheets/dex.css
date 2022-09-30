@@ -204,6 +204,7 @@ td::first-letter {
     background-color: transparent;
     width: 500px;
     height: 500px;
+    top: 15%;
     perspective: 1000px;
     z-index: 50;
 }
