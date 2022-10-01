@@ -263,14 +263,23 @@ function logSortTotal() {
 }
 
 async function getPokemonDetails(id, name, type1, type2) {
-    await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
-    .then((response) => response.json())
-    .then((d) => {
-       currentlyShiny = false;
-       currentlyMale = true;
-       data = d;
-       openCard(name, type1, type2);
-   });
+    try {
+        await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
+         .then((response) => response.json())
+         .then((d) => {
+            if(!d) {
+                showSnackBar("No dex details for this Pokemon.");
+                return;
+            }
+            // console.log(d);
+            currentlyShiny = false;
+            currentlyMale = true;
+            data = d;
+            openCard(name, type1, type2);
+        });
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 function showSnackBar(msg) {
@@ -363,12 +372,12 @@ function setTypes(type1, type2) {
     type1Icon.innerHTML =  capitalizeFirstLetter(type1);
     type1Icon.style.backgroundColor = typeColors[type1]
     type1Icon.style.display = 'block';
-    typeContainer.style.marginLeft = "calc(50% - 3.5rem)";
+    // typeContainer.style.marginLeft = "calc(50% - 3.5rem)";
     if (type2) {
         type2Icon.innerHTML = capitalizeFirstLetter(type2);
         type2Icon.style.backgroundColor = typeColors[type2];
         type2Icon.style.display = 'block';
-        typeContainer.style.marginLeft = "calc(50% - 7.5rem)";
+        // typeContainer.style.marginLeft = "calc(50% - 7.5rem)";
     } else {
         type2Icon.style.display = 'none';
     }
@@ -433,17 +442,18 @@ function handlePrevButtonClick() {
 }
 
 function handleGenderButtonClick() {
-    // console.log(this);
-    genderIcon.classList.toggle("fa-mars");
-    genderIcon.classList.toggle("fa-venus");
-    if(genderIcon.classList.contains("fa-venus")) {
+    if(currentlyMale) {
+        genderIcon.innerHTML = "female";
         if(!currentlyShiny) pokemonSprite.src = data.femaleSpriteURL;
         if(currentlyShiny) pokemonSprite.src = data.femaleSpriteURLShiny;
     }
-    if(genderIcon.classList.contains("fa-mars")) {
+    if(!currentlyMale) {
+        genderIcon.innerHTML = "male";
         if(!currentlyShiny) pokemonSprite.src = data.spriteURL;
         if(currentlyShiny) pokemonSprite.src = data.spriteURLShiny;
     }
+    genderIcon.classList.toggle('male');
+    genderIcon.classList.toggle('fmale')
     currentlyMale = !currentlyMale;
 }
 
