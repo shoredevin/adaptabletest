@@ -101,7 +101,7 @@ body {
     cursor: pointer;
 }
 #table-container {
-    overflow: auto;
+    overflow-y: scroll;
     max-height: 70vh;
     /* padding-bottom: 50px; */
 }
@@ -173,11 +173,11 @@ td::first-letter {
 }
 .pokemon-name-link {
     text-decoration: none;
-    color: green
+    /* color: green */
 }
 .pokemon-name-link:hover {
     text-decoration: underline;
-    color: red;
+    /* color: red; */
 }
 .fire-type      { color: white; background-color: #ff4422; }
 .normal-type    { color: white; background-color: #aaaa99; }
