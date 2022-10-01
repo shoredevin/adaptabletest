@@ -266,7 +266,7 @@ td::first-letter {
 }
 .dex-details > h1 {
     text-decoration: underline;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     margin-bottom: .25rem;
 }
 .dex-details > h3 {
