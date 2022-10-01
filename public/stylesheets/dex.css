@@ -173,11 +173,11 @@ td::first-letter {
 }
 .pokemon-name-link {
     text-decoration: none;
-    color: green
+    /* color: green */
 }
 .pokemon-name-link:hover {
     text-decoration: underline;
-    color: red;
+    /* color: red; */
 }
 .fire-type      { color: white; background-color: #ff4422; }
 .normal-type    { color: white; background-color: #aaaa99; }
@@ -266,7 +266,7 @@ td::first-letter {
 }
 .dex-details > h1 {
     text-decoration: underline;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     margin-bottom: .25rem;
 }
 .dex-details > h3 {
