@@ -157,9 +157,11 @@ router.get("/details", asyncMiddleware(async (req, res) => {
 
 router.patch('/details/:name', asyncMiddleware(async (req, res) => {
   const { name } = req.params;
-  const json = [
-    req.body
-  ]
+  // const json = [
+  //   req.body
+  // ]
+  json = req.body;
+  console.log(json);
   // const forms = req.body.forms;
   // console.log(forms);
   const updated = await prisma.PokemonDetails.update({
