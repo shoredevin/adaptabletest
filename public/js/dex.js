@@ -211,6 +211,7 @@ async function patchJob(e, id, bool) {
     const todos = await resp.json();
     console.log(todos)
     initTable();
+    setSearchLogic();  
 }
 
 function openCard(name, type1, type2) {
