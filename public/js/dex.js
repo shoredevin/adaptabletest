@@ -594,9 +594,9 @@ overlay.addEventListener('click', () => {
 
     genderIcon.innerHTML = "male";
     // shinyIcon.style.color = "white";
-    shinyIcon.classList.toggle('shiny-true')
-    genderIcon.classList.toggle('male');
-    genderIcon.classList.toggle('fmale')
+    shinyIcon.classList.remove('shiny-true')
+    genderIcon.classList.add('male');
+    genderIcon.classList.remove('fmale')
     
     // currentlyMale = "true";
     // currentlyShiny = "false";
