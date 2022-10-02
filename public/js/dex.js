@@ -1,3 +1,4 @@
+/* Reused HTML elements */
 const card              = document.querySelector("#yo");
 const cardInner         = document.querySelector("#yoyo");
 const front             = document.getElementById('front');
@@ -12,6 +13,8 @@ const nextButton        = document.getElementById("next");
 const prevButton        = document.getElementById("prev");
 const dexDetails        = document.getElementById("dex-details");
 const overlay           = document.getElementById("overlay");
+
+/* CSS color codes for Pokemon types*/
 const typeColors = {
     "fire"      : "#ff4422",
     "normal"    : "#aaaa99",
@@ -33,14 +36,17 @@ const typeColors = {
     "fairy"     : "#ee99ee"
 };
 
-let currentlyMale = true;
-let currentlyShiny = false;
-let shinyIconHasEvent = false;
-let genderIconHasEvent = false;
+/* Helper variables to determine card state */
+let currentlyMale       = true;
+let currentlyShiny      = false;
+let shinyIconHasEvent   = false;
+let genderIconHasEvent  = false;
 
 let data;
-// let totalRows;
 
+/* 
+    Table template 
+*/
 const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     <tr>
         <td contenteditable="false">${ pad(dexnum, 3) }</td>
@@ -135,10 +141,12 @@ function setSearchLogic() {
         logSortTotal();
 }
 
-// function setTotalRows() {
-//     totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
-//     document.getElementById('table-size').innerHTML = "Showing " + totalRows + " of " + totalRows + " rows";
-// }
+function clearSearch() {
+    document.getElementById('myInput').value = '';
+    document.getElementById('myInput').focus();
+    document.activeElement.blur()
+    setSearchLogic();
+}
 
 function logSortTotal() {
     const totalRows = totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
@@ -165,7 +173,6 @@ async function getPokemonDetails(id, name, type1, type2) {
                 showSnackBar("No dex details for this Pokemon.");
                 return;
             }
-            // console.log(d);
             currentlyShiny = false;
             currentlyMale = true;
             data = d;
@@ -176,14 +183,32 @@ async function getPokemonDetails(id, name, type1, type2) {
     }
 }
 
-function showSnackBar(msg) {
-    // Get the snackbar DIV
-    var x = document.getElementById("snackbar");
-    x.innerHTML = msg;
-    // Add the "show" class to DIV
-    x.className = "show";
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+async function patchJob(e, id, bool) {
+    if(e.target.classList.contains("caught-button")) {
+        if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
+            showSnackBar("Cannot make a shiny Pokemon uncaught");
+            return;
+        };
+        e.target.classList.toggle("fa-regular");
+        e.target.classList.toggle("fa-solid");
+    };
+    if(e.target.classList.contains("shiny-button")) {
+        if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
+            showSnackBar("Cannot make an uncaught Pokemon shiny");
+            return;
+        };
+        e.target.classList.toggle("fa-regular");
+        e.target.classList.toggle("fa-solid");
+    };
+    const resp = await fetch(`/todos/dex/${id}`, {
+        method: "PATCH", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bool)
+    });
+    const todos = await resp.json();
+    console.log(todos)
 }
 
 function openCard(name, type1, type2) {
@@ -201,10 +226,7 @@ function openCard(name, type1, type2) {
     setBack(name, data);
     card.style.display = "block";
 }
-function closeCard() {
-    // genderIcon.removeEventListener("click", genderIconClick);
-    // shinyIcon.removeEventListener("click", shinyIconClick);
-}
+
 function setBorder(type1, type2) {
     const tbColor = typeColors[type1];
     const lrColor = type2 ? typeColors[type2] : typeColors[type1];
@@ -219,25 +241,20 @@ function setTypes(type1, type2) {
     type1Icon.innerHTML =  capitalizeFirstLetter(type1);
     type1Icon.style.backgroundColor = typeColors[type1]
     type1Icon.style.display = 'block';
-    // typeContainer.style.marginLeft = "calc(50% - 3.5rem)";
     if (type2) {
         type2Icon.innerHTML = capitalizeFirstLetter(type2);
         type2Icon.style.backgroundColor = typeColors[type2];
         type2Icon.style.display = 'block';
-        // typeContainer.style.marginLeft = "calc(50% - 7.5rem)";
     } else {
         type2Icon.style.display = 'none';
     }
 }
 function setBack(name, data) {
-    // console.log(data.forms);
-    // console.log(Object.keys(data.forms).length);
-    // console.log(Object.keys(data.forms));
     dexDetails.innerHTML = 
     `
         <h1>${capitalizeFirstLetter(name)}</h1> 
         <h3>${data.nickname}</h3>
-        <p id="forms-p" style="display:none"><span class="title">Forms: </span><select id="form-selector" class="form-selector">${Object.keys(data.forms).length > 0 ? lager(data.forms) : ""}</select><p>
+        <p id="forms-p" style="display:none"><span class="title">Forms: </span><select id="form-selector" class="form-selector">${Object.keys(data.forms).length > 0 ? setFormSelectOptions(data.forms) : ""}</select><p>
         <p><span class="title">Ability:</span> ${data.ability1}${data.ability2 ? ", " + data.ability2 : ""}</p>
         <p><span class="title">Hidden Ability:</span> ${data.hability}</p>
         <p class="egg-groups"><span class="title">Egg Groups:</span> ${data.eggGroup}</p>
@@ -258,9 +275,9 @@ function setBack(name, data) {
     })
 }
 
-function lager(forms) {
-    console.log(forms);
-    console.log(forms.length);
+function setFormSelectOptions(forms) {
+    // console.log(forms);
+    // console.log(forms.length);
     let str;
     for (let i = 0; i < Object.keys(forms).length; i++) {
         str += `<option value='${forms[Object.keys(forms)[i]].url}'>` + Object.keys(forms)[i] + `</option>`
@@ -268,8 +285,7 @@ function lager(forms) {
     return str
 }
 
-nextButton.onclick = handleNextButtonClick;
-function handleNextButtonClick() {
+nextButton.onclick = () => {
     prevButton.style.display = "block";
     nextButton.style.display = "none";
     card.style.transform = "rotateY(180deg)";
@@ -278,8 +294,7 @@ function handleNextButtonClick() {
     back.style.display = "flex";
 }
 
-prevButton.onclick = handlePrevButtonClick;
-function handlePrevButtonClick() {
+prevButton.onclick = () => {
     prevButton.style.display = "none";
     nextButton.style.display = "block";
     card.style.transform = "rotateY(0deg)";
@@ -336,21 +351,9 @@ function handleShinyButtonClick() {
 //     }
 // }
 
-function setFormSelector() {
-    console.log('here')
-}
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-function clearSearch() {
-    document.getElementById('myInput').value = '';
-    document.getElementById('myInput').focus();
-    document.activeElement.blur()
-    // document.getElementById('table-container').scrollTo(0,0);
-    setSearchLogic();
-}
+// function setFormSelector() {
+//     console.log('here')
+// }
 
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
@@ -358,24 +361,35 @@ overlay.addEventListener('click', () => {
     if (shinyIconHasEvent) shinyIcon.removeEventListener("click", handleShinyButtonClick);
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
-
     genderIcon.innerHTML = "male";
-    // shinyIcon.style.color = "white";
     shinyIcon.classList.remove('shiny-true')
     genderIcon.classList.add('male');
     genderIcon.classList.remove('fmale')
-    
-    // currentlyMale = "true";
-    // currentlyShiny = "false";
-
     card.style.display = "none";
 })
 
 
 /*
     Helper functions
+    These should probably be moved to a 'global.js' file
 */
+
 function pad (str, max) {
     str = str.toString();
     return str.length < max ? pad("0" + str, max) : str
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+
+function showSnackBar(msg) {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+    x.innerHTML = msg;
+    // Add the "show" class to DIV
+    x.className = "show";
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
