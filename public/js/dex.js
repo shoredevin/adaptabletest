@@ -149,7 +149,7 @@ function clearSearch() {
 }
 
 function logSortTotal() {
-    const totalRows = totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
+    const totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
     let sortTotal = -1;
     const  tr = document.getElementById("myTable").getElementsByTagName('tr');
     for (var i = 0; i < tr.length; i++) {
