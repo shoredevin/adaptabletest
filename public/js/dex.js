@@ -70,7 +70,7 @@ window.onload = async () => {
         let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
         tbdy.innerHTML = data.map(json2table).join("")
     });
-    setTotalRows();
+    logSortTotal();
 }
 
 /*
