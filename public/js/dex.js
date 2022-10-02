@@ -62,7 +62,8 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
 /*
     Start up proxess - get data from API and build table
 */
-window.onload = async function initTable() {
+window.onload = initTable;
+async function initTable() {
     await fetch('/todos/dex')
      .then((response) => response.json())
      .then((data) => {
