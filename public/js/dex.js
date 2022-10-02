@@ -210,7 +210,7 @@ async function patchJob(e, id, bool) {
     });
     const todos = await resp.json();
     console.log(todos)
-    initTable();
+    await initTable();
     setSearchLogic();  
 }
 
