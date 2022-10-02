@@ -199,12 +199,14 @@ td::first-letter {
 .fairy-type     { color: white; background-color: #ee99ee; }
 
 .flip-card {
+    aspect-ratio: 1/1;
     position: absolute;
     user-select: none;
     background-color: transparent;
     width: 500px;
     max-width: 85%;
-    height: 500px;
+    /* height: 500px; */
+    max-height: calc(width);
     top: 15%;
     perspective: 1000px;
     z-index: 50;
