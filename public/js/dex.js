@@ -12,8 +12,7 @@ const nextButton        = document.getElementById("next");
 const prevButton        = document.getElementById("prev");
 const dexDetails        = document.getElementById("dex-details");
 const overlay           = document.getElementById("overlay");
-const typeColors = 
-{
+const typeColors = {
     "fire"      : "#ff4422",
     "normal"    : "#aaaa99",
     "water"     : "#3399ff",
@@ -40,6 +39,7 @@ let shinyIconHasEvent = false;
 let genderIconHasEvent = false;
 
 let data;
+// let totalRows;
 
 const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     <tr>
@@ -52,128 +52,30 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
     </tr>
 `;
 
-function pad (str, max) {
-    str = str.toString();
-    return str.length < max ? pad("0" + str, max) : str
-}
 
-// window.onload = initializeTable;
-// async function initializeTable() {
+/*
+    Start up proxess - get data from API and build table
+*/
 window.onload = async () => {
     await fetch('/todos/dex')
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
-        // let myTable = document.querySelector("#myTable");
-        // myTable.style.display = "inline-block";
         let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
         tbdy.innerHTML = data.map(json2table).join("")
-        // json2table(data);
     });
     setTotalRows();
 }
 
-// async function yeet() {
-//     const dexnum = document.getElementById('dexnum').value;
-//     const name = document.getElementById('name').value;
-//     const type1 = document.getElementById('type1-selector').value;
-//     const type2 = document.getElementById('type2-selector').value;
-
-//     if(isNaN(dexnum)) { console.log("NaN"); return }
-//     if(!dexnum || !name || !type1 || !type2) return
-//     await fetch('/todos/dex', {
-//         method: 'POST',
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({ 
-//             dexnum: dexnum, 
-//             name: name,
-//             type1: type1,
-//             type2: type2,
-//             caught: false,
-//             shiny: false
-//         })
-//     })
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data);
-//         document.getElementById('dexnum').value = "";
-//         document.getElementById('name').value = "";
-//         yeetGet();
-//     })
-// }
-
-// async function handleTodoDelete(ev, id) {
-//     if(!window.confirm("Are you sure you want to delete?")) return;
-//     const resp = await fetch(`/todos/dex`, {
-//         method: "DELETE", 
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({ id: id })
-//     });
-//     const todos = await resp.json();
-//     console.log(todos);
-//     await yeetGet();
-// };
-
-// async function handleEdit(e) {
-//     console.log(e.parentElement.parentElement);
-//     const rows = e.parentElement.parentElement.children;
-//     console.log(rows.length);
-//     for(let i = 1; i < rows.length; i++) {
-//         const bool = (rows[i].contentEditable === 'true');
-//         if(bool) {
-//             rows[i].contentEditable = false;
-//             e.style.color = "black";
-//         }
-//         if(!bool) {
-//             rows[i].contentEditable = true;
-//             e.style.color = "orange";
-//         }
-//     }   
-
-// }
-
-// async function patchJob(e, id, bool) {
-//     // console.log(e);
-//     if(e.target.classList.contains("caught-button")) {
-//         if(e.target.parentElement.nextElementSibling.children[0].classList.contains("fa-solid")) {
-//             showSnackBar("Cannot make a shiny Pokemon uncaught");
-//             return;
-//         };
-//         // e.target.classList.toggle("caught-button");
-//         e.target.classList.toggle("fa-regular");
-//         e.target.classList.toggle("fa-solid");
-//     };
-//     if(e.target.classList.contains("shiny-button")) {
-//         if(e.target.parentElement.previousElementSibling.children[0].classList.contains("fa-regular")) {
-//             showSnackBar("Cannot make an uncaught Pokemon shiny");
-//             return;
-//         };
-//         e.target.classList.toggle("fa-regular");
-//         e.target.classList.toggle("fa-solid");
-//         // e.target.classList.toggle("shiny-button");
-//         // e.target.classList.toggle("caught-button");
-//     };
-//     const resp = await fetch(`/todos/dex/${id}`, {
-//         method: "PATCH", 
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(bool)
-//     });
-//     const todos = await resp.json();
-//     console.log(todos)
-//     // await yeetGet();
-// }
-
+/*
+    Table search logic, includes SOME Add/Or processing
+*/
 function setSearchLogic() {
     console.log('i am here...')
         const regex = / & /gi;
 		let index;
         var value = document.querySelector('#myInput').value.toLowerCase().replace(regex, '&');
+        /* TO DO: Rewrite this regex with the new element infroamtion */
         const caughtRegX = /caught/gi;
         const uncaughtRegX = /!caught/gi;
         const uncaughtExplicitRegX = /uncaught/gi;
@@ -233,16 +135,15 @@ function setSearchLogic() {
         logSortTotal();
 }
 
-let totalRows;
-
-function setTotalRows() {
-    totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
-    document.getElementById('table-size').innerHTML = "Showing " + totalRows + " of " + totalRows + " rows";
-}
+// function setTotalRows() {
+//     totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
+//     document.getElementById('table-size').innerHTML = "Showing " + totalRows + " of " + totalRows + " rows";
+// }
 
 function logSortTotal() {
+    const totalRows = totalRows = document.getElementById("myTable").getElementsByTagName('tr').length - 1;
     let sortTotal = -1;
-    var tr = document.getElementById("myTable").getElementsByTagName('tr');
+    const  tr = document.getElementById("myTable").getElementsByTagName('tr');
     for (var i = 0; i < tr.length; i++) {
         if(tr[i].style.display != 'none') {
             sortTotal++;
@@ -469,3 +370,12 @@ overlay.addEventListener('click', () => {
 
     card.style.display = "none";
 })
+
+
+/*
+    Helper functions
+*/
+function pad (str, max) {
+    str = str.toString();
+    return str.length < max ? pad("0" + str, max) : str
+}
