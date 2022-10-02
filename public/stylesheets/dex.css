@@ -305,7 +305,7 @@ td::first-letter {
     color: hsl(360, 0%, 75%);
 }
 .egg-groups, .gender-rates {
-    margin-top: 1.25rem;
+    /* margin-top: 1.25rem; */
 }
 .shiny-icon {
     position: absolute;
