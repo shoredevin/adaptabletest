@@ -62,7 +62,7 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
 /*
     Start up proxess - get data from API and build table
 */
-window.onload = async () => {
+window.onload = async function initTable() {
     await fetch('/todos/dex')
      .then((response) => response.json())
      .then((data) => {
@@ -209,6 +209,7 @@ async function patchJob(e, id, bool) {
     });
     const todos = await resp.json();
     console.log(todos)
+    initTable();
 }
 
 function openCard(name, type1, type2) {
