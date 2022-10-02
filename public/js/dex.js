@@ -598,8 +598,8 @@ overlay.addEventListener('click', () => {
     genderIcon.classList.toggle('male');
     genderIcon.classList.toggle('fmale')
     
-    currentlyMale = "true";
-    currentlyShiny = "false";
+    // currentlyMale = "true";
+    // currentlyShiny = "false";
 
     card.style.display = "none";
 })
