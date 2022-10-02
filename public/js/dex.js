@@ -462,15 +462,16 @@ function handleShinyButtonClick() {
     const url = Object.keys(data.forms).length > 0 ? formSelect.value : data.spriteURL;
     console.log(url);
     if(!currentlyShiny) {
-        shinyIcon.style.color = "gold";
+        // shinyIcon.style.color = "gold";
         if(currentlyMale) pokemonSprite.src = url.replace(".gif", "").concat("", "-s.gif");
         if(!currentlyMale) pokemonSprite.src = url.replace(".gif", "").concat("", "f-s.gif");
     }
     if(currentlyShiny) {
-        shinyIcon.style.color = "white";
+        // shinyIcon.style.color = "white";
         if(currentlyMale) pokemonSprite.src = url;
         if(!currentlyMale) pokemonSprite.src = url.replace(".gif", "").concat("", "f.gif");
     }
+    shinyIcon.classList.toggle('shiny-true')
     currentlyShiny = !currentlyShiny;
 }
 
@@ -598,6 +599,6 @@ overlay.addEventListener('click', () => {
     
     currentlyMale = !currentlyMale;
     currentlyShiny = !currentlyShiny;
-    
+
     card.style.display = "none";
 })
