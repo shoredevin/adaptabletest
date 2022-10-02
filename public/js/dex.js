@@ -590,5 +590,7 @@ overlay.addEventListener('click', () => {
     if (shinyIconHasEvent) shinyIcon.removeEventListener("click", handleShinyButtonClick);
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
+    genderIcon.innerHTML = "male";
+    shinyIcon.style.color = "white";
     card.style.display = "none";
 })
