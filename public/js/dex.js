@@ -309,8 +309,8 @@ const overlay           = document.getElementById("overlay");
 
 // const formSelector      = document.getElementById("form-selector");
 
-let currentlyShiny = false;
 let currentlyMale = true;
+let currentlyShiny = false;
 
 let shinyIconHasEvent = false;
 let genderIconHasEvent = false;
@@ -598,7 +598,7 @@ overlay.addEventListener('click', () => {
     genderIcon.classList.toggle('male');
     genderIcon.classList.toggle('fmale')
     
-    currentlyMale = "male";
+    currentlyMale = "true";
     currentlyShiny = "false";
 
     card.style.display = "none";
