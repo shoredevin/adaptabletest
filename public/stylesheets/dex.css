@@ -203,6 +203,7 @@ td::first-letter {
     user-select: none;
     background-color: transparent;
     width: 500px;
+    max-width: 85%;
     height: 500px;
     top: 15%;
     perspective: 1000px;
