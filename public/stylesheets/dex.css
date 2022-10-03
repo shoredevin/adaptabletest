@@ -144,7 +144,7 @@ td {
     border-left: 1px solid rgb(66,66,66);
     border-right: 1px solid rgb(66,66,66);
     border-bottom: 1px solid rgb(66,66,66);
-    overflow-wrap: anywheere;
+    overflow-wrap: anywhere;
 }
 thead {
     background-color: black;
