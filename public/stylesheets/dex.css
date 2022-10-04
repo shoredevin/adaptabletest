@@ -89,6 +89,9 @@ body {
     border: orangered;
     border-radius: 50%;
 }
+#Search::-webkit-search-cancel-button:hover{
+    cursor: pointer;
+}
 
 /* #clear-button:hover, #clear-button:focus {
     outline: none;
