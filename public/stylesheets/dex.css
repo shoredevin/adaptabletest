@@ -397,3 +397,9 @@ td::first-letter {
   .shiny-true {
     color: goldenrod;
   }
+  .logo-container {
+    /* filter: grayscale(70%); */
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }

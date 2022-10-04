@@ -42,3 +42,9 @@ margin: 0px;
   /* margin: 0px; */
   margin-left: auto;
 }
+.logo-container {
+  /* filter: grayscale(70%); */
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
