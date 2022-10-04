@@ -90,10 +90,10 @@ body {
     border-radius: 50%;
 }
 #myInput::-webkit-search-cancel-button {
-    color: green;
+    /* color: green; */
 }
 #myInput::-webkit-search-cancel-button:hover {
-    color: red;
+    background: red;
     cursor: pointer;
 }
 
