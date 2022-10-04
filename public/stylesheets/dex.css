@@ -1,5 +1,6 @@
 :root {
-    font-size: 16pt;
+    /* font-size: 16pt; */
+    font-size: clamp(0.5rem, -0.2941rem + 3.5294vw, 1.25rem);
 }
 body {
     height: 100vh;
