@@ -135,8 +135,8 @@ body {
     position: sticky;
     z-index: 10;
     top: 0;
-    border-left: 1px solid rgb(66,66,66);
-    border-right: 1px solid rgb(66,66,66);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 /* table, th, td {
     border-collapse: collapse;
@@ -149,9 +149,9 @@ body {
     width: 100%;
 } */
 td {
-    border-left: 1px solid rgb(66,66,66);
-    border-right: 1px solid rgb(66,66,66);
-    border-bottom: 1px solid rgb(66,66,66);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     overflow-wrap: anywhere;
 }
 thead {
