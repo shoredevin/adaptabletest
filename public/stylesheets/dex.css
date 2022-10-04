@@ -89,7 +89,11 @@ body {
     border: orangered;
     border-radius: 50%;
 }
-#Search::-webkit-search-cancel-button:hover{
+#myInput::-webkit-search-cancel-button {
+    color: green;
+}
+#myInput::-webkit-search-cancel-button:hover {
+    color: red;
     cursor: pointer;
 }
 
