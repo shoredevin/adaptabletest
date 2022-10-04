@@ -1,5 +1,6 @@
 :root {
-    font-size: 16pt;
+    /* font-size: 16pt; */
+    font-size: clamp(0.5rem, -0.2941rem + 3.5294vw, 1.25rem);
 }
 body {
     height: 100vh;
@@ -9,7 +10,7 @@ body {
     justify-items: center;
     overflow: hidden;
     background: #334651;
-
+    user-select: none;
     /* background-image: linear-gradient(135deg, red, blue, white); */
     /* background-size: cover; */
 }
@@ -67,7 +68,7 @@ body {
     width: 99%;
     border-radius: 0.5em;
     border: 1px solid #ddd;
-    font-size: 1em;
+    font-size: 1rem;
 }
 /* #info-button {
     width: 2.5%;
@@ -88,6 +89,13 @@ body {
     border: orangered;
     border-radius: 50%;
 }
+#myInput::-webkit-search-cancel-button {
+    /* color: green; */
+}
+#myInput::-webkit-search-cancel-button:hover {
+    background: red;
+    cursor: pointer;
+}
 
 /* #clear-button:hover, #clear-button:focus {
     outline: none;
@@ -95,7 +103,7 @@ body {
     cursor: pointer;
 } */
 #table-size {
-    font-size: 16px;
+    font-size: 1rem;
     margin-top: 1px;
     margin-bottom: 1px;
     margin-right: auto;
@@ -144,6 +152,7 @@ td {
     border-left: 1px solid rgb(66,66,66);
     border-right: 1px solid rgb(66,66,66);
     border-bottom: 1px solid rgb(66,66,66);
+    overflow-wrap: anywhere;
 }
 thead {
     background-color: black;
