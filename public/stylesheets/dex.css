@@ -16,7 +16,7 @@ body {
     overflow: hidden;
     background: #334651;
     user-select: none;
-    /* background-image: linear-gradient(135deg, red, blue, white); */
+    background-image: url('https://pokeotools.info/images/background.jpeg')
     /* background-size: cover; */
 }
 .overlay {

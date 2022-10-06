@@ -3,371 +3,371 @@ import fetch from "node-fetch";
 const toUpdate = {
     "Venusaur": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Butterfree": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Rattata": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Raticate": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Pikachu": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Raichu": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Zubat": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Golbat": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Gloom": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Vileplume": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Kadabra": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Alakazam": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Doduo": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Dodrio": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Hypno": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Rhyhorn": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Rhydon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Goldeen": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Seaking": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Scyther": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Magikarp": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Gyarados": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Eevee": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Meganium": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Ledyba": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Ledian": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Xatu": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Sudowoodo": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Politoed": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Aipom": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Wooper": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Quagsire": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Murkrow": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Wobbuffet": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Girafarig": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Gligar": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Steelix": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Scizor": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Heracross": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Sneasel": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Ursaring": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Piloswine": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Remoraid": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Houndour": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Phanpy": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Sceptile": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Torchic": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Combusken": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Linoone": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Silcoon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Dustox": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Lombre": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Ludicolo": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Aron": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Lairon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Minun": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Volbeat": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Illumise": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Sharpedo": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Wailmer": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Vibrava": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Anorith": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Clamperl": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Piplup": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Prinplup": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Empoleon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Starly": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Staravia": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Staraptor": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Bidoof": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Bibarel": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Kricketot": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Kricketune": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Luxio": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Burmy": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Mothim": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Combee": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Vespiquen": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Cherrim": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Happiny": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Chatot": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Spiritomb": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Hippowdon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Skorupi": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Croagunk": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Toxicroak": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Finneon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Lumineon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Mantyke": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Weavile": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Magnezone": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
     "Leafeon": {
         "female": "",
-        "shiny": "cls"
+        "shiny": ""
     },
 }
 
@@ -376,13 +376,9 @@ main();
 async function main() {
     const keys = Object.keys(toUpdate) 
     for (let i = 0; i < keys.length; i++) {
-        // console.log(keys[i]);
-        // console.log(toUpdate[keys[i]]);
         const name = keys[i];
-        // const b = toUpdate[keys[i]]
         const fmaleURL = toUpdate[keys[i]].female;
         const fmaleShinyURL = toUpdate[keys[i]].shiny;
-        // console.log(name, fmaleURL, fmaleShinyURL);
         await fetch(`https://adaptabletest.adaptable.app/todos/details/${name}`, {
             method: 'PATCH',
             body: JSON.stringify({
