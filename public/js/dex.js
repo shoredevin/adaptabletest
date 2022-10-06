@@ -365,6 +365,7 @@ overlay.addEventListener('click', () => {
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
     genderIcon.innerHTML = "male";
+    genderIcon.classList.remove("hoverable")
     shinyIcon.classList.remove('shiny-true')
     genderIcon.classList.add('male');
     genderIcon.classList.remove('fmale')
