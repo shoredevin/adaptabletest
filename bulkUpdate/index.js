@@ -2,373 +2,373 @@ import fetch from "node-fetch";
 
 const toUpdate = {
     "Venusaur": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/003f.gif",
+        "shiny": "https://poketools.info/images/sprites/003f-s.gif"
     },
     "Butterfree": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/012f.gif",
+        "shiny": "https://poketools.info/images/sprites/012f-s.gif"
     },
     "Rattata": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/019f.gif",
+        "shiny": "https://poketools.info/images/sprites/019f-s.gif"
     },
     "Raticate": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/020f.gif",
+        "shiny": "https://poketools.info/images/sprites/020f-s.gif"
     },
     "Pikachu": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/025f.gif",
+        "shiny": "https://poketools.info/images/sprites/025f-s.gif"
     },
     "Raichu": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/026f.gif",
+        "shiny": "https://poketools.info/images/sprites/026f-s.gif"
     },
     "Zubat": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/041f.gif",
+        "shiny": "https://poketools.info/images/sprites/041f-s.gif"
     },
     "Golbat": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/042f.gif",
+        "shiny": "https://poketools.info/images/sprites/042f-s.gif"
     },
     "Gloom": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/044f.gif",
+        "shiny": "https://poketools.info/images/sprites/044f-s.gif"
     },
     "Vileplume": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/045f.gif",
+        "shiny": "https://poketools.info/images/sprites/045f-s.gif"
     },
     "Kadabra": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/064f.gif",
+        "shiny": "https://poketools.info/images/sprites/064f-s.gif"
     },
     "Alakazam": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/065f.gif",
+        "shiny": "https://poketools.info/images/sprites/065f-s.gif"
     },
     "Doduo": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/084f.gif",
+        "shiny": "https://poketools.info/images/sprites/084f-s.gif"
     },
     "Dodrio": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/085f.gif",
+        "shiny": "https://poketools.info/images/sprites/085f-s.gif"
     },
     "Hypno": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/097f.gif",
+        "shiny": "https://poketools.info/images/sprites/097f-s.gif"
     },
     "Rhyhorn": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/111f.gif",
+        "shiny": "https://poketools.info/images/sprites/111f-s.gif"
     },
     "Rhydon": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/112f.gif",
+        "shiny": "https://poketools.info/images/sprites/112f-s.gif"
     },
     "Goldeen": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/118f.gif",
+        "shiny": "https://poketools.info/images/sprites/118f-s.gif"
     },
     "Seaking": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/119f.gif",
+        "shiny": "https://poketools.info/images/sprites/119f-s.gif"
     },
     "Scyther": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/123f.gif",
+        "shiny": "https://poketools.info/images/sprites/123f-s.gif"
     },
     "Magikarp": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/129f.gif",
+        "shiny": "https://poketools.info/images/sprites/129f-s.gif"
     },
     "Gyarados": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/130f.gif",
+        "shiny": "https://poketools.info/images/sprites/130f-s.gif"
     },
     "Eevee": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/133f.gif",
+        "shiny": "https://poketools.info/images/sprites/133f-s.gif"
     },
     "Meganium": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/154f.gif",
+        "shiny": "https://poketools.info/images/sprites/154f-s.gif"
     },
     "Ledyba": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/165f.gif",
+        "shiny": "https://poketools.info/images/sprites/165f-s.gif"
     },
     "Ledian": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/166f.gif",
+        "shiny": "https://poketools.info/images/sprites/166f-s.gif"
     },
     "Xatu": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/178f.gif",
+        "shiny": "https://poketools.info/images/sprites/178f-s.gif"
     },
     "Sudowoodo": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/185f.gif",
+        "shiny": "https://poketools.info/images/sprites/185f-s.gif"
     },
     "Politoed": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/186f.gif",
+        "shiny": "https://poketools.info/images/sprites/186f-s.gif"
     },
     "Aipom": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/190f.gif",
+        "shiny": "https://poketools.info/images/sprites/190f-s.gif"
     },
     "Wooper": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/194f.gif",
+        "shiny": "https://poketools.info/images/sprites/194f-s.gif"
     },
     "Quagsire": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/195f.gif",
+        "shiny": "https://poketools.info/images/sprites/195f-s.gif"
     },
     "Murkrow": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/198f.gif",
+        "shiny": "https://poketools.info/images/sprites/198f-s.gif"
     },
     "Wobbuffet": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/202f.gif",
+        "shiny": "https://poketools.info/images/sprites/202f-s.gif"
     },
     "Girafarig": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/203f.gif",
+        "shiny": "https://poketools.info/images/sprites/203f-s.gif"
     },
     "Gligar": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/207f.gif",
+        "shiny": "https://poketools.info/images/sprites/207f-s.gif"
     },
     "Steelix": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/208f.gif",
+        "shiny": "https://poketools.info/images/sprites/208f-s.gif"
     },
     "Scizor": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/212f.gif",
+        "shiny": "https://poketools.info/images/sprites/212f-s.gif"
     },
     "Heracross": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/214f.gif",
+        "shiny": "https://poketools.info/images/sprites/214f-s.gif"
     },
     "Sneasel": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/215f.gif",
+        "shiny": "https://poketools.info/images/sprites/215f-s.gif"
     },
     "Ursaring": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/217f.gif",
+        "shiny": "https://poketools.info/images/sprites/217f-s.gif"
     },
     "Piloswine": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/221f.gif",
+        "shiny": "https://poketools.info/images/sprites/221f-s.gif"
     },
-    "Remoraid": {
-        "female": "",
-        "shiny": ""
+    "Octillery": {
+        "female": "https://poketools.info/images/sprites/224f.gif",
+        "shiny": "https://poketools.info/images/sprites/224f-s.gif"
     },
-    "Houndour": {
-        "female": "",
-        "shiny": ""
+    "Houndoom": {
+        "female": "https://poketools.info/images/sprites/229f.gif",
+        "shiny": "https://poketools.info/images/sprites/229f-s.gif"
     },
-    "Phanpy": {
-        "female": "",
-        "shiny": ""
-    },
-    "Sceptile": {
-        "female": "",
-        "shiny": ""
+    "Donphan": {
+        "female": "https://poketools.info/images/sprites/232f.gif",
+        "shiny": "https://poketools.info/images/sprites/232f-s.gif"
     },
     "Torchic": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/255f.gif",
+        "shiny": "https://poketools.info/images/sprites/255f-s.gif"
     },
     "Combusken": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/256f.gif",
+        "shiny": "https://poketools.info/images/sprites/256f-s.gif"
     },
-    "Linoone": {
-        "female": "",
-        "shiny": ""
+    "Blaziken": {
+        "female": "https://poketools.info/images/sprites/257f.gif",
+        "shiny": "https://poketools.info/images/sprites/257f-s.gif"
     },
-    "Silcoon": {
-        "female": "",
-        "shiny": ""
+    "Beautifly": {
+        "female": "https://poketools.info/images/sprites/267f.gif",
+        "shiny": "https://poketools.info/images/sprites/267f-s.gif"
     },
     "Dustox": {
-        "female": "",
-        "shiny": ""
-    },
-    "Lombre": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/269f.gif",
+        "shiny": "https://poketools.info/images/sprites/269f-s.gif"
     },
     "Ludicolo": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/272f.gif",
+        "shiny": "https://poketools.info/images/sprites/272f-s.gif"
     },
-    "Aron": {
-        "female": "",
-        "shiny": ""
+    "Nuzleaf": {
+        "female": "https://poketools.info/images/sprites/274f.gif",
+        "shiny": "https://poketools.info/images/sprites/274f-s.gif"
     },
-    "Lairon": {
-        "female": "",
-        "shiny": ""
+    "Shiftry": {
+        "female": "https://poketools.info/images/sprites/275f.gif",
+        "shiny": "https://poketools.info/images/sprites/275f-s.gif"
     },
-    "Minun": {
-        "female": "",
-        "shiny": ""
+    "Meditite": {
+        "female": "https://poketools.info/images/sprites/307f.gif",
+        "shiny": "https://poketools.info/images/sprites/307f-s.gif"
     },
-    "Volbeat": {
-        "female": "",
-        "shiny": ""
+    "Medicham": {
+        "female": "https://poketools.info/images/sprites/308f.gif",
+        "shiny": "https://poketools.info/images/sprites/308f-s.gif"
     },
-    "Illumise": {
-        "female": "",
-        "shiny": ""
+    "Roselia": {
+        "female": "https://poketools.info/images/sprites/315f.gif",
+        "shiny": "https://poketools.info/images/sprites/315f-s.gif"
     },
-    "Sharpedo": {
-        "female": "",
-        "shiny": ""
+    "Gulpin": {
+        "female": "https://poketools.info/images/sprites/316f.gif",
+        "shiny": "https://poketools.info/images/sprites/316f-s.gif"
     },
-    "Wailmer": {
-        "female": "",
-        "shiny": ""
+    "Swalot": {
+        "female": "https://poketools.info/images/sprites/317f.gif",
+        "shiny": "https://poketools.info/images/sprites/317f-s.gif"
     },
-    "Vibrava": {
-        "female": "",
-        "shiny": ""
+    "Numel": {
+        "female": "https://poketools.info/images/sprites/322f.gif",
+        "shiny": "https://poketools.info/images/sprites/322f-s.gif"
     },
-    "Anorith": {
-        "female": "",
-        "shiny": ""
+    "Camerupt": {
+        "female": "https://poketools.info/images/sprites/323f.gif",
+        "shiny": "https://poketools.info/images/sprites/323f-s.gif"
     },
-    "Clamperl": {
-        "female": "",
-        "shiny": ""
+    "Cacturne": {
+        "female": "https://poketools.info/images/sprites/332f.gif",
+        "shiny": "https://poketools.info/images/sprites/332f-s.gif"
     },
-    "Piplup": {
-        "female": "",
-        "shiny": ""
+    "Milotic": {
+        "female": "https://poketools.info/images/sprites/350f.gif",
+        "shiny": "https://poketools.info/images/sprites/350f-s.gif"
     },
-    "Prinplup": {
-        "female": "",
-        "shiny": ""
-    },
-    "Empoleon": {
-        "female": "",
-        "shiny": ""
+    "Relicanth": {
+        "female": "https://poketools.info/images/sprites/369f.gif",
+        "shiny": "https://poketools.info/images/sprites/369f-s.gif"
     },
     "Starly": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/396f.gif",
+        "shiny": "https://poketools.info/images/sprites/396f-s.gif"
     },
     "Staravia": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/397f.gif",
+        "shiny": "https://poketools.info/images/sprites/397f-s.gif"
     },
     "Staraptor": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/398f.gif",
+        "shiny": "https://poketools.info/images/sprites/398f-s.gif"
     },
     "Bidoof": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/399f.gif",
+        "shiny": "https://poketools.info/images/sprites/399f-s.gif"
     },
     "Bibarel": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/400f.gif",
+        "shiny": "https://poketools.info/images/sprites/400f-s.gif"
     },
     "Kricketot": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/401f.gif",
+        "shiny": "https://poketools.info/images/sprites/401f-s.gif"
     },
     "Kricketune": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/402f.gif",
+        "shiny": "https://poketools.info/images/sprites/402f-s.gif"
+    },
+    "Shinx": {
+        "female": "https://poketools.info/images/sprites/403f.gif",
+        "shiny": "https://poketools.info/images/sprites/403f-s.gif"
     },
     "Luxio": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/404f.gif",
+        "shiny": "https://poketools.info/images/sprites/404f-s.gif"
     },
-    "Burmy": {
-        "female": "",
-        "shiny": ""
+    "Luxray": {
+        "female": "https://poketools.info/images/sprites/405f.gif",
+        "shiny": "https://poketools.info/images/sprites/405f-s.gif"
     },
-    "Mothim": {
-        "female": "",
-        "shiny": ""
+    "Roserade": {
+        "female": "https://poketools.info/images/sprites/407f.gif",
+        "shiny": "https://poketools.info/images/sprites/407f-s.gif"
     },
     "Combee": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/415f.gif",
+        "shiny": "https://poketools.info/images/sprites/415f-s.gif"
     },
-    "Vespiquen": {
-        "female": "",
-        "shiny": ""
+    "Pachirisu": {
+        "female": "https://poketools.info/images/sprites/417f.gif",
+        "shiny": "https://poketools.info/images/sprites/417f-s.gif"
     },
-    "Cherrim": {
-        "female": "",
-        "shiny": ""
+    "Buizel": {
+        "female": "https://poketools.info/images/sprites/418f.gif",
+        "shiny": "https://poketools.info/images/sprites/418f-s.gif"
     },
-    "Happiny": {
-        "female": "",
-        "shiny": ""
+    "Floatzel": {
+        "female": "https://poketools.info/images/sprites/419f.gif",
+        "shiny": "https://poketools.info/images/sprites/419f-s.gif"
     },
-    "Chatot": {
-        "female": "",
-        "shiny": ""
+    "Ambipom": {
+        "female": "https://poketools.info/images/sprites/424f.gif",
+        "shiny": "https://poketools.info/images/sprites/424f-s.gif"
     },
-    "Spiritomb": {
-        "female": "",
-        "shiny": ""
+    "Gible": {
+        "female": "https://poketools.info/images/sprites/443f.gif",
+        "shiny": "https://poketools.info/images/sprites/443f-s.gif"
     },
-    "Hippowdon": {
-        "female": "",
-        "shiny": ""
+    "Gabite": {
+        "female": "https://poketools.info/images/sprites/444f.gif",
+        "shiny": "https://poketools.info/images/sprites/444f-s.gif"
     },
-    "Skorupi": {
-        "female": "",
-        "shiny": ""
+    "Garchomp": {
+        "female": "https://poketools.info/images/sprites/445f.gif",
+        "shiny": "https://poketools.info/images/sprites/445f-s.gif"
     },
     "Croagunk": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/453f.gif",
+        "shiny": "https://poketools.info/images/sprites/453f-s.gif"
     },
     "Toxicroak": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/454f.gif",
+        "shiny": "https://poketools.info/images/sprites/454f-s.gif"
     },
     "Finneon": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/456f.gif",
+        "shiny": "https://poketools.info/images/sprites/456f-s.gif"
     },
     "Lumineon": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/457f.gif",
+        "shiny": "https://poketools.info/images/sprites/457f-s.gif"
     },
-    "Mantyke": {
-        "female": "",
-        "shiny": ""
+    "Snover": {
+        "female": "https://poketools.info/images/sprites/459f.gif",
+        "shiny": "https://poketools.info/images/sprites/459f-s.gif"
+    },
+    "Abomasnow": {
+        "female": "https://poketools.info/images/sprites/460f.gif",
+        "shiny": "https://poketools.info/images/sprites/460f-s.gif"
     },
     "Weavile": {
-        "female": "",
-        "shiny": ""
+        "female": "https://poketools.info/images/sprites/461f.gif",
+        "shiny": "https://poketools.info/images/sprites/461f-s.gif"
     },
-    "Magnezone": {
-        "female": "",
-        "shiny": ""
+    "Rhyperior": {
+        "female": "https://poketools.info/images/sprites/464f.gif",
+        "shiny": "https://poketools.info/images/sprites/464f-s.gif"
     },
-    "Leafeon": {
-        "female": "",
-        "shiny": ""
+    "Tangrowth": {
+        "female": "https://poketools.info/images/sprites/465f.gif",
+        "shiny": "https://poketools.info/images/sprites/465f-s.gif"
     },
+    "Mamoswine": {
+        "female": "https://poketools.info/images/sprites/473f.gif",
+        "shiny": "https://poketools.info/images/sprites/473f-s.gif"
+    }
 }
 
 main();
