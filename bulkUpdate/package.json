@@ -1,0 +1,19 @@
+{
+  "name": "bulk_update_pokedex",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "commit bulk updates to the adaptable pokedex",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shore.devin@gmail.com",
+  "license": "ISC"
+}
