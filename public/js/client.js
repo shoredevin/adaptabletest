@@ -123,7 +123,7 @@ lb.onclick = async () => {
             'password': password,
         }),
     });
-    const data = await response.json();
-    console.log(data);
+    // const data = await response.json();
+    // console.log(data);
     // console.log('logged in');
 }
