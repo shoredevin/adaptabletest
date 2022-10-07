@@ -62,7 +62,7 @@ router.post("/", asyncMiddleware(async (req, res) => {
 
 //auth route
 router.post("/login", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const username = req.body.username;
   const password = req.body.password;
   // const { username, password } = req.body;
