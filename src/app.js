@@ -41,6 +41,7 @@ app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
     console.log(sessionId);
     console.log('Cookies: ', req.cookies);
+    console.log(req.cookies.app_user)
     if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
