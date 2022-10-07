@@ -119,8 +119,8 @@ lb.onclick = async () => {
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({
-            username: username,
-            password: password,
+            'username': username,
+            'password': password,
         }),
     });
     const data = await response.json();
