@@ -27,7 +27,9 @@ app.get('/', async (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 })
   
-
+app.get('/cool', async (req, res) => {
+    res.sendFile(path.join(__dirname, '/web/cool.html'));
+})
 
 app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
