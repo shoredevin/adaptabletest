@@ -1,9 +1,9 @@
 const express = require('express');
-// const path = require('path');
+const path = require('path');
 // const cookieParser = require('cookie-parser');
 // const logger = require('morgan');
 
-const todosRouter = require('./routes/todos');
+
 
 const app = express();
 
@@ -14,7 +14,14 @@ const app = express();
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes
+const todosRouter = require('./routes/todos');
 app.use('/todos', todosRouter);
 
+
+
+app.get('/dex', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dex.html'));
+})
+  
 
 module.exports = app;
