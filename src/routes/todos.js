@@ -63,20 +63,21 @@ router.post("/", asyncMiddleware(async (req, res) => {
 
 
 //auth route
-router.post("/login", (req, res) => {
-  // console.log(req.body);
+router.post("/login", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  // const { username, password } = req.body;
   if(username != "admin" || password != "admin") {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
-  // res.sendFile(__dirname + "/secret.html")
   const sessionId = "1234";
   res.cookie("session", sessionId, {  maxAge: 900000, httpOnly: true });
-  // 'Set-Cookie', `session=${sessionId}`)
-  // return res.sendFile(path.join(__dirname, '../public/dex.html'));
-  // res.redirect('/dex')
+
+  /* Send sessionID to the DB */
+  const updated = await prisma.Users.update({
+    where: { username: username },
+    data: { password: password },
+  });
+
   res.status('200').send({ res: 'success' });
 });
 
