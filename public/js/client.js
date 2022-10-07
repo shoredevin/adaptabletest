@@ -113,6 +113,7 @@ const lb = document.getElementById('login-button');
 
 
 lb.onclick = async () => {
+    console.log(username, password)
     const response = await fetch(`/todos/login`, {
         method: 'POST',
         headers: {
