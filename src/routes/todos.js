@@ -62,7 +62,10 @@ router.post("/", asyncMiddleware(async (req, res) => {
 
 //auth route
 router.post("/login", (req, res) => {
-  const { username, password } = req.body;
+  console.log(req.body);
+  const username = req.body.username;
+  const password = req.body.password;
+  // const { username, password } = req.body;
   if(username != "shore.devin" || password != "password") {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
