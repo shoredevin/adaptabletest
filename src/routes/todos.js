@@ -61,7 +61,7 @@ router.post("/", asyncMiddleware(async (req, res) => {
 
 router.get("/", (req, res) => {
   // res.sendFile(__dirname + "/secret.html")
-  res.send('Hello world');
+  res.send({ res: 'Hello world' });
 });
 
 
