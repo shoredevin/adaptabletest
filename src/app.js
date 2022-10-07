@@ -25,8 +25,8 @@ const sessions = {}
 
 app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
-    const userSession = sessions[sessionId]
-    if(!userSession) {
+    // const userSession = sessions[sessionId]
+    if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
     //if authenticated send here

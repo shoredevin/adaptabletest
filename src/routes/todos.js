@@ -70,6 +70,8 @@ router.post("/login", (req, res) => {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
   // res.sendFile(__dirname + "/secret.html")
+  const sessionId = "1234";
+  res.set('Set-Cookie', `session=${sessionId}`)
   res.send({ res: 'success' });
 });
 
