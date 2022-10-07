@@ -113,7 +113,7 @@ const lb = document.getElementById('login-button');
 
 
 lb.onclick = async () => {
-    const response = await fetch(`/login`, {
+    const response = await fetch(`/todos/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
