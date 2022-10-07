@@ -43,7 +43,7 @@ app.get('/dex', async (req, res) => {
     if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
-    res.sendFile(path.join(__dirname, '../public/dex.html'));e
+    res.sendFile(path.join(__dirname, '../public/dex.html'));
 })
   
 
