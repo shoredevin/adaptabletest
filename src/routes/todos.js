@@ -6,7 +6,7 @@ const { PrismaClient, PrismaClientKnownRequestError } = require('@prisma/client'
 const sanitizeHtml = require('sanitize-html');
 const express = require('express');
 const router = express.Router();
-
+app.use(express.json());
 const prisma = new PrismaClient();
 
 // REMOVE TODO ITEMS BEGIN 
