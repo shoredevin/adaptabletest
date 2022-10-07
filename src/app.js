@@ -3,9 +3,9 @@ const express = require('express');
 // const cookieParser = require('cookie-parser');
 // const logger = require('morgan');
 
-// const todosRouter = require('./routes/todos');
+const todosRouter = require('./routes/todos');
 
-// const app = express();
+const app = express();
 
 // app.use(logger('dev'));
 // app.use(express.json());
