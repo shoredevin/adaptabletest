@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
   
 app.get('/cool', async (req, res) => {
     res.sendFile(path.join(__dirname, '/web/cool.html'));
-    res.sendFile(path.join(__dirname, '/web/cool.css'));
+    // res.sendFile(path.join(__dirname, '/web/cool.css'));
 })
 
 app.get('/dex', async (req, res) => {
