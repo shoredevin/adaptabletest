@@ -8,6 +8,7 @@ const express = require('express');
 const router = express.Router();
 // const  cookieSession = require('cookie-session')
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
 
 const prisma = new PrismaClient();
 
@@ -69,7 +70,7 @@ router.post("/login", async (req, res) => {
   if(username != "admin" || password != "admin") {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
-  const sessionId = "1234";
+  const sessionId = uuidv4();
   res.cookie("session", sessionId, {  maxAge: 900000, httpOnly: true });
 
   /* Send sessionID to the DB */
