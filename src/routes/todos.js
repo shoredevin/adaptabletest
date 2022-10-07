@@ -75,9 +75,9 @@ router.post("/login", (req, res) => {
   const sessionId = "1234";
   res.cookie("session", sessionId, {  maxAge: 900000, httpOnly: true });
   // 'Set-Cookie', `session=${sessionId}`)
-  return res.sendFile(path.join(__dirname, '../public/dex.html'));
+  // return res.sendFile(path.join(__dirname, '../public/dex.html'));
   // res.redirect('/dex')
-  // res.send({ res: 'success' });
+  res.status('200').send({ res: 'success' });
 });
 
 
