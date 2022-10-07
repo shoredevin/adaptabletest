@@ -38,9 +38,10 @@ app.get('/cool', async (req, res) => {
 })
 
 app.get('/dex', async (req, res) => {
-    const sessionId = req.headers.cookie?.split('=')[1];
-    console.log('Cookies: ', req.cookies);
-    if(!sessionId) {
+    const cookies = req.cookies;
+    console.log('username: ', cookies.app_user);
+    console.log('session: ', cookies.app_sessions);
+    if(!cookies) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
     res.sendFile(path.join(__dirname, '../public/dex.html'));
