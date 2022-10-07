@@ -12,6 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.get('/dex.html', async (req, res) => {
+    res.send({ res: "not found" });
+    // res.sendFile(path.join(__dirname, '/web/cool.css'));
+})
+
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
@@ -30,11 +35,6 @@ app.get('/', async (req, res) => {
   
 app.get('/cool', async (req, res) => {
     res.sendFile(path.join(__dirname, '/web/cool.html'));
-    // res.sendFile(path.join(__dirname, '/web/cool.css'));
-})
-
-app.get('/dex.html', async (req, res) => {
-    res.send({ res: "not found" });
     // res.sendFile(path.join(__dirname, '/web/cool.css'));
 })
 
