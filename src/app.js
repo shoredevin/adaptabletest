@@ -21,7 +21,14 @@ app.use('/todos', todosRouter);
     Add routing for login path here...
 */
 
+const sessions = {}
+
 app.get('/dex', async (req, res) => {
+    const sessionId = req.headers.cookie?.split('=')[1];
+    const userSession = sessions[sessionId]
+    if(!userSession) {
+        return res.status(401).send('please log in');
+    }
     //if authenticated send here
     res.sendFile(path.join(__dirname, '../public/dex.html'));
     //else send to login page
