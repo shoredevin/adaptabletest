@@ -125,6 +125,9 @@ lb.onclick = async () => {
     });     
     const data = await response.json();
     console.log(data);
+    if(data.res == "success") {
+        window.location.replace("/dex");
+    }
     // console.log('logged in');
 
 }
