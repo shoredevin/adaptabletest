@@ -24,14 +24,7 @@ app.use('/todos', todosRouter);
 const sessions = {}
 
 app.get('/', async (req, res) => {
-    const sessionId = req.headers.cookie?.split('=')[1];
-    // const userSession = sessions[sessionId]
-    if(!sessionId) {
-        return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
-    }
-    //if authenticated send here
     res.sendFile(path.join(__dirname, '../private/index.html'));
-    //else send to login page
 })
   
 
@@ -40,10 +33,10 @@ app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
     // const userSession = sessions[sessionId]
     if(!sessionId) {
-        return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
+        return res.status(401).sendFile(path.join(__dirname, '../private/index.html'));;
     }
     //if authenticated send here
-    res.sendFile(path.join(__dirname, '../public/dex.html'));
+    res.sendFile(path.join(__dirname, '../private/dex.html'));
     //else send to login page
 })
   
