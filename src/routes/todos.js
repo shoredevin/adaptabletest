@@ -75,7 +75,7 @@ router.post("/login", async (req, res) => {
   /* Send sessionID to the DB */
   const updated = await prisma.Users.update({
     where: { username: username },
-    data: { password: password },
+    data: { sessionId: sessionId },
   });
 
   res.status('200').send({ res: 'success' });

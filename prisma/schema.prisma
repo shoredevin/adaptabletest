@@ -51,5 +51,6 @@ model PokemonDetails {
 model Users {
     id                  String @id @default(auto()) @map("_id") @db.ObjectId
     name                String @unique
-    passworsd           String
+    password            String
+    sessionId           String
 }
