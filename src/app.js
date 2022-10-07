@@ -39,7 +39,7 @@ app.get('/cool', async (req, res) => {
 
 app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
-    console.log(cookies);
+    console.log(sessionId);
     console.log('Cookies: ', req.cookies);
     if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
