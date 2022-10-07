@@ -124,6 +124,6 @@ lb.onclick = async () => {
         }),
     });
     // const data = await response.json();
-    // console.log(data);
+    console.log(response);
     // console.log('logged in');
 }

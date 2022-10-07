@@ -68,7 +68,7 @@ router.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   // const { username, password } = req.body;
-  if(username != "shore.devin" || password != "password") {
+  if(username != "admin" || password != "admin") {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
   // res.sendFile(__dirname + "/secret.html")
