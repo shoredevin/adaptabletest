@@ -106,11 +106,24 @@
 
 // initTodo();
 
-
+const username = document.getElementById('uname').value;
+const password = document.getElementById('pwrd').value;
 const lb = document.getElementById('login-button');
 
+
+
 lb.onclick = async () => {
-    const res = await fetch(`/todos`);
+    const rsponse = await fetch(`/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password,
+        }),
+    });
     const data = await res.json();
     console.log(data);
     // console.log('logged in');
