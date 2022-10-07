@@ -73,7 +73,8 @@ router.post("/login", (req, res) => {
   // res.sendFile(__dirname + "/secret.html")
   const sessionId = "1234";
   res.cookie("session", sessionId, {  maxAge: 900000, httpOnly: true });
-    // 'Set-Cookie', `session=${sessionId}`)
+  // 'Set-Cookie', `session=${sessionId}`)
+  res.sendFile(path.join(__dirname, '../public/dex.html'));
   res.send({ res: 'success' });
 });
 
