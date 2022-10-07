@@ -6,6 +6,7 @@ const { PrismaClient, PrismaClientKnownRequestError } = require('@prisma/client'
 const sanitizeHtml = require('sanitize-html');
 const express = require('express');
 const router = express.Router();
+// const  cookieSession = require('cookie-session')
 
 const prisma = new PrismaClient();
 
@@ -71,7 +72,8 @@ router.post("/login", (req, res) => {
   }
   // res.sendFile(__dirname + "/secret.html")
   const sessionId = "1234";
-  res.set('Set-Cookie', `session=${sessionId}`)
+  res.cookie("session", sessionId, {  maxAge: 900000, httpOnly: true });
+    // 'Set-Cookie', `session=${sessionId}`)
   res.send({ res: 'success' });
 });
 

@@ -111,7 +111,7 @@ const lb = document.getElementById('login-button');
 lb.onclick = async () => {
     const username = document.getElementById('uname').value;
     const password = document.getElementById('pwrd').value;
-    console.log(username, password)
+    // console.log(username, password)
     const response = await fetch(`/todos/login`, {
         method: 'POST',
         headers: {
