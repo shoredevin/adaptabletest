@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../web/public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 const todosRouter = require('./routes/todos');
@@ -24,7 +24,7 @@ app.use('/todos', todosRouter);
 const sessions = {}
 
 app.get('/', async (req, res) => {
-    res.sendFile(path.join(__dirname, '../web/index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 })
   
 
@@ -33,10 +33,10 @@ app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
     // const userSession = sessions[sessionId]
     if(!sessionId) {
-        return res.status(401).sendFile(path.join(__dirname, '../web/index.html'));;
+        return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
     //if authenticated send here
-    res.sendFile(path.join(__dirname, '../web/dex.html'));
+    res.sendFile(path.join(__dirname, '../public/dex.html'));
     //else send to login page
 })
   
