@@ -71,7 +71,8 @@ router.post("/login", async (req, res) => {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
   const sessionId = uuidv4();
-  res.cookie("session", sessionId, {  maxAge: 900000, httpOnly: true });
+  res.cookie("app_user", username, {  maxAge: 900000, httpOnly: true });
+  res.cookie("app_session", sessionId, {  maxAge: 900000, httpOnly: true });
 
   /* Send sessionID to the DB */
   const updated = await prisma.Users.update({

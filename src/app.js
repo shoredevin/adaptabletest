@@ -4,8 +4,6 @@ const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
 // const logger = require('morgan');
 
-
-
 const app = express();
 
 // app.use(logger('dev'));
@@ -41,6 +39,7 @@ app.get('/cool', async (req, res) => {
 
 app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
+    console.log(sessionId);
     if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
