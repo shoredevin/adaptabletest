@@ -16,7 +16,7 @@ const myLogger = function (req, res, next) {
     console.log(req.path.includes('.html'));
     if(req.path.includes('.html')) {
         console.log('direct route...');
-        return res.sendFile(__dirname, '../public/index.html');
+        return res.redirect(__dirname, '../public/index.html');
     }
     console.log('LOGGED');
     next();
