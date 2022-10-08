@@ -16,7 +16,7 @@ const myLogger = function (req, res, next) {
     console.log(req.path.includes('.html'));
     if(req.path != null && req.path.includes('.html')) {
         console.log('direct route...');
-        return res.redirect(__dirname, '../public/index.html');
+        return res.redirect('403', __dirname, '../public/index.html');
         // return res.status('403').send({ res: "no page for you" });
     }
     console.log('LOGGED');
