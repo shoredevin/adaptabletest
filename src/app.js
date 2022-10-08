@@ -22,7 +22,9 @@ app.use(myLogger)
 
 
 const auth = function(req, res, next) {
-    console.log('Auth middleware active...');
+    const authenticatedState = req.cookies.app_user && req.cookies.app_session ? true : false;
+    console.log('auth state: ', authenticatedState);
+    res.locals.authenticated = authenticatedState;
     next();
 }
 app.use(auth);
@@ -44,6 +46,7 @@ app.use('/todos', todosRouter);
 const sessions = {}
 
 app.get('/', async (req, res) => {
+    console.log('/ authenticated state checker: ', res.locals.authenticated)
     res.sendFile(path.join(__dirname, '../public/index.html'));
 })
   
