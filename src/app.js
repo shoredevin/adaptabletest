@@ -25,7 +25,7 @@ const authCheck = function(req, res, next) {
     const authenticatedState = req.cookies.app_user && req.cookies.app_session ? true : false;
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
-    // next();
+    next();
 }
     // app.use(authCheck);
 
