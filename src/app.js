@@ -24,9 +24,9 @@ const myLogger = function (req, res, next) {
 
 app.use(myLogger)
 
-app.get('/dex.html', async (req, res) => {
-    res.send({ res: "not found" });
-})
+// app.get('/dex.html', async (req, res) => {
+//     res.send({ res: "not found" });
+// })
 
 app.use(express.static(path.join(__dirname, '../public')));
 
