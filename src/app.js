@@ -45,7 +45,7 @@ app.use('/todos', todosRouter);
 
 const sessions = {}
 
-app.get('/', async (req, res) => {
+app.get('/', auth, async (req, res) => {
     if(res.locals.authenticated) { res.sendFile(path.join(__dirname, '../public/dex.html')) }
     // console.log('/ authenticated state checker: ', res.locals.authenticated)
     res.sendFile(path.join(__dirname, '../public/index.html'));
