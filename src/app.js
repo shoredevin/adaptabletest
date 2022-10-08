@@ -24,8 +24,8 @@ app.use(myLogger)
 const authCheck = function(req, res, next) {
     const authenticatedState = req.cookies.app_user && req.cookies.app_session ? true : false;
     console.log('auth state: ', authenticatedState);
-    req.authenticated = authenticatedState;
-    next();
+    res.locals.authenticated = authenticatedState;
+    // next();
 }
     // app.use(authCheck);
 
@@ -46,12 +46,12 @@ app.use('/todos', todosRouter);
 const sessions = {}
 
 app.get('/', authCheck, async (req, res) => {
-    console.log('/ authenticated state checker: ', req.authenticated)
-    if(req.authenticated) { res.sendFile(path.join(__dirname, '../public/dex.html')) }
+    console.log('/ authenticated state checker: ', res.locals.authenticated)
+    if(res.locals.authenticated) { res.sendFile(path.join(__dirname, '../public/dex.html')) }
     res.sendFile(path.join(__dirname, '../public/index.html'));
 })
   
-app.get('/cool', async (req, res) => {
+app.get('/cool', authCheck, async (req, res) => {
     res.sendFile(path.join(__dirname, '/web/cool.html'));
 })
 
