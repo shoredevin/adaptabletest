@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const myLogger = function (req, res, next) {
+    console.log(req.path)
     console.log('LOGGED');
     next();
 }
