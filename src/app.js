@@ -27,7 +27,7 @@ const auth = function(req, res, next) {
     res.locals.authenticated = authenticatedState;
     next();
 }
-app.use(auth);
+// app.use(auth);
 
 // app.get('/dex.html', async (req, res) => {
 //     res.send({ res: "not found" });
