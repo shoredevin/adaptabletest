@@ -70,8 +70,8 @@ router.post("/login", async (req, res) => {
   const userDetails = await prisma.Users.findUnique({
     where: { username: username }
   });
-  console.log("here:", JSON.stringify(userDetails));
-  if(username != userDetails.username || password != userDetails.password) {
+  // console.log("here:", JSON.stringify(userDetails));
+  if(userDetails === null || username != userDetails.username || password != userDetails.password) {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
   const sessionId = uuidv4();
