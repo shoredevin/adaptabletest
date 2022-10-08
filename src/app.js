@@ -40,7 +40,9 @@ app.get('/cool', async (req, res) => {
 app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
     const cookies = req.cookies;
-    console.log(cookies.length)
+    console.log(cookies);
+    console.log(req.cookies.app_user ? "true" : "false");
+    console.log(req.cookies.app_session ? "true" : "false"); 
     // console.log(sessionId);
     // console.log('Cookies: ', req.cookies);
     // console.log(req.cookies.app_user);
