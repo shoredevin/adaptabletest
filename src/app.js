@@ -12,8 +12,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const myLogger = function (req, res, next) {
-    console.log(req.path)
+    console.log(req.path);
+    console.log(req.path.includes('.html'));
     if(req.path.includes('.html')) {
+        console.log('direct route...');
         res.sendFile(__dirname, '../public/index.html');
     }
     console.log('LOGGED');
