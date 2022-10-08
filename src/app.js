@@ -12,18 +12,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const myLogger = function (req, res, next) {
-    console.log(req.path);
-    console.log(req.path.includes('.html'));
     if(req.path != null && req.path.includes('.html')) {
-        console.log('direct route...');
         return res.sendFile(path.join(__dirname, '../public/index.html'));
         // return res.status('403').send({ res: "no page for you" });
     }
-    console.log('LOGGED');
     next();
 }
-
 app.use(myLogger)
+
+
+const auth = function(req, res, next) {
+    console.log('Auth middleware active...');
+    next();
+}
 
 // app.get('/dex.html', async (req, res) => {
 //     res.send({ res: "not found" });
