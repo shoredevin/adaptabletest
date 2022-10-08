@@ -21,13 +21,13 @@ const myLogger = function (req, res, next) {
 app.use(myLogger)
 
 
-const auth = function(req, res, next) {
+const authCheck = function(req, res, next) {
     const authenticatedState = req.cookies.app_user && req.cookies.app_session ? true : false;
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
     next();
 }
-// app.use(auth);
+    app.use(authCheck);
 
 // app.get('/dex.html', async (req, res) => {
 //     res.send({ res: "not found" });
@@ -45,7 +45,7 @@ app.use('/todos', todosRouter);
 
 const sessions = {}
 
-app.get('/', auth, async (req, res) => {
+app.get('/', authCheck, async (req, res) => {
     console.log('/ authenticated state checker: ', res.locals.authenticated)
     if(res.locals.authenticated) { res.sendFile(path.join(__dirname, '../public/dex.html')) }
     res.sendFile(path.join(__dirname, '../public/index.html'));
