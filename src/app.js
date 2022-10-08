@@ -13,8 +13,8 @@ app.use(cookieParser());
 
 const myLogger = function (req, res, next) {
     console.log(req.path);
-    console.log(req.path.includes('dex.html'));
-    if(req.path != null && req.path.includes('dex.html')) {
+    console.log(req.path.includes('.html'));
+    if(req.path != null && req.path.includes('.html')) {
         console.log('direct route...');
         return res.redirect(__dirname, '../public/index.html');
     }
