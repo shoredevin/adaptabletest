@@ -11,9 +11,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+const myLogger = function (req, res, next) {
+    console.log('LOGGED');
+    next();
+}
+
+app.use(myLogger)
+
 app.get('/dex.html', async (req, res) => {
     res.send({ res: "not found" });
-    // res.sendFile(path.join(__dirname, '/web/cool.css'));
 })
 
 app.use(express.static(path.join(__dirname, '../public')));
@@ -34,7 +40,6 @@ app.get('/', async (req, res) => {
   
 app.get('/cool', async (req, res) => {
     res.sendFile(path.join(__dirname, '/web/cool.html'));
-    // res.sendFile(path.join(__dirname, '/web/cool.css'));
 })
 
 app.get('/dex', async (req, res) => {
@@ -43,10 +48,6 @@ app.get('/dex', async (req, res) => {
     console.log(cookies);
     console.log(req.cookies.app_user ? "true" : "false");
     console.log(req.cookies.app_session ? "true" : "false"); 
-    // console.log(sessionId);
-    // console.log('Cookies: ', req.cookies);
-    // console.log(req.cookies.app_user);
-    // console.log(req.cookies.app_session)
     if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }

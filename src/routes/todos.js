@@ -70,14 +70,12 @@ router.post("/login", async (req, res) => {
   const userDetails = await prisma.Users.findUnique({
     where: { username: username }
   });
-  // console.log("here:", JSON.stringify(userDetails));
   if(userDetails === null || username != userDetails.username || password != userDetails.password) {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
   const sessionId = uuidv4();
   res.cookie("app_user", username, {  maxAge: 900000, httpOnly: true });
   res.cookie("app_session", sessionId, {  maxAge: 900000, httpOnly: true });
-
   /* Send sessionID to the DB */
   const updated = await prisma.Users.update({
     where: { username: username },
