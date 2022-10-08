@@ -14,7 +14,7 @@ app.use(cookieParser());
 const myLogger = function (req, res, next) {
     console.log(req.path)
     if(req.path.includes('.html')) {
-        res.send(__dirname, '../public/index.html');
+        res.sendFile(__dirname, '../public/index.html');
     }
     console.log('LOGGED');
     next();
