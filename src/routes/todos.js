@@ -71,9 +71,9 @@ router.post("/login", async (req, res) => {
     where: { username: username }
   });
   // console.log("here:", JSON.stringify(userDetails));
-  console.log("username: ", userDetails.username);
-  console.log("password: ", userDetails.password);
-  if(username != "admin" || password != "admin") {
+  // console.log("username: ", userDetails.username);
+  // console.log("password: ", userDetails.password);
+  if(username != userDetails.username || password != userDetails.password) {
     return res.status('401').send({ res: 'Invalid username or password' })
   }
   const sessionId = uuidv4();
