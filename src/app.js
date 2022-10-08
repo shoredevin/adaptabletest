@@ -52,6 +52,7 @@ app.get('/', authCheck, async (req, res) => {
 })
   
 app.get('/cool', authCheck, async (req, res) => {
+    console.log('/ authenticated state checker: ', res.locals.authenticated)
     res.sendFile(path.join(__dirname, '/web/cool.html'));
 })
 
