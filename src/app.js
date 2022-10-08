@@ -25,6 +25,7 @@ const auth = function(req, res, next) {
     console.log('Auth middleware active...');
     next();
 }
+app.use(auth);
 
 // app.get('/dex.html', async (req, res) => {
 //     res.send({ res: "not found" });
