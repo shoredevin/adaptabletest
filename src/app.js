@@ -48,7 +48,7 @@ const sessions = {}
 app.get('/', authCheck, async (req, res) => {
     console.log('/ authenticated state checker: ', res.locals.authenticated)
     if(res.locals.authenticated) { res.sendFile(path.join(__dirname, '../public/dex.html')) }
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.sendFile(path.join(__dirname, '../public/login.html'));
 })
   
 app.get('/cool', authCheck, async (req, res) => {
