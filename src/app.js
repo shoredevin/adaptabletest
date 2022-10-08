@@ -39,10 +39,12 @@ app.get('/cool', async (req, res) => {
 
 app.get('/dex', async (req, res) => {
     const sessionId = req.headers.cookie?.split('=')[1];
-    console.log(sessionId);
-    console.log('Cookies: ', req.cookies);
-    console.log(req.cookies.app_user);
-    console.log(req.cookies.app_session)
+    const cookies = req.cookies;
+    console.log(cookies.length)
+    // console.log(sessionId);
+    // console.log('Cookies: ', req.cookies);
+    // console.log(req.cookies.app_user);
+    // console.log(req.cookies.app_session)
     if(!sessionId) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
