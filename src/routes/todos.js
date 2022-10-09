@@ -13,7 +13,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const prisma = new PrismaClient();
 
-app.use(cookieParser());
+router.use(cookieParser());
 
 // REMOVE TODO ITEMS BEGIN 
 const prepop = [
