@@ -22,6 +22,14 @@ app.use(myLogger)
 
 
 const authCheck = function(req, res, next) {
+    console.log(req.cookies.app_user, req.cookies.app_session)
+    /* get user/session from server */
+
+    /* compare user/session (cookie:server) */
+
+    /* if comparison checks out auth = true */
+
+    /* if comparison does not check out auth = false and clear cookie */
     const authenticatedState = req.cookies.app_user && req.cookies.app_session ? true : false;
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
