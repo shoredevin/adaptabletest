@@ -130,6 +130,7 @@ router.delete('/', asyncMiddleware(async (req, res) => {
 }));
 
 router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated) { res.status('401').send({ res: "Unauthorized" }) }
   const dex = await prisma.Pokedex.findMany({
     orderBy: { 
       dexnum: 'asc',
