@@ -43,7 +43,7 @@ app.use('/todos', todosRouter);
     Add routing for login path here...
 */
 
-const sessions = {}
+// const sessions = {}
 
 app.get('/', authCheck, async (req, res) => {
     console.log('/ authenticated state checker: ', res.locals.authenticated)
@@ -58,13 +58,13 @@ app.get('/cool', authCheck, async (req, res) => {
     res.sendFile(path.join(__dirname, '/web/cool.html'));
 })
 
-app.get('/dex', async (req, res) => {
-    const sessionId = req.headers.cookie?.split('=')[1];
-    const cookies = req.cookies;
-    console.log(cookies);
-    console.log(req.cookies.app_user ? "true" : "false");
-    console.log(req.cookies.app_session ? "true" : "false"); 
-    if(!sessionId) {
+app.get('/dex', authCheck, async (req, res) => {
+    // const sessionId = req.headers.cookie?.split('=')[1];
+    // const cookies = req.cookies;
+    // console.log(cookies);
+    // console.log(req.cookies.app_user ? "true" : "false");
+    // console.log(req.cookies.app_session ? "true" : "false"); 
+    if(res.locals.authenticated) {
         return res.status(401).sendFile(path.join(__dirname, '../public/index.html'));;
     }
     res.sendFile(path.join(__dirname, '../public/dex.html'));
