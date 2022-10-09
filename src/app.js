@@ -30,10 +30,11 @@ const authCheck = async function(req, res, next) {
 
     // let authenticatedState;
     /* check if cookie exists */
-    if (userCookie === undefined || sessionCookie == undefined) { 
+    if (userCookie == undefined || sessionCookie == undefined) { 
         // authenticatedState = false;
         res.locals.authenticated = false;
         next();
+        return;
     }
     /* get user/session from server */
     const userDetails = await prisma.Users.findUnique({
