@@ -28,18 +28,19 @@ const authCheck = async function(req, res, next) {
     const userCookie = req.cookies.app_user;
     const sessionCookie = req.cookies.app_session;
 
-    // let authenticatedState;
-    /* check if cookie exists */
+    /* if cookie does not exist return not autherized */
     if (userCookie == undefined || sessionCookie == undefined) { 
         // authenticatedState = false;
         res.locals.authenticated = false;
         next();
         return;
     }
+
     /* get user/session from server */
     const userDetails = await prisma.Users.findUnique({
         where: { username: userCookie }
     });
+    
     /* compare user/session (cookie:server) */
     // if (userDetails === null || userCookie != userDetails.username || sessionCookie != userDetails.sessionId) {
     //     authenticatedState = false;
@@ -50,13 +51,16 @@ const authCheck = async function(req, res, next) {
 
     /* if comparison does not check out auth = false and clear cookie */
     
-    
+    /* Compare cookie information with server information */
     const authenticatedState = 
         req.cookies.app_user && 
         req.cookies.app_session && 
         userCookie == userDetails.username && 
         sessionCookie == userDetails.sessionId 
         ? true : false;
+    
+    /* if authenticatedState is false clear cookies */ 
+
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
     next();
