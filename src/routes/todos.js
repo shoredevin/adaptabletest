@@ -15,8 +15,24 @@ const prisma = new PrismaClient();
 
 router.use(cookieParser());
 
-const authenticationMiddleware = function (req, res, next) {
-  console.log(req.cookies);
+const authenticationMiddleware = async function (req, res, next) {
+  const userCookie = req.cookies.app_user;
+  const sessionCookie = req.cookies.app_session;
+  if (userCookie == undefined || sessionCookie == undefined) { 
+    res.locals.authenticated = false;
+    return next();
+  }
+  const userDetails = await prisma.Users.findUnique({
+    where: { username: userCookie }
+  });
+  const authenticatedState = 
+    req.cookies.app_user && 
+    req.cookies.app_session && 
+    userCookie == userDetails.username && 
+    sessionCookie == userDetails.sessionId 
+    ? true : false;
+  res.locals.authenticated = authenticatedState;
+  console.log('auth state: ', authenticatedState);
   next();
 }
 /* 
@@ -46,35 +62,6 @@ const asyncMiddleware = fn => (req, res, next) => {
     .catch(next);
 };
 
-router.post("/", asyncMiddleware(async (req, res) => {
-  const { title: titleIn, done } = req.body;
-  const title = sanitizeHtml(titleIn, {
-    allowedTags: [ 'a' ],
-    allowedAttributes: {
-      'a': [ 'href' ]
-    },
-  });
-
-  const result = await prisma.TodoItem.create({
-    data: {
-      title,
-      done,
-    }
-  });
-  res.json(result);
-}));
-
-// router.get('/', asyncMiddleware(async (req, res) => {
-//   const todos = await prisma.TodoItem.findMany();
-//   res.json(todos);
-// }));
-
-// router.get('/', asyncMiddleware(async (req, res) => {
-//   // const todos = await prisma.TodoItem.findMany();
-//   res.sendFile(__dirname, '/secret.html');
-// }));
-
-
 //auth route
 router.post("/login", async (req, res) => {
   const username = req.body.username;
@@ -97,7 +84,29 @@ router.post("/login", async (req, res) => {
   res.status('200').send({ res: 'success' });
 });
 
+/* post route for todo,
+   can be deleted */ 
+router.post("/", asyncMiddleware(async (req, res) => {
+  const { title: titleIn, done } = req.body;
+  const title = sanitizeHtml(titleIn, {
+    allowedTags: [ 'a' ],
+    allowedAttributes: {
+      'a': [ 'href' ]
+    },
+  });
 
+  const result = await prisma.TodoItem.create({
+    data: {
+      title,
+      done,
+    }
+  });
+  res.json(result);
+}));
+
+
+/* patch route for todo,
+   can be deleted */
 router.patch('/:id', asyncMiddleware(async (req, res) => {
   console.log(req.body)
   const { id } = req.params;
@@ -108,6 +117,9 @@ router.patch('/:id', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
+
+/* delete route for todo,
+   can be deleted */
 router.delete('/', asyncMiddleware(async (req, res) => {
   const id = req.body.id;
   const updated = await prisma.TodoItem.delete({
@@ -116,7 +128,7 @@ router.delete('/', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
-router.get("/dex", asyncMiddleware(async (req, res) => {
+router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   const dex = await prisma.Pokedex.findMany({
     orderBy: { 
       dexnum: 'asc',
@@ -126,7 +138,7 @@ router.get("/dex", asyncMiddleware(async (req, res) => {
   res.json(dex);
 }));
 
-router.post("/dex", asyncMiddleware(async (req, res) => {
+router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   console.log(req.body)
   const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
   const dexnum = parseInt(dexnumIn);
@@ -151,7 +163,7 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
   res.json(result);
 }));
 
-router.patch('/dex/:id', authenticationMiddleware, asyncMiddleware(async (req, res) => {
+router.patch('/dex/:id', authenticationMiddleware, authenticationMiddleware, asyncMiddleware(async (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   const updated = await prisma.Pokedex.update({
@@ -161,7 +173,10 @@ router.patch('/dex/:id', authenticationMiddleware, asyncMiddleware(async (req, r
   res.json(updated);
 }));
 
-
+/*
+  - To Do - 
+  this route should be deleted 
+*/
 router.delete('/dex', asyncMiddleware(async (req, res) => {
   const id = req.body.id;
   const updated = await prisma.Pokedex.delete({
@@ -172,14 +187,6 @@ router.delete('/dex', asyncMiddleware(async (req, res) => {
 
 
 router.get("/details", asyncMiddleware(async (req, res) => {
-  // console.log('here');
-  // console.log(req.query.name)
-  // res.json({ response: req.query.name })
-  // if (req.params) {
-  //   console.log(req.params);
-  //   res.json({ res: "done" })
-  //   return;
-  // }
   const details = await prisma.PokemonDetails.findUnique({
     where: {
       name: req.query.name
@@ -188,6 +195,10 @@ router.get("/details", asyncMiddleware(async (req, res) => {
   res.json(details);
 }));
 
+/* 
+  - To Do -
+  this route should not be accessible publicly 
+*/
 router.patch('/details/:name', asyncMiddleware(async (req, res) => {
   const { name } = req.params;
   // const json = [

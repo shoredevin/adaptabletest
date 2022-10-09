@@ -31,8 +31,7 @@ const authCheck = async function(req, res, next) {
         res.clearCookie('app_user');
         res.clearCookie('app_session');
         res.locals.authenticated = false;
-        next();
-        return;
+        return next();
     }
     const userDetails = await prisma.Users.findUnique({
         where: { username: userCookie }
