@@ -37,7 +37,7 @@ const authCheck = async function(req, res, next) {
     // }
     /* get user/session from server */
     const userDetails = await prisma.Users.findUnique({
-        where: { username: username }
+        where: { username: userCookie }
     });
     /* compare user/session (cookie:server) */
     // if (userDetails === null || userCookie != userDetails.username || sessionCookie != userDetails.sessionId) {
