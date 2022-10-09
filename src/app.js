@@ -66,7 +66,7 @@ app.get('/dex', authCheck, async (req, res) => {
     // console.log(req.cookies.app_user ? "true" : "false");
     // console.log(req.cookies.app_session ? "true" : "false"); 
     if(!res.locals.authenticated) {
-        return res.redirect(path.join(__dirname, '../public/login.html'));;
+        return res.redirect(path.join(__dirname, '/login.html'));;
     }
     res.sendFile(path.join(__dirname, '../public/dex.html'));
 })
