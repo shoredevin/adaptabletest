@@ -8,9 +8,12 @@ const express = require('express');
 const router = express.Router();
 // const  cookieSession = require('cookie-session')
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
 
 const prisma = new PrismaClient();
+
+app.use(cookieParser());
 
 // REMOVE TODO ITEMS BEGIN 
 const prepop = [
@@ -160,6 +163,7 @@ router.delete('/dex', asyncMiddleware(async (req, res) => {
 
 
 router.get("/details", asyncMiddleware(async (req, res) => {
+  console.log(req.cookies);
   // console.log('here');
   // console.log(req.query.name)
   // res.json({ response: req.query.name })
