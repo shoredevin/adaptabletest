@@ -48,7 +48,7 @@ app.use('/todos', todosRouter);
 app.get('/', authCheck, async (req, res) => {
     console.log('/ authenticated state checker: ', res.locals.authenticated)
     if(res.locals.authenticated) { 
-        return res.sendFile(path.join(__dirname, '../public/dex.html')) 
+        return res.redirect('/dex') 
     }
     res.sendFile(path.join(__dirname, '../public/login.html'));
 })
