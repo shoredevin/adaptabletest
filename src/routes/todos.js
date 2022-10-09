@@ -15,22 +15,30 @@ const prisma = new PrismaClient();
 
 router.use(cookieParser());
 
-// REMOVE TODO ITEMS BEGIN 
-const prepop = [
-  { id: "feedfacefeedfacefeedface", title: '<a href="http://adaptable.io/docs/starters/express-prisma-mongo-starter#idea-2-deploy-a-code-update">Deploy a code update</a> by removing the banner message', done: false },
-  { id: "beeffeedbeeffeedbeeffeed", title: '<a href="https://adaptable.io/docs/starters/express-prisma-mongo-starter#idea-3-start-building-your-app-by-adding-more-api-services">Customize this app</a> by adding an API service to delete To Do items', done: false },
-];
+const authenticationMiddleware = function (req, res, next) {
+  console.log(req.cookies);
+}
+/* 
+  Below is old to do list functionality
+  if everything is working as expected
+  this can be delete - 2022-10-09
+*/ 
+// // REMOVE TODO ITEMS BEGIN 
+// const prepop = [
+//   { id: "feedfacefeedfacefeedface", title: '<a href="http://adaptable.io/docs/starters/express-prisma-mongo-starter#idea-2-deploy-a-code-update">Deploy a code update</a> by removing the banner message', done: false },
+//   { id: "beeffeedbeeffeedbeeffeed", title: '<a href="https://adaptable.io/docs/starters/express-prisma-mongo-starter#idea-3-start-building-your-app-by-adding-more-api-services">Customize this app</a> by adding an API service to delete To Do items', done: false },
+// ];
 
-prepop.map((i) => prisma.TodoItem.create({ data: i })
-  .then(() => console.log(`Added pre-populated item with id ${i.id}`))
-  .catch((e) => {
-    if(!((e instanceof PrismaClientKnownRequestError)
-      && e.code === "P2002")) {
-      console.error(`Error creating prepopulated item ${i.id}: ${e.message}`);
-    } // else prepopulated entries are already present
-  }
-));
-// REMOVE TODO ITEMS END
+// prepop.map((i) => prisma.TodoItem.create({ data: i })
+//   .then(() => console.log(`Added pre-populated item with id ${i.id}`))
+//   .catch((e) => {
+//     if(!((e instanceof PrismaClientKnownRequestError)
+//       && e.code === "P2002")) {
+//       console.error(`Error creating prepopulated item ${i.id}: ${e.message}`);
+//     } // else prepopulated entries are already present
+//   }
+// ));
+// // REMOVE TODO ITEMS END
 
 const asyncMiddleware = fn => (req, res, next) => {
   Promise.resolve(fn(req, res, next))
@@ -142,7 +150,7 @@ router.post("/dex", asyncMiddleware(async (req, res) => {
   res.json(result);
 }));
 
-router.patch('/dex/:id', asyncMiddleware(async (req, res) => {
+router.patch('/dex/:id', authenticationMiddleware, asyncMiddleware(async (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   const updated = await prisma.Pokedex.update({
@@ -163,7 +171,6 @@ router.delete('/dex', asyncMiddleware(async (req, res) => {
 
 
 router.get("/details", asyncMiddleware(async (req, res) => {
-  console.log(req.cookies);
   // console.log('here');
   // console.log(req.query.name)
   // res.json({ response: req.query.name })
