@@ -59,6 +59,7 @@ app.get('/cool', authCheck, async (req, res) => {
 })
 
 app.get('/dex', authCheck, async (req, res) => {
+    console.log('/ authenticated state checker: ', res.locals.authenticated)
     // const sessionId = req.headers.cookie?.split('=')[1];
     // const cookies = req.cookies;
     // console.log(cookies);
