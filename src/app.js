@@ -31,6 +31,8 @@ const authCheck = async function(req, res, next) {
     /* if cookie does not exist return not autherized */
     if (userCookie == undefined || sessionCookie == undefined) { 
         // authenticatedState = false;
+        res.clearCookie('app_user');
+        res.clearCookie('app_session');
         res.locals.authenticated = false;
         next();
         return;
