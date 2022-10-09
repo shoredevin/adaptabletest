@@ -140,6 +140,11 @@ router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =>
   res.json(dex);
 }));
 
+/**
+ * Is this still necessary?
+ * It seems that without allowing different dex/user
+ * this would not be required right now
+ */
 router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   console.log(req.body)
   const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
@@ -166,6 +171,7 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
 }));
 
 router.patch('/dex/:id', authenticationMiddleware, authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated) { res.status('401').send({ res: "Unauthorized" }) }
   console.log(req.body);
   const { id } = req.params;
   const updated = await prisma.Pokedex.update({
