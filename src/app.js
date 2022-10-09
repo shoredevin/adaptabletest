@@ -21,16 +21,38 @@ const myLogger = function (req, res, next) {
 app.use(myLogger)
 
 
-const authCheck = function(req, res, next) {
-    console.log(req.cookies.app_user, req.cookies.app_session)
+const authCheck = async function(req, res, next) {
+    const userCookie = req.cookies.app_user;
+    const sessionCookie = req.cookies.app_session;
+
+    // let authenticatedState;
+    /* check if cookie exists */
+    // if (userCookie === undefined || sessionCookie == undefined) { 
+    //     authenticatedState = false;
+    //     res.locals.authenticated = authenticatedState;
+    //     next();
+    // }
     /* get user/session from server */
-
+    const userDetails = await prisma.Users.findUnique({
+        where: { username: username }
+    });
     /* compare user/session (cookie:server) */
-
+    // if (userDetails === null || userCookie != userDetails.username || sessionCookie != userDetails.sessionId) {
+    //     authenticatedState = false;
+    //     res.locals.authenticated = authenticatedState;
+    //     next();
+    // }
     /* if comparison checks out auth = true */
 
     /* if comparison does not check out auth = false and clear cookie */
-    const authenticatedState = req.cookies.app_user && req.cookies.app_session ? true : false;
+    
+    
+    const authenticatedState = 
+        req.cookies.app_user && 
+        req.cookies.app_session && 
+        userCookie == userDetails.username && 
+        sessionCookie == userDetails.sessionId 
+        ? true : false;
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
     next();
