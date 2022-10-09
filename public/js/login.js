@@ -124,7 +124,7 @@ lb.onclick = async () => {
         }),
     });     
     const data = await response.json();
-    console.log(data.res);
+    showSnackbar(data.res);
     if(data.res == "success") {
         window.location.replace("/dex");
     }
