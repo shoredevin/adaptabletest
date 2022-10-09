@@ -19,6 +19,7 @@ const authenticationMiddleware = async function (req, res, next) {
   const userCookie = req.cookies.app_user;
   const sessionCookie = req.cookies.app_session;
   if (userCookie == undefined || sessionCookie == undefined) { 
+    console.log('auth state: ', authenticatedState);
     res.locals.authenticated = false;
     return next();
   }
