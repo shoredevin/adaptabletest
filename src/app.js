@@ -81,7 +81,7 @@ app.get('/dex', authCheck, async (req, res) => {
 
 //404 route
 app.use((req, res, next) => {
-    res.sendfile(path.join(__dirname, '../public/dex.html'))
+    res.sendfile(path.join(__dirname, '../public/404.html'))
 });
 
 module.exports = app;
