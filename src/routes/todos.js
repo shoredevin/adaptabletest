@@ -17,6 +17,7 @@ router.use(cookieParser());
 
 const authenticationMiddleware = function (req, res, next) {
   console.log(req.cookies);
+  next();
 }
 /* 
   Below is old to do list functionality
