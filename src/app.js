@@ -59,7 +59,10 @@ const authCheck = async function(req, res, next) {
         sessionCookie == userDetails.sessionId 
         ? true : false;
     
-    /* if authenticatedState is false clear cookies */ 
+    /* 
+        - To Do -
+        if authenticatedState is false clear cookies 
+    */ 
 
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
