@@ -31,8 +31,8 @@ const authCheck = async function(req, res, next) {
     // let authenticatedState;
     /* check if cookie exists */
     if (userCookie === undefined || sessionCookie == undefined) { 
-        authenticatedState = false;
-        res.locals.authenticated = authenticatedState;
+        // authenticatedState = false;
+        res.locals.authenticated = false;
         next();
     }
     /* get user/session from server */
