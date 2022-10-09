@@ -171,7 +171,7 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
 }));
 
 router.patch('/dex/:id', authenticationMiddleware, authenticationMiddleware, asyncMiddleware(async (req, res) => {
-  if(!res.locals.authenticated) { res.status('401').send({ res: "Unauthorized" }) }
+  if(!res.locals.authenticated) { return res.status('401').send({ res: "Unauthorized" }) }
   console.log(req.body);
   const { id } = req.params;
   const updated = await prisma.Pokedex.update({
