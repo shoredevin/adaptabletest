@@ -15,9 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const myLogger = function (req, res, next) {
-    if(req.path != null && req.path.includes('.html')) {
-        // return res.sendFile(path.join(__dirname, '../public/index.html'));
-        // return res.status('403').send({ res: "no page for you" });
+    if(req.path != null && (req.path.includes('.html') || req.path.includes('.css') || req.path.includes('.js'))) {
         return res.sendfile(path.join(__dirname, '../public/404.html'))
     }
     next();
