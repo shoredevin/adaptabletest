@@ -27,8 +27,8 @@ const authenticationMiddleware = async function (req, res, next) {
     where: { username: userCookie }
   });
   const authenticatedState = 
-    req.cookies.app_user && 
-    req.cookies.app_session && 
+    // req.cookies.app_user && 
+    // req.cookies.app_session && 
     userCookie == userDetails.username && 
     sessionCookie == userDetails.sessionId 
     ? true : false;
@@ -119,8 +119,10 @@ router.patch('/:id', asyncMiddleware(async (req, res) => {
 }));
 
 
-/* delete route for todo,
-   can be deleted */
+/**
+ * delete route for todo,
+ * can be deleted 
+ */
 router.delete('/', asyncMiddleware(async (req, res) => {
   const id = req.body.id;
   const updated = await prisma.TodoItem.delete({
@@ -129,6 +131,13 @@ router.delete('/', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
+/**
+ * To Do
+ * This route (and all /dex routes)...
+ * should be updated to use the user
+ * in the cookie to determine the apprpriate
+ * Prisma container
+ */
 router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   if(!res.locals.authenticated) { res.status('401').send({ res: "Unauthorized" }) }
   const dex = await prisma.Pokedex.findMany({
@@ -159,12 +168,12 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
   // });
   const result = await prisma.Pokedex.create({
     data: {
-      dexnum: dexnum,
-      name: name,
-      type1: type1,
-      type2: type2,
-      caught: caught,
-      shiny: shiny
+      dexnum:   dexnum,
+      name:     name,
+      type1:    type1,
+      type2:    type2,
+      caught:   caught,
+      shiny:    shiny
     }
   });
   res.json(result);
@@ -223,6 +232,9 @@ router.patch('/details/:name', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
+/**
+ * experimental route - this should be deleted
+ */
 router.get('/details/test/:name', asyncMiddleware(async (req, res) => {
   const name = req.params.name;
   console.log(name);
