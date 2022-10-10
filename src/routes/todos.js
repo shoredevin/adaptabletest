@@ -225,6 +225,7 @@ router.patch('/details/:name', asyncMiddleware(async (req, res) => {
 
 router.get('/details/test/:name', asyncMiddleware(async (req, res) => {
   const name = req.params;
+  console.log(name);
   const data = await prisma[name].findMany({
     orderBy: { 
       dexnum: 'asc',
