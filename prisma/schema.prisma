@@ -27,6 +27,16 @@ model Pokedex {
   shiny   Boolean @default(false)
 } 
 
+model dshore {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  dexnum  Int
+  name    String
+  type1   String
+  type2   String
+  caught  Boolean @default(false)
+  shiny   Boolean @default(false)
+} 
+
 model PokemonDetails {
   id                    String @id @default(auto()) @map("_id") @db.ObjectId
   dexNum                Int
