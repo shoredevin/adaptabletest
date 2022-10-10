@@ -149,10 +149,10 @@ router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =>
         // name: 'asc',
       },
     });
+    res.json(dex);
   } catch(err) {
     return res.json(err);
   }
-  res.json(dex);
 }));
 
 /**
