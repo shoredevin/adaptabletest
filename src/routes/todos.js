@@ -149,9 +149,9 @@ router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =>
         // name: 'asc',
       },
     });
-    res.status('404').json({ res: "Your pokedex was not found, please contact your administrator" });
+    res.json(dex);
   } catch(err) {
-    return res.json(err);
+    return res.status('404').json({ res: "Your pokedex was not found, please contact your administrator" });
   }
 }));
 
