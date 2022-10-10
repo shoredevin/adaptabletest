@@ -223,5 +223,16 @@ router.patch('/details/:name', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
+router.get('/details/test/:name', asyncMiddleware(async (req, res) => {
+  const name = req.params;
+  const data = await prisma[name].findMany({
+    orderBy: { 
+      dexnum: 'asc',
+      // name: 'asc',
+    },
+  });
+  res.json(data);
+}))
+
 
 module.exports = router;

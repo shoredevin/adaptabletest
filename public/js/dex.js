@@ -64,6 +64,11 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
 */
 window.onload = initTable;
 async function initTable() {
+    /**
+     * To Do
+     * add something here to redirect to login
+     * if authentication fails
+     */
     await fetch('/todos/dex')
      .then((response) => response.json())
      .then((data) => {
