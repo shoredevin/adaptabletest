@@ -17,7 +17,8 @@ app.use(cookieParser());
 const myLogger = function (req, res, next) {
     if(req.path != null && req.path.includes('.html')) {
         // return res.sendFile(path.join(__dirname, '../public/index.html'));
-        return res.status('403').send({ res: "no page for you" });
+        // return res.status('403').send({ res: "no page for you" });
+        return res.sendfile(path.join(__dirname, '../public/404.html'))
     }
     next();
 }
