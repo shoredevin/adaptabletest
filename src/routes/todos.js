@@ -3,11 +3,11 @@
  */
 
 const { PrismaClient, PrismaClientKnownRequestError } = require('@prisma/client');
-const sanitizeHtml = require('sanitize-html');
+// const sanitizeHtml = require('sanitize-html');
 const express = require('express');
 const router = express.Router();
 // const  cookieSession = require('cookie-session')
-const path = require('path');
+// const path = require('path');
 const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
 
@@ -85,51 +85,51 @@ router.post("/login", async (req, res) => {
   res.status('200').send({ res: 'success' });
 });
 
-/* post route for todo,
-   can be deleted */ 
-router.post("/", asyncMiddleware(async (req, res) => {
-  const { title: titleIn, done } = req.body;
-  const title = sanitizeHtml(titleIn, {
-    allowedTags: [ 'a' ],
-    allowedAttributes: {
-      'a': [ 'href' ]
-    },
-  });
+// /* post route for todo,
+//    can be deleted */ 
+// router.post("/", asyncMiddleware(async (req, res) => {
+//   const { title: titleIn, done } = req.body;
+//   const title = sanitizeHtml(titleIn, {
+//     allowedTags: [ 'a' ],
+//     allowedAttributes: {
+//       'a': [ 'href' ]
+//     },
+//   });
 
-  const result = await prisma.TodoItem.create({
-    data: {
-      title,
-      done,
-    }
-  });
-  res.json(result);
-}));
-
-
-/* patch route for todo,
-   can be deleted */
-router.patch('/:id', asyncMiddleware(async (req, res) => {
-  console.log(req.body)
-  const { id } = req.params;
-  const updated = await prisma.TodoItem.update({
-    where: { id },
-    data: req.body,
-  });
-  res.json(updated);
-}));
+//   const result = await prisma.TodoItem.create({
+//     data: {
+//       title,
+//       done,
+//     }
+//   });
+//   res.json(result);
+// }));
 
 
-/**
- * delete route for todo,
- * can be deleted 
- */
-router.delete('/', asyncMiddleware(async (req, res) => {
-  const id = req.body.id;
-  const updated = await prisma.TodoItem.delete({
-    where: { id }
-  });
-  res.json(updated);
-}));
+// /* patch route for todo,
+//    can be deleted */
+// router.patch('/:id', asyncMiddleware(async (req, res) => {
+//   console.log(req.body)
+//   const { id } = req.params;
+//   const updated = await prisma.TodoItem.update({
+//     where: { id },
+//     data: req.body,
+//   });
+//   res.json(updated);
+// }));
+
+
+// /**
+//  * delete route for todo,
+//  * can be deleted 
+//  */
+// router.delete('/', asyncMiddleware(async (req, res) => {
+//   const id = req.body.id;
+//   const updated = await prisma.TodoItem.delete({
+//     where: { id }
+//   });
+//   res.json(updated);
+// }));
 
 /**
  * To Do
@@ -236,21 +236,6 @@ router.patch('/details/:name', asyncMiddleware(async (req, res) => {
   });
   res.json(updated);
 }));
-
-/**
- * experimental route - this should be deleted
- */
-router.get('/details/test/:name', asyncMiddleware(async (req, res) => {
-  const name = req.params.name;
-  console.log(name);
-  const data = await prisma[name].findMany({
-    orderBy: { 
-      dexnum: 'asc',
-      // name: 'asc',
-    },
-  });
-  res.json(data);
-}))
 
 
 module.exports = router;
