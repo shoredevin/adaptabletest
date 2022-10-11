@@ -73,5 +73,5 @@ model Users {
     username            String @unique
     password            String
     sessionId           String
-    adminAccess         Boolean
+    adminAccess         Boolean @default(false)
 }

@@ -1,1 +1,31 @@
 <h1>Admin Panel</h1>
+
+<fieldset style="width: 30%">
+    <Legend>User Create</Legend>
+    <input type="text" name="unm" id="unm" placeholder="username">
+    <input type="password" name="pwd" id="pwd" placeholder="password">
+    <button id="submit-button">Submit</button>
+</fieldset>
+
+
+<script>
+    const sb = document.getElementById('submit-button');
+
+    sb.onclick = async () => {
+        const username = document.getElementById('unm').value;
+        const password = document.getElementById('pwd').value;
+
+        const response = await fetch('', {
+            method: 'Post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'username': username,
+                'password': password,
+            }),
+        });
+        const data = response.json();
+        console.log(data);
+    }
+</script>

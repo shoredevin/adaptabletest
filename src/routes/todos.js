@@ -33,6 +33,7 @@ const authenticationMiddleware = async function (req, res, next) {
     sessionCookie == userDetails.sessionId 
     ? true : false;
   res.locals.authenticated = authenticatedState;
+  res.locals.adminAccess = userDetails.adminAccess;
   console.log('auth state: ', authenticatedState);
   next();
 }
@@ -252,5 +253,21 @@ router.get('/details/test/:name', asyncMiddleware(async (req, res) => {
   res.json(data);
 }))
 
+router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated || !res.locals.adminAccess) { return res.status('401').send({ res: "Unauthorized" }) }
+
+  // const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
+  const username = req.body.username;
+  const password = req.body.password;
+
+  const result = await prisma.Users.create({
+    data: {
+      username: username,
+      password: password,
+      sessionId: "",
+    }
+  });
+  res.json(result);
+}))
 
 module.exports = router;
