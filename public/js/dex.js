@@ -82,7 +82,7 @@ async function initTable() {
         });
         logSortTotal();
     } catch(err) {
-        console.log(err);
+        showSnackBar(err);
     }
 }
 
