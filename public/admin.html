@@ -63,8 +63,8 @@
     sc.onclick = async () => {
         console.log('Uploading CSV');
         const formData = document.getElementById('json-input').value; 
-        const subData = JSON.stringify({ formData })
-        console.log(subData);
+        // const subData = JSON.stringify({ formData })
+        // console.log(subData);
         // const data = [
 	    //     {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
         //     {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
@@ -74,7 +74,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: subData,
+            body: formData,
         });
         const d = response.json();
         console.log(d);
