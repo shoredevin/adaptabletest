@@ -163,10 +163,10 @@ router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =>
  * this would not be required right now
  */
 router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   // const { dexnum: dexnumIn, name, type1, type2} = req.body;
   // const dexnum = parseInt(dexnumIn);
-  const data = req.body.data;
+  // const data = req.body.data;
   // const data = [
   //   {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
   //   {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
