@@ -73,7 +73,7 @@ async function initTable() {
         await fetch('/todos/dex')
          .then((response) => { 
             if (response.ok) { return response.json() };
-            throw new Error('something went wrong');
+            throw new Error('Pokedex not found');
          })
          .then((data) => {
             console.log(data)
