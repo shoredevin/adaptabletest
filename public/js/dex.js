@@ -69,14 +69,18 @@ async function initTable() {
      * add something here to redirect to login
      * if authentication fails
      */
-    await fetch('/todos/dex')
-     .then((response) => response.json())
-     .then((data) => {
-        console.log(data)
-        let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        tbdy.innerHTML = data.map(json2table).join("")
-    });
-    logSortTotal();
+    try {
+        await fetch('/todos/dex')
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+            tbdy.innerHTML = data.map(json2table).join("")
+        });
+        logSortTotal();
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 /*
