@@ -141,7 +141,6 @@ router.delete('/', asyncMiddleware(async (req, res) => {
 router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   if(!res.locals.authenticated) { res.status('401').send({ res: "Unauthorized" }) }
   const uname = req.cookies.app_user;
-  console.log(uname);
   try {
     const dex = await prisma[uname].findMany({
       orderBy: { 
@@ -187,9 +186,9 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
 
 router.patch('/dex/:id', authenticationMiddleware, authenticationMiddleware, asyncMiddleware(async (req, res) => {
   if(!res.locals.authenticated) { return res.status('401').send({ res: "Unauthorized" }) }
-  console.log(req.body);
+  const uname = req.cookies.app_user;
   const { id } = req.params;
-  const updated = await prisma.Pokedex.update({
+  const updated = await prisma[uname].update({
     where: { id },
     data: req.body,
   });
