@@ -10,6 +10,8 @@ const router = express.Router();
 // const path = require('path');
 const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
+const { Router } = require('express');
+const { triggerAsyncId } = require('async_hooks');
 
 const prisma = new PrismaClient();
 
@@ -33,6 +35,7 @@ const authenticationMiddleware = async function (req, res, next) {
     sessionCookie == userDetails.sessionId 
     ? true : false;
   res.locals.authenticated = authenticatedState;
+  res.locals.adminAccess = userDetails.adminAccess;
   console.log('auth state: ', authenticatedState);
   next();
 }
@@ -161,25 +164,15 @@ router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =>
  */
 router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   console.log(req.body)
-  const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
-  const dexnum = parseInt(dexnumIn);
-  const caught = (caughtIn === 'true')
-  const shiny = (shinyIn === 'true')
-  // const dexnum = sanitizeHtml(dexnumIn, {
-  //   allowedTags: [ 'a' ],
-  //   allowedAttributes: {
-  //     'a': [ 'href' ]
-  //   },
-  // });
-  const result = await prisma.Pokedex.create({
-    data: {
-      dexnum:   dexnum,
-      name:     name,
-      type1:    type1,
-      type2:    type2,
-      caught:   caught,
-      shiny:    shiny
-    }
+  // const { dexnum: dexnumIn, name, type1, type2} = req.body;
+  // const dexnum = parseInt(dexnumIn);
+  const data = req.body
+  // const data = [
+  //   {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
+  //   {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
+  // ]
+  const result = await prisma.Pokedex.createMany({
+    data
   });
   res.json(result);
 }));
@@ -237,5 +230,56 @@ router.patch('/details/:name', asyncMiddleware(async (req, res) => {
   res.json(updated);
 }));
 
+/**
+ * experimental route - this should be deleted
+ */
+router.get('/details/test/:name', asyncMiddleware(async (req, res) => {
+  const name = req.params.name;
+  console.log(name);
+  const data = await prisma[name].findMany({
+    orderBy: { 
+      dexnum: 'asc',
+      // name: 'asc',
+    },
+  });
+  res.json(data);
+}))
+
+router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated || !res.locals.adminAccess) { return res.status('401').send({ res: "Unauthorized" }) }
+
+  // const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
+  const username = req.body.username;
+  const password = req.body.password;
+  try {
+    const result = await prisma.Users.create({
+      data: {
+        username: username,
+        password: password,
+        sessionId: "",
+      }
+    });
+    res.json(result);
+  } catch (err) {
+    res.json(err);
+  }
+}))
+
+router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated || !res.locals.adminAccess) { return res.status('401').send({ res: "Unauthorized" }) }
+  const users = await prisma.Users.findMany({
+    orderBy: { 
+      username: 'asc',
+    },
+    select: {
+      username:       true,
+      password:       false,
+      adminAccess:    true,
+      admin_caught:   true,
+      jshore_caught:  true,
+    }
+  });
+  res.json(users);
+}))
 
 module.exports = router;

@@ -1,0 +1,72 @@
+<h1>Admin Panel</h1>
+
+<fieldset>
+    <Legend>User Create</Legend>
+    <input type="text" name="unm" id="unm" placeholder="username">
+    <input type="password" name="pwd" id="pwd" placeholder="password">
+    <button id="submit-user">Submit</button>
+</fieldset>
+
+<fieldset>
+    <Legend>Pokedex Update</Legend>
+    <textarea></textarea>
+    <!-- <input type="file" id="fileupload" name="fileupload" accept=".csv"> -->
+    <!-- <button type="button" onclick="previewCSV()">Preview</button> -->
+    <button id="submit-csv">Submit</button>
+</fieldset>
+
+<style>
+    fieldset {
+        width: 500px;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+    }
+    fieldset > legend {
+        font-weight: weight;
+    }
+    fieldset > button {
+        margin-left: auto;
+    }
+</style>
+
+<script>
+    const su = document.getElementById('submit-user');
+    const sc = document.getElementById('submit-csv');
+
+    su.onclick = async () => {
+        const username = document.getElementById('unm').value;
+        const password = document.getElementById('pwd').value;
+
+        const response = await fetch('/todos/users/create', {
+            method: 'Post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'username': username,
+                'password': password,
+            }),
+        });
+        const data = response.json();
+        console.log(data);
+    }
+
+    sc.onclick = async () => {
+        console.log('Uploading CSV');
+        const data = [
+	        {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
+            {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
+        ]
+        const response = await fetch('/todos/dex', {
+            method: 'Post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ data }),
+        });
+        const d = response.json();
+        console.log(d);
+    }
+
+</script>

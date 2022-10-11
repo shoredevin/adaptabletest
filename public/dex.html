@@ -14,34 +14,14 @@
     </head>
     <body>
         <div id="overlay" class="overlay"></div>
-        <!-- <h1>Pokedex</h1> -->
-        <!-- <input type="Dex Number" name="dexnum" id="dexnum" placeholder="Dex Number*">
-        <input type="Name" name="name" id="name" placeholder="Name*">
-        <select id="type1-selector">
-            <option value="normal">Normal</option>
-            <option value="dark">Dark</option>
-            <option value="flying">Flying</option>
-        </select>
-        <select id="type2-selector">
-            <option value="normal">Normal</option>
-            <option value="dark">Dark</option>
-            <option value="flying">Flying</option>
-        </select>
-        <button id="sub">Submit</button>
-        <pre id="json-container"></pre> -->
         <div id="content-container">
-            <!-- style="display: none" -->
-            <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..." title="Type in a name"> -->
             <div id="search-container">
                 <input class="form-control" id="myInput" type="search" placeholder="Search..." onkeyup="setSearchLogic()" onsearch="setSearchLogic()">
-                <!-- <input type="button" id="clear-button" class="hoverable" alt="Clear" onclick="clearSearch()" value="X" onclick="clearSearch()"> -->
             </div>
             <p id="table-size"></p>
             <div id='table-container'>
                 <table id="myTable">
                     <thead>                
-                        <!-- <th id="ID">ID</th> -->
-                        <!-- <th id="action">Action</th> -->
                         <th id="dexnum">Dex #</th>
                         <th id="name">Name</th>
                         <th>Type 1</th>
@@ -56,13 +36,10 @@
                 <div id="yoyo"class="flip-card-inner">
                     <div id="front" class="flip-card-front">
                         <img id="pokemon-sprite" alt="Avatar">
-                        <!-- <i id="gender-icon" class="fa-solid fa-mars gender-icon fmale"></i> -->
                         <span id="gender-icon" class="material-symbols-outlined gender-icon male">male</span>
-                        <!-- <i id="shiny-icon" class="fa-solid fa-heart shiny-icon hoverable"></i> -->
                         <span id="shiny-icon" class="material-symbols-outlined shiny-icon hoverable">temp_preferences_custom</span>
                         <i id="next" class="fa-solid fa-circle-right next hoverable"></i>
                         <div id="type-container" class="type-container">
-                            <!-- <div class="vl"></div> -->
                             <div class="type-icon"><p id="type1" class="type1" style="display:none"></p></div>
                             <div class="type-icon"><p id="type2"class="type2" style="display:none"></p></div>
                         </div>
@@ -75,7 +52,6 @@
             </div>
         </div>
         <div class="logo-container">
-            <!-- <img src="../images/logo.svg" alt=""> -->
             <p class="logo-text">Pokétools</p>
         </div>
         <div id="snackbar"></div>

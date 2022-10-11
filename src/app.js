@@ -45,9 +45,10 @@ const authCheck = async function(req, res, next) {
     if (authenticatedState == false) { 
         res.clearCookie('app_user');
         res.clearCookie('app_session');
-     }
+    }
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;
+    res.locals.adminAccess = userDetails.adminAccess;
     next();
 }
 
@@ -76,6 +77,14 @@ app.get('/dex', authCheck, async (req, res) => {
         return res.redirect('/');;
     }
     res.sendFile(path.join(__dirname, '../public/dex.html'));
+})
+
+app.get('/admin', authCheck, async (req, res) => {
+    console.log('/ authenticated state checker: ', res.locals.authenticated)
+    if(!res.locals.authenticated || !res.locals.adminAccess) {
+        return res.redirect('/');;
+    }
+    res.sendFile(path.join(__dirname, '../public/admin.html'));
 })
 
 //404 route

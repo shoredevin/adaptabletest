@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Sigmar+One);
 
+:root {
+  /* font-size: 16pt; */
+  font-size: clamp(0.5rem, -0.2941rem + 3.5294vw, 1.25rem);
+}
+
 body {
   padding: 0px;
   margin: 0px;
@@ -9,12 +14,10 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* padding: 20px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: hsl(203, 23%, 26%);
   overflow: hidden;
 }
-
 .content-container {
   display: flex;
   justify-items: center;
@@ -25,9 +28,9 @@ body {
   height: 200px;
   background-color: whitesmoke;
   border-radius: 10px;
+  max-width: 90%;
 }
 .form-container {
-  /* height: 100%; */
   width: 50%;
   display: flex;
   justify-content: center;

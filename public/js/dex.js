@@ -69,14 +69,21 @@ async function initTable() {
      * add something here to redirect to login
      * if authentication fails
      */
-    await fetch('/todos/dex')
-     .then((response) => response.json())
-     .then((data) => {
-        console.log(data)
-        let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        tbdy.innerHTML = data.map(json2table).join("")
-    });
-    logSortTotal();
+    try {
+        await fetch('/todos/dex')
+         .then((response) => { 
+            if (response.ok) { return response.json() };
+            throw new Error('Pokedex not found');
+         })
+         .then((data) => {
+            console.log(data)
+            let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+            tbdy.innerHTML = data.map(json2table).join("")
+        });
+        logSortTotal();
+    } catch(err) {
+        showSnackBar(err);
+    }
 }
 
 /*
@@ -365,8 +372,8 @@ function handleShinyButtonClick() {
 
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
-    if (genderIconHasEvent) genderIcon.removeEventListener("click", handleGenderButtonClick);
-    if (shinyIconHasEvent) shinyIcon.removeEventListener("click", handleShinyButtonClick);
+    if (genderIconHasEvent) { genderIcon.removeEventListener("click", handleGenderButtonClick) };
+    if (shinyIconHasEvent) { shinyIcon.removeEventListener("click", handleShinyButtonClick) };
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
     genderIcon.innerHTML = "male";

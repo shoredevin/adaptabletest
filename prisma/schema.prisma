@@ -19,7 +19,7 @@ model TodoItem {
 
 model Pokedex {
   id                    String @id @default(auto()) @map("_id") @db.ObjectId
-  dexnum                Int
+  dexnum                Int 
   name                  String
   type1                 String
   type2                 String
@@ -29,8 +29,8 @@ model Pokedex {
 
 model dshore {
   id                    String @id @default(auto()) @map("_id") @db.ObjectId
-  dexnum                Int
-  name                  String
+  dexnum                Int 
+  name                  String 
   type1                 String
   type2                 String
   caught                Boolean @default(false)
@@ -73,4 +73,5 @@ model Users {
     username            String @unique
     password            String
     sessionId           String
+    adminAccess         Boolean @default(false)
 }
