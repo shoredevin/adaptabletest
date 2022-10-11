@@ -1,13 +1,13 @@
 <h1>Admin Panel</h1>
 
-<fieldset style="width: 500px">
+<fieldset>
     <Legend>User Create</Legend>
     <input type="text" name="unm" id="unm" placeholder="username">
     <input type="password" name="pwd" id="pwd" placeholder="password">
     <button id="submit-user">Submit</button>
 </fieldset>
 
-<fieldset style="width: 500px">
+<fieldset>
     <Legend>Pokedex Update</Legend>
     <input type="file" id="fileupload" name="fileupload" accept=".csv">
     <!-- <button type="button" onclick="previewCSV()">Preview</button> -->
@@ -17,8 +17,12 @@
 <style>
     fieldset {
         width: 500px;
-        padding-bottom: 10px;
+        margin-bottom: 10px;
         display: flex;
+        gap: 10px;
+    }
+    fieldset > legend {
+        font-weight: weight;
     }
     fieldset > button {
         margin-left: auto;
