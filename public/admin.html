@@ -15,7 +15,7 @@
         const username = document.getElementById('unm').value;
         const password = document.getElementById('pwd').value;
 
-        const response = await fetch('', {
+        const response = await fetch('/todos/users/create', {
             method: 'Post',
             headers: {
                 'Content-Type': 'application/json'
