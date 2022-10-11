@@ -15,6 +15,8 @@
     <button id="submit-csv">Submit</button>
 </fieldset>
 
+<h2>Sample Data:</h2>
+<pre id="sample-data"></pre>
 <style>
     fieldset {
         width: 500px;
@@ -39,6 +41,11 @@
 </style>
 
 <script>
+
+    const sampleData = document.getElementById('sample-data')
+    sampleData.innerHTML = JSON.stringify('{"data": [{"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},{"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}]}')
+
+    
     const su = document.getElementById('submit-user');
     const sc = document.getElementById('submit-csv');
 
