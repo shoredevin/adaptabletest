@@ -280,6 +280,11 @@ router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req
     orderBy: { 
       username: 'asc',
     },
+    select: {
+      username:       true,
+      password:       false,
+      adminAccess:    true,
+    }
   });
   res.json(users);
 }))
