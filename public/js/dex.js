@@ -365,8 +365,8 @@ function handleShinyButtonClick() {
 
 overlay.addEventListener('click', () => {
     overlay.classList.toggle('active');
-    if (genderIconHasEvent) genderIcon.removeEventListener("click", handleGenderButtonClick);
-    if (shinyIconHasEvent) shinyIcon.removeEventListener("click", handleShinyButtonClick);
+    if (genderIconHasEvent) { genderIcon.removeEventListener("click", handleGenderButtonClick) };
+    if (shinyIconHasEvent) { shinyIcon.removeEventListener("click", handleShinyButtonClick) };
     genderIconHasEvent = false;
     shinyIconHasEvent = false;
     genderIcon.innerHTML = "male";
