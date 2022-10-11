@@ -281,7 +281,7 @@ router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req
       username: 'asc',
     },
   });
-  console.log(users);
+  res.json(users);
 }))
 
 module.exports = router;
