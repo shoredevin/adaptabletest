@@ -164,25 +164,15 @@ router.get("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =>
  */
 router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) => {
   console.log(req.body)
-  const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
+  const { dexnum: dexnumIn, name, type1, type2} = req.body;
   const dexnum = parseInt(dexnumIn);
-  const caught = (caughtIn === 'true')
-  const shiny = (shinyIn === 'true')
-  // const dexnum = sanitizeHtml(dexnumIn, {
-  //   allowedTags: [ 'a' ],
-  //   allowedAttributes: {
-  //     'a': [ 'href' ]
-  //   },
-  // });
-  const result = await prisma.Pokedex.create({
-    data: {
-      dexnum:   dexnum,
-      name:     name,
-      type1:    type1,
-      type2:    type2,
-      caught:   caught,
-      shiny:    shiny
-    }
+
+  const data = [
+    {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
+    {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
+  ]
+  const result = await prisma.Pokedex.createMany({
+    data
   });
   res.json(result);
 }));
