@@ -9,7 +9,7 @@
 
 <fieldset>
     <Legend>Pokedex Update</Legend>
-    <textarea></textarea>
+    <textarea id="json-input"></textarea>
     <!-- <input type="file" id="fileupload" name="fileupload" accept=".csv"> -->
     <!-- <button type="button" onclick="previewCSV()">Preview</button> -->
     <button id="submit-csv">Submit</button>
@@ -54,19 +54,21 @@
 
     sc.onclick = async () => {
         console.log('Uploading CSV');
-        const data = [
-	        {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
-            {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
-        ]
-        const response = await fetch('/todos/dex', {
-            method: 'Post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ data }),
-        });
-        const d = response.json();
-        console.log(d);
+        const json = document.getElementById('json-input').value;
+        console.log(json);
+        // const data = [
+	    //     {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
+        //     {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
+        // ]
+        // const response = await fetch('/todos/dex', {
+        //     method: 'Post',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({ data }),
+        // });
+        // const d = response.json();
+        // console.log(d);
     }
 
 </script>
