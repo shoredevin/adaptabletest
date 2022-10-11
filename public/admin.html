@@ -53,7 +53,18 @@
     }
 
     sc.onclick = async () => {
-        console.log('Uploading CSV')
+        console.log('Uploading CSV');
+        const data = [
+	        {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
+            {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
+        ]
+        const response = await fetch('/todos/dex', {
+            method: 'Post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data,
+        });
     }
 
 </script>
