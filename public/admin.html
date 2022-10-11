@@ -1,21 +1,22 @@
 <h1>Admin Panel</h1>
 
-<fieldset style="width: 30%">
+<fieldset style="width: 500px">
     <Legend>User Create</Legend>
     <input type="text" name="unm" id="unm" placeholder="username">
     <input type="password" name="pwd" id="pwd" placeholder="password">
-    <button id="submit-button">Submit</button>
+    <button id="submit-user">Submit</button>
 </fieldset>
 
-<fieldset style="width: 30%">
+<fieldset style="width: 500px">
     <Legend>Pokedex Update</Legend>
-    <input type="text" name="unm" id="unm" placeholder="username">
-    <input type="password" name="pwd" id="pwd" placeholder="password">
-    <button id="submit-button">Submit</button>
+    <input type="file" id="fileupload" name="fileupload" accept=".csv">
+    <button type="button" onclick="previewCSV()">Preview</button>
+    <button id="submit-csv" disabled>Submit</button>
 </fieldset>
 
 <script>
-    const sb = document.getElementById('submit-button');
+    const su = document.getElementById('submit-user');
+    const sc = document.getElementById('submit-csv');
 
     sb.onclick = async () => {
         const username = document.getElementById('unm').value;
@@ -34,4 +35,9 @@
         const data = response.json();
         console.log(data);
     }
+
+    sc.onclick = async () => {
+        console.log('Uploading CSV')
+    }
+
 </script>
