@@ -63,6 +63,7 @@
     sc.onclick = async () => {
         console.log('Uploading CSV');
         const data = document.getElementById('json-input').value;
+        // console.log(json);
         // const data = [
 	    //     {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
         //     {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
@@ -70,7 +71,7 @@
         const response = await fetch('/todos/dex', {
             method: 'Post',
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ data }),
         });
