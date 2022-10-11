@@ -71,7 +71,7 @@
         const response = await fetch('/todos/dex', {
             method: 'Post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'text/plain'
             },
             body: JSON.stringify({ data }),
         });
