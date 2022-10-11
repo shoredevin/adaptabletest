@@ -9,7 +9,7 @@
 
 <fieldset>
     <Legend>Pokedex Update</Legend>
-    <textarea id="json-input"></textarea>
+    <textarea id="json-input" placeholder="json"></textarea>
     <!-- <input type="file" id="fileupload" name="fileupload" accept=".csv"> -->
     <!-- <button type="button" onclick="previewCSV()">Preview</button> -->
     <button id="submit-csv">Submit</button>
@@ -26,14 +26,14 @@
         font-weight: weight;
     }
     fieldset > input {
-        width: 20px;
+        width: 200px;
     }
     fieldset > button {
         margin-left: auto;
         height: 1.5rem;
     }
     fieldset > textarea {
-        width: 50px;
+        width: 410px;
         height: 1.5rem;
     }
 </style>
@@ -68,15 +68,15 @@
 	    //     {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
         //     {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
         // ]
-        // const response = await fetch('/todos/dex', {
-        //     method: 'Post',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ data }),
-        // });
-        // const d = response.json();
-        // console.log(d);
+        const response = await fetch('/todos/dex', {
+            method: 'Post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ json }),
+        });
+        const d = response.json();
+        console.log(d);
     }
 
 </script>
