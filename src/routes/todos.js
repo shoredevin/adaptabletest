@@ -10,6 +10,7 @@ const router = express.Router();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
+const { Router } = require('express');
 
 const prisma = new PrismaClient();
 
@@ -86,51 +87,51 @@ router.post("/login", async (req, res) => {
   res.status('200').send({ res: 'success' });
 });
 
-/* post route for todo,
-   can be deleted */ 
-router.post("/", asyncMiddleware(async (req, res) => {
-  const { title: titleIn, done } = req.body;
-  const title = sanitizeHtml(titleIn, {
-    allowedTags: [ 'a' ],
-    allowedAttributes: {
-      'a': [ 'href' ]
-    },
-  });
+// /* post route for todo,
+//    can be deleted */ 
+// router.post("/", asyncMiddleware(async (req, res) => {
+//   const { title: titleIn, done } = req.body;
+//   const title = sanitizeHtml(titleIn, {
+//     allowedTags: [ 'a' ],
+//     allowedAttributes: {
+//       'a': [ 'href' ]
+//     },
+//   });
 
-  const result = await prisma.TodoItem.create({
-    data: {
-      title,
-      done,
-    }
-  });
-  res.json(result);
-}));
-
-
-/* patch route for todo,
-   can be deleted */
-router.patch('/:id', asyncMiddleware(async (req, res) => {
-  console.log(req.body)
-  const { id } = req.params;
-  const updated = await prisma.TodoItem.update({
-    where: { id },
-    data: req.body,
-  });
-  res.json(updated);
-}));
+//   const result = await prisma.TodoItem.create({
+//     data: {
+//       title,
+//       done,
+//     }
+//   });
+//   res.json(result);
+// }));
 
 
-/**
- * delete route for todo,
- * can be deleted 
- */
-router.delete('/', asyncMiddleware(async (req, res) => {
-  const id = req.body.id;
-  const updated = await prisma.TodoItem.delete({
-    where: { id }
-  });
-  res.json(updated);
-}));
+// /* patch route for todo,
+//    can be deleted */
+// router.patch('/:id', asyncMiddleware(async (req, res) => {
+//   console.log(req.body)
+//   const { id } = req.params;
+//   const updated = await prisma.TodoItem.update({
+//     where: { id },
+//     data: req.body,
+//   });
+//   res.json(updated);
+// }));
+
+
+// /**
+//  * delete route for todo,
+//  * can be deleted 
+//  */
+// router.delete('/', asyncMiddleware(async (req, res) => {
+//   const id = req.body.id;
+//   const updated = await prisma.TodoItem.delete({
+//     where: { id }
+//   });
+//   res.json(updated);
+// }));
 
 /**
  * To Do
@@ -271,6 +272,16 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
   } catch (err) {
     res.json(err);
   }
+}))
+
+router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated || !res.locals.adminAccess) { return res.status('401').send({ res: "Unauthorized" }) }
+  const users = await prisma.Users.findMany({
+    orderBy: { 
+      username: 'asc',
+    },
+  });
+  console.log(users);
 }))
 
 module.exports = router;
