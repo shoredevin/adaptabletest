@@ -71,8 +71,11 @@ async function initTable() {
      */
     try {
         await fetch('/todos/dex')
-        .then((response) => response.json())
-        .then((data) => {
+         .then((response) => { 
+            if (response.ok) { return response.json() };
+            throw new Error('something went wrong');
+         })
+         .then((data) => {
             console.log(data)
             let tbdy = document.getElementById('myTable').getElementsByTagName('tbody')[0];
             tbdy.innerHTML = data.map(json2table).join("")
