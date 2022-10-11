@@ -62,7 +62,7 @@
 
     sc.onclick = async () => {
         console.log('Uploading CSV');
-        const json = document.getElementById('json-input').value;
+        const data = document.getElementById('json-input').value;
         console.log(json);
         // const data = [
 	    //     {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
@@ -73,7 +73,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ json }),
+            body: JSON.stringify({ data }),
         });
         const d = response.json();
         console.log(d);
