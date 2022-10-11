@@ -166,13 +166,13 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
   console.log(req.body)
   // const { dexnum: dexnumIn, name, type1, type2} = req.body;
   // const dexnum = parseInt(dexnumIn);
-  const data = req.body[0];
+  const data = req.body.data;
   // const data = [
   //   {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
   //   {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
   // ]
   const result = await prisma.Pokedex.createMany({
-    data
+    data: req.body.data
   });
   res.json(result);
 }));
