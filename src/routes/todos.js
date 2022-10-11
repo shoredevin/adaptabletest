@@ -11,6 +11,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
 const { Router } = require('express');
+const { triggerAsyncId } = require('async_hooks');
 
 const prisma = new PrismaClient();
 
@@ -284,6 +285,8 @@ router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req
       username:       true,
       password:       false,
       adminAccess:    true,
+      admin_caught:   true,
+      jshore_caught:  true,
     }
   });
   res.json(users);
