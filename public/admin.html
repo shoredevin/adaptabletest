@@ -73,7 +73,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: { json },
+            body: JSON.stringify({ json }),
         });
         const d = response.json();
         console.log(d);
