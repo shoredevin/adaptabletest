@@ -106,7 +106,7 @@ logoutButton.onclick = async () => {
     });     
     const data = await response.json();
     if(data.res == "success") {
-        window.location.replace("/dex");
+        window.location.replace("/");
         return;
     }
     showSnackBar(data.res);
