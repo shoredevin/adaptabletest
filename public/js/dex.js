@@ -66,6 +66,7 @@ window.onload = initTable;
 async function initTable() {
     const adminAccess = await fetch('todos/users/isadmin');
     const d = await adminAccess.json();
+    document.getElementById('username').innerHTML = d.username;
     if(d.adminAccess) { document.getElementById('admin').style.display = 'inline'}
     try {
         await fetch('/todos/dex')

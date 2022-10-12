@@ -342,7 +342,8 @@ router.get('/users/isadmin', authenticationMiddleware, asyncMiddleware(async (re
       username: uname
     },
     select: {
-      adminAccess:    true
+      username:       true,
+      adminAccess:    true,
     }
   });
   res.json(hasAdminAccess);
