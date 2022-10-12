@@ -86,6 +86,16 @@ async function initTable() {
     }
 }
 
+/**
+ * Log out button logic
+ */
+
+const logoutButton = document.getElementById('logout');
+
+logoutButton.onclick = () => {
+    console.log('logging out...')
+}
+
 /*
     Table search logic, includes SOME Add/Or processing
 */
