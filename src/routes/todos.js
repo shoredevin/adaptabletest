@@ -191,13 +191,12 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
     const result = await prisma[currUsername].createMany({
         data: req.body.data
       });
-    res.json(result);
   }
 
   /**
    * Print result
    */
-
+   res.json({ res: "done" });
 
   // BELOW NEEDS TO BE ADDED BACK IN
   // const result = await prisma.Pokedex.createMany({
