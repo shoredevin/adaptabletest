@@ -288,6 +288,7 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
       }
     });
     const data = await result.json();
+    console.log(data);
     res.json(data);
   } catch (err) {
     res.json(err);
