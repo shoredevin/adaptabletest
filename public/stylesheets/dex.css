@@ -17,6 +17,7 @@ body {
     overflow: hidden;
     background: #334651;
     user-select: none;
+    flex-direction: column;
     /* background-image: url('https://poketools.info/images/background.jpg') */
     /* background-size: cover; */
 }
