@@ -70,6 +70,7 @@ async function initTable() {
      */
     const adminAccess = await fetch('todos/users/isadmin');
     const d = adminAccess.json();
+    console.log(d);
     if(d.adminAccess) { document.getElementById(admin).style.display = 'block'}
     /**
      * To Do
