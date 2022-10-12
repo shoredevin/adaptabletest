@@ -38,7 +38,7 @@ body {
     display: block;
 }
 
-#logout {
+#logout, #admin {
     margin-left: auto;
 }
 
