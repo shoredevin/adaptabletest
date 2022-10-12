@@ -184,7 +184,9 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
   /**
    * Iterate through the usersToUpdate object
    */
-  for(key in Object.keys(usersToUpdate)) { res.json(key[0]) }
+
+  console.log(usersToUpdate.length)
+
   /**
    * Print result
    */
