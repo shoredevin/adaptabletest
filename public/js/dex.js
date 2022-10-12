@@ -113,6 +113,7 @@ logoutButton.onclick = async () => {
 }
 
 const adminButton = document.getElementById('admin');
+//  check cookie to see if the user is an admin if() {}
 adminButton.onclick = async () => {
     console.log('admin access...');
     window.location.replace("/admin");
