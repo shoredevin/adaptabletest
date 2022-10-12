@@ -64,18 +64,9 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
 */
 window.onload = initTable;
 async function initTable() {
-    /**
-     * work here...
-     */
     const adminAccess = await fetch('todos/users/isadmin');
     const d = await adminAccess.json();
-    console.log(d);
-    if(d.adminAccess) { document.getElementById('admin').style.display = 'block'}
-    /**
-     * To Do
-     * add something here to redirect to login
-     * if authentication fails
-     */
+    if(d.adminAccess) { document.getElementById('admin').style.display = 'inline'}
     try {
         await fetch('/todos/dex')
          .then((response) => { 
