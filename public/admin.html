@@ -69,7 +69,15 @@
         window.location.replace("/dex");
     }
 
-
+    const sampleJson = {
+        "data": [
+            {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
+            {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
+        ]
+    }
+    const sampleData = document.getElementById('sample-data')
+    sampleData.innerHTML = JSON.stringify(sampleJson, null, 2)
+    
     su.onclick = async () => {
         const username = document.getElementById('unm').value;
         const password = document.getElementById('pwd').value;
