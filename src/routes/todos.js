@@ -180,6 +180,16 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
     }
   });
   res.json(usersToUpdate);
+
+  /**
+   * Iterate through the usersToUpdate object
+   */
+  for(key in Object.keys(usersToUpdate)) { res.json(key[0]) }
+  /**
+   * Print result
+   */
+
+
   // BELOW NEEDS TO BE ADDED BACK IN
   // const result = await prisma.Pokedex.createMany({
   //   data: req.body.data
