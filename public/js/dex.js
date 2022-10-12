@@ -64,6 +64,13 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
 */
 window.onload = initTable;
 async function initTable() {
+
+    /**
+     * work here...
+     */
+    const adminAccess = await fetch('todos/users/isadmin');
+    const d = adminAccess.json();
+    if(d.adminAccess) { document.getElementById(admin).style.display = 'block'}
     /**
      * To Do
      * add something here to redirect to login
@@ -113,7 +120,6 @@ logoutButton.onclick = async () => {
 }
 
 const adminButton = document.getElementById('admin');
-//  check cookie to see if the user is an admin if() {}
 adminButton.onclick = async () => {
     console.log('admin access...');
     window.location.replace("/admin");

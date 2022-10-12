@@ -30,7 +30,7 @@ const authCheck = async function(req, res, next) {
     if (userCookie == undefined || sessionCookie == undefined) { 
         res.clearCookie('app_user');
         res.clearCookie('app_session');
-        res.clearCookie('app_admin');
+        // res.clearCookie('app_admin');
         res.locals.authenticated = false;
         return next();
     }
@@ -46,7 +46,7 @@ const authCheck = async function(req, res, next) {
     if (authenticatedState == false) { 
         res.clearCookie('app_user');
         res.clearCookie('app_session');
-        res.clearCookie('app_admin');
+        // res.clearCookie('app_admin');
     }
     console.log('auth state: ', authenticatedState);
     res.locals.authenticated = authenticatedState;

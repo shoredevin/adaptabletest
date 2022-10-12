@@ -79,7 +79,7 @@ router.post("/login", async (req, res) => {
   const sessionId = uuidv4();
   res.cookie("app_user", username, {  maxAge: 900000, httpOnly: true });
   res.cookie("app_session", sessionId, {  maxAge: 900000, httpOnly: true });
-  if(userDetails.adminAccess) { res.cookie("app_admin", true, {  maxAge: 900000, httpOnly: true }); }
+  // if(userDetails.adminAccess) { res.cookie("app_admin", true, {  maxAge: 900000, httpOnly: true }); }
   /* Send sessionID to the DB */
   const updated = await prisma.Users.update({
     where: { username: username },
@@ -94,7 +94,7 @@ router.post("/logout", async (req, res) => {
   // const sessionCookie = req.cookies.app_session;
   res.clearCookie('app_user');
   res.clearCookie('app_session');
-  res.clearCookie('app_admin');
+  // res.clearCookie('app_admin');
   // const username = req.body.username;
   // const password = req.body.password;
   // const userDetails = await prisma.Users.findUnique({
