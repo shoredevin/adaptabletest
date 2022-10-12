@@ -38,7 +38,8 @@ body {
     display: block;
 }
 
-#logout, #admin {
+
+.button-container {
     margin-left: auto;
 }
 
