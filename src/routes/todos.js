@@ -171,10 +171,15 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
   //   {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
   //   {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
   // ]
-  const result = await prisma.Pokedex.createMany({
-    data: req.body.data
+  const usersToUpdate = await prisma.Users.findUnique({
+    where: { hasPokedex: !false }
   });
-  res.json(result);
+  res.json({ usersToUpdate });
+  // BELOW NEEDS TO BE ADDED BACK IN
+  // const result = await prisma.Pokedex.createMany({
+  //   data: req.body.data
+  // });
+  // res.json(result);
 }));
 
 router.patch('/dex/:id', authenticationMiddleware, authenticationMiddleware, asyncMiddleware(async (req, res) => {
