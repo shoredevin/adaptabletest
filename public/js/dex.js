@@ -92,9 +92,25 @@ async function initTable() {
 
 const logoutButton = document.getElementById('logout');
 
-logoutButton.onclick = () => {
+logoutButton.onclick = async () => {
     console.log('logging out...');
-    
+    const response = await fetch(`/todos/logout`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        // body: JSON.stringify({
+        //     'username': username,
+        //     'password': password,
+        // }),
+    });     
+    const data = await response.json();
+    if(data.res == "success") {
+        window.location.replace("/dex");
+        return;
+    }
+    showSnackBar(data.res);
+
 }
 
 /*
