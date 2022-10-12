@@ -1,25 +1,29 @@
 <h1>Admin Panel</h1>
+<div class="content-container">
+    <fieldset>
+        <Legend>User Create</Legend>
+        <input type="text" name="unm" id="unm" placeholder="username">
+        <input type="password" name="pwd" id="pwd" placeholder="password">
+        <button id="submit-user">Submit</button>
+    </fieldset>
 
-<fieldset>
-    <Legend>User Create</Legend>
-    <input type="text" name="unm" id="unm" placeholder="username">
-    <input type="password" name="pwd" id="pwd" placeholder="password">
-    <button id="submit-user">Submit</button>
-</fieldset>
-
-<fieldset>
-    <Legend>Pokedex Update</Legend>
-    <textarea id="json-input" placeholder="json"></textarea>
-    <!-- <input type="file" id="fileupload" name="fileupload" accept=".csv"> -->
-    <!-- <button type="button" onclick="previewCSV()">Preview</button> -->
-    <button id="submit-csv">Submit</button>
-</fieldset>
-
+    <fieldset>
+        <Legend>Pokedex Update</Legend>
+        <textarea id="json-input" placeholder="json"></textarea>
+        <!-- <input type="file" id="fileupload" name="fileupload" accept=".csv"> -->
+        <!-- <button type="button" onclick="previewCSV()">Preview</button> -->
+        <button id="submit-csv">Submit</button>
+    </fieldset>
+</div>
 <h2>Sample Data:</h2>
 <pre id="sample-data"></pre>
 <style>
-    fieldset {
+    .content-container {
         width: 500px;
+    }
+    fieldset {
+        /* width: 500px; */
+        width: 100%;
         margin-bottom: 10px;
         display: flex;
         gap: 10px;
@@ -39,7 +43,9 @@
         height: 1.5rem;
     }
     #sample-data {
-        width: 499px;
+        margin-top: -1rem;
+        /* width: 499px; */
+        width: 100%;
         border: 1px dotted black;
         background-color: darkgray;
     }
