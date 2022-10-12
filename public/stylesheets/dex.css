@@ -12,8 +12,8 @@ body {
     /* width: 100%; */
     display: flex;
     align-items: center;
-    justify-content: center;
-    justify-items: center;
+    /* justify-content: center; */
+    /* justify-items: center; */
     overflow: hidden;
     background: #334651;
     user-select: none;
