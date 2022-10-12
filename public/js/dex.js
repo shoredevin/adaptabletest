@@ -93,7 +93,8 @@ async function initTable() {
 const logoutButton = document.getElementById('logout');
 
 logoutButton.onclick = () => {
-    console.log('logging out...')
+    console.log('logging out...');
+    
 }
 
 /*

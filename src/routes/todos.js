@@ -88,6 +88,30 @@ router.post("/login", async (req, res) => {
   res.status('200').send({ res: 'success' });
 });
 
+router.post("/logout", async (req, res) => {
+  const userCookie = req.cookies.app_user;
+  // const sessionCookie = req.cookies.app_session;
+  res.clearCookie('app_user');
+  res.clearCookie('app_session');
+  // const username = req.body.username;
+  // const password = req.body.password;
+  // const userDetails = await prisma.Users.findUnique({
+  //   where: { username: username }
+  // });
+  // if(userDetails === null || username != userDetails.username || password != userDetails.password) {
+  //   return res.status('401').send({ res: 'Invalid username or password' })
+  // }
+  // const sessionId = uuidv4();
+  // res.cookie("app_user", username, {  maxAge: 900000, httpOnly: true });
+  // res.cookie("app_session", sessionId, {  maxAge: 900000, httpOnly: true });
+  /* Send sessionID to the DB */
+  const updated = await prisma.Users.update({
+    where: { username: userCookie },
+    data: { sessionId: "" },
+  });
+  res.status('200').send({ res: 'success' });
+});
+
 // /* post route for todo,
 //    can be deleted */ 
 // router.post("/", asyncMiddleware(async (req, res) => {
