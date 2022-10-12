@@ -1,4 +1,4 @@
-<h1>Admin Panel</h1>
+<h1>Admin Panel</h1> <button id="pokedex">Pokedex</button>
 <div class="content-container">
     <fieldset>
         <Legend>User Create</Legend>
@@ -61,18 +61,14 @@
 </style>
 
 <script>
-    const sampleJson = {
-        "data": [
-            {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
-            {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
-        ]
-    }
-    const sampleData = document.getElementById('sample-data')
-    sampleData.innerHTML = JSON.stringify(sampleJson, null, 2)
-
-
+    const pd = document.getElementById('pokedex')
     const su = document.getElementById('submit-user');
     const sc = document.getElementById('submit-csv');
+
+    pd.onclick = async () => {
+        window.location.replace("/dex");
+    }
+
 
     su.onclick = async () => {
         const username = document.getElementById('unm').value;
