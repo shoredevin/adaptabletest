@@ -279,7 +279,7 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
   // const { dexnum: dexnumIn, name, caught: caughtIn, type1, type2, shiny: shinyIn } = req.body;
   const username = req.body.username;
   const password = req.body.password;
-  try {
+  // try {
     const result = await prisma.Users.create({
       data: {
         username: username,
@@ -290,9 +290,9 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
     const data = await result.json();
     console.log(data);
     res.json(data);
-  } catch (err) {
-    res.json(err);
-  }
+  // } catch (err) {
+  //   res.json(err);
+  // }
 }))
 
 router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req, res) => {
