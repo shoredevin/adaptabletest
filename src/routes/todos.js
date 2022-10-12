@@ -284,7 +284,7 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
       data: {
         username: username,
         password: password,
-        sessionId: "",
+        sessionId: ""
       }
     });
     const data = await result.json();

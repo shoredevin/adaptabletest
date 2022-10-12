@@ -74,5 +74,5 @@ model Users {
     password            String
     sessionId           String
     adminAccess         Boolean @default(false)
-    hasPokedex          Boolean
+    hasPokedex          Boolean @default(false)
 }
