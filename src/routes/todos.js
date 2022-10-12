@@ -185,7 +185,9 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
    * Iterate through the usersToUpdate object
    */
 
-  console.log(usersToUpdate.length)
+  for(let i = 0; i < usersToUpdate.length; i++) {
+    console.log(usersToUpdate[i].username)
+  }
 
   /**
    * Print result
