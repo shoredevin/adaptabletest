@@ -91,7 +91,6 @@ async function initTable() {
  */
 
 const logoutButton = document.getElementById('logout');
-
 logoutButton.onclick = async () => {
     console.log('logging out...');
     const response = await fetch(`/todos/logout`, {
@@ -111,6 +110,12 @@ logoutButton.onclick = async () => {
     }
     showSnackBar(data.res);
 
+}
+
+const adminButton = document.getElementById('admin');
+adminButton.onclick = async () => {
+    console.log('admin access...');
+    window.location.replace("/admin");
 }
 
 /*
