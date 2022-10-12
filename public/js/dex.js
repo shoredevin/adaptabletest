@@ -70,7 +70,7 @@ async function initTable() {
     const adminAccess = await fetch('todos/users/isadmin');
     const d = await adminAccess.json();
     console.log(d);
-    if(d.adminAccess) { document.getElementById(admin).style.display = 'block'}
+    if(d.adminAccess) { document.getElementById('admin').style.display = 'block'}
     /**
      * To Do
      * add something here to redirect to login
