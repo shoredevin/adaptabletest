@@ -334,4 +334,19 @@ router.get('/users/create', authenticationMiddleware, asyncMiddleware(async (req
   res.json(users);
 }))
 
+router.get('/users/isadmin', authenticationMiddleware, asyncMiddleware(async (req, res) => {
+  if(!res.locals.authenticated) { return res.status('401').send({ res: "Unauthorized" }) }
+  const uname = req.cookies.app_user;
+  const hasAdminAccess = await prisma.Users.findUnique({
+    where: {
+      username: uname
+    },
+    select: {
+      adminAccess:    true
+    }
+  });
+  res.json(hasAdminAccess);
+}))
+
+
 module.exports = router;
