@@ -40,7 +40,9 @@ body {
 
 
 .button-container {
+    margin-top: 10px;
     margin-left: auto;
+    margin-bottom: 10px;
 }
 
 #content-container {
