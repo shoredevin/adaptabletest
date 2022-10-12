@@ -287,7 +287,8 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
         sessionId: "",
       }
     });
-    res.json(result);
+    const data = await result.json();
+    res.json(data);
   } catch (err) {
     res.json(err);
   }
