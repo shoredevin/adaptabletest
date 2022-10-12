@@ -171,7 +171,7 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
   //   {"dexnum": 0, "name": "devinmon", "type1": "grass", "type2": "poison"},
   //   {"dexnum": -1, "name": "jessmon", "type1": "flying", "type2": "fairy"}
   // ]
-  const usersToUpdate = await prisma.Users.findUnique({
+  const usersToUpdate = await prisma.Users.findMany({
     where: { hasPokedex: !false }
   });
   res.json({ usersToUpdate });
