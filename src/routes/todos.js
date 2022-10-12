@@ -188,10 +188,10 @@ router.post("/dex", authenticationMiddleware, asyncMiddleware(async (req, res) =
   for(let i = 0; i < usersToUpdate.length; i++) {
     const currUsername = usersToUpdate[i].username;
     console.log(currUsername);
-    // const result = await prisma.Pokedex.createMany({
-    //     data: req.body.data
-    //   });
-    // res.json(result);
+    const result = await prisma[currUsername].createMany({
+        data: req.body.data
+      });
+    res.json(result);
   }
 
   /**
