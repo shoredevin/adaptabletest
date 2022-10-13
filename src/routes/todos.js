@@ -350,16 +350,12 @@ router.get('/users/isadmin', authenticationMiddleware, asyncMiddleware(async (re
 }))
 
 router.get('/testing/join', asyncMiddleware(async (req, res) => {
-  const details = await prisma.Pokedex.findMany({
-    select: {
-      dexnum:       true,
-      name:         true,
-      type1:        true,
-      type2:        true,
-    },
-    orderBy: { 
-      dexnum: 'asc',
-    },
+  const details = await prisma.Users.aggregateRaw({
+    pipeline: [
+      { $match: { adminAccess: true } },
+      { $group: { _id: 'admin', total: { $sum: 1 } } }
+    ]
+
   });
   res.json(details);
 }))
