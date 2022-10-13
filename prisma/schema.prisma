@@ -76,3 +76,12 @@ model Users {
     adminAccess         Boolean @default(false)
     hasPokedex          Boolean @default(false)
 }
+
+
+model UserPokedex {
+    id                  String @id @default(auto()) @map("_id") @db.ObjectId
+    username            String @unique
+    dexnum              Int
+    caught              Boolean
+    shiny               Boolean
+}
