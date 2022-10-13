@@ -349,5 +349,14 @@ router.get('/users/isadmin', authenticationMiddleware, asyncMiddleware(async (re
   res.json(hasAdminAccess);
 }))
 
+router.get('/testing/join', asyncMiddleware(async (req, res) => {
+  const details = await prisma.Pokedex.findMany({
+    orderBy: { 
+      dexnum: 'asc',
+    },
+  });
+  res.json(details);
+}))
+
 
 module.exports = router;
