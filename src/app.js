@@ -64,8 +64,8 @@ app.use('/todos', todosRouter);
  * Experimental route with SQL calls
  * delete after testing
  */
-const todoSQL_Router = require('./routes/todoSQL');
-app.use('/todosql', todoSQL_Router);
+const todosql_Router = require('./routes/todosql');
+app.use('/todosql', todosql_Router);
 
 app.get('/', authCheck, async (req, res) => {
     console.log('/ authenticated state checker: ', res.locals.authenticated)
