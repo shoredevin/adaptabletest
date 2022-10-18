@@ -1,25 +1,36 @@
-/**
- * REST endpoint for /todos
- */
-
-// const { PrismaClient, PrismaClientKnownRequestError } = require('@prisma/client');
-// const sanitizeHtml = require('sanitize-html');
 const express = require('express');
 const router = express.Router();
-// const  cookieSession = require('cookie-session')
-// const path = require('path');
-// const cookieParser = require('cookie-parser');
-// const { v4: uuidv4 } = require('uuid');
-// const { Router } = require('express');
-// const { triggerAsyncId } = require('async_hooks');
+const { Pool, Client } = require('pg');
 
-// const prisma = new PrismaClient();
+const credentials = {
+  user:       "test2-main-db-0c1958f0d431bbd8c",
+  host:       "user-prod-us-east-2-1.cluster-cfi5vnucvv3w.us-east-2.rds.amazonaws.com",
+  database:   "test2-main-db-0c1958f0d431bbd8c",
+  password:   "9tKhtQzvwvQpNxREgv5UBYzamnpvZZ",
+  port:       "5432",
+};
 
-// router.use(cookieParser());
 
 router.get("/", async (req, res) => {
-  res.json({ res: "great success" })
+    const pool = new Pool(credentials);
+    //const results = await createUser(pool)
+    const results = await getPosts(pool);
+    // console.log(
+    //   "Results: " +
+    //     JSON.stringify(results.rows, null, "  ")
+    // );
+    res.json(results.rows)
+    await pool.end();
 
 });
+
+async function getPosts(pool) {
+  const text = `
+      SELECT
+          *
+      FROM public.pokemon AS p
+  `;
+  return pool.query(text);
+}
 
 module.exports = router;
