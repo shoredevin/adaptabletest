@@ -60,6 +60,13 @@ app.use(express.static(path.join(__dirname, '../public')));
 const todosRouter = require('./routes/todos');
 app.use('/todos', todosRouter);
 
+/**
+ * Experimental route with SQL calls
+ * delete after testing
+ */
+const todoSQL_Router = require('./routes/todoSQL');
+app.use('/todosql', todoSQL_Router);
+
 app.get('/', authCheck, async (req, res) => {
     console.log('/ authenticated state checker: ', res.locals.authenticated)
     if(res.locals.authenticated) { 
