@@ -71,7 +71,7 @@ const asyncMiddleware = fn => (req, res, next) => {
 };
 
 router.get('/', async(req, res) => {
-  console.log((path.join(__dirname, '../../public/api.html'))
+  console.log(path.join(__dirname, '../../public/api.html'));
   res.sendFile(path.join(__dirname, '../../public/api.html'));
 });
 
