@@ -71,7 +71,7 @@ const asyncMiddleware = fn => (req, res, next) => {
 };
 
 router.get('/', async(req, res) => {
-  res.sendFile(__dirname, '../public/api.html');
+  res.sendFile(path.join(__dirname, '../public/api.html'));
 });
 
 //auth route
