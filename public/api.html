@@ -10,11 +10,99 @@
 <body>
     <h1>Apis Are Pretty Cool</h1>
     <md-block>
-        # Heading
-
-        ```html
-        &lt;foo>
+        # **API Documentation**
+        [/api/details](https://poketools.info/api/details)
+         
+        This endpoint gets information about a specified Pokemon.
+         
+        ## **Request**
+        ###Method
+        ```js
+        GET
         ```
+        ### URL
+        ```js
+        `/request/details?name=${pokemonName}`
+        ```
+        | *Attribute*          | *Meaning*                                                                 |
+        |----------------------|---------------------------------------------------------------------------|
+        | pokemonName          | The name of the Pokemon whose details are being requested.                |
+         
+         
+        ## **Response**
+        ```json
+        {
+            "id": "uuid",
+            "dexNum": "int",
+            "name": "string",
+            "nickname": "string",
+            "ability1": "string",
+            "ability2": "string",
+            "hability": "string",
+            "eggGroup": "string",
+            "catchRate": "string",
+            "hatchRate": "string",
+            "levelingRate": "string",
+            "mPercent": "string",
+            "fPercent": "string",
+            "spriteURL": "string",
+            "spriteURLShiny": "string",
+            "femaleSpriteURL": "string",
+            "femaleSpriteURLShiny": "string",
+            "forms": "{json}"
+        }
+        ```
+        | *Attribute*          | *Meaning*                                                              |  |
+        |----------------------|------------------------------------------------------------------------|--|
+        | dexNum               | National dex number for the Pokemon                                    |  |
+        | name                 | The name of the Pokemon                                                |  |
+        | nickname             | The nickname of the Pokemon                                            |  |
+        | ability1             | The first ability of the Pokemon                                       |  |
+        | ability2             | The second ability (if applicable) of the Pokemon                      |  |
+        | hability             | The hidden ability of the Pokemon                                      |  |
+        | eggGroup             | The egg group(s) for this Pokemon                                      |  |
+        | catchRate            | The catch rate for this Pokemon                                        |  |
+        | hatchRate            | The gatch rate for this Pokemon                                        |  |
+        | levelingRate         | The rate at which this Pokemon levels                                  |  |
+        | mPercent             | The percentage likelihood that this Pokemon is male                    |  |
+        | fPercent             | The percentage likelihood that this Pokemon is female                  |  |
+        | spriteURL            | The genderless, or male, sprite for this Pokemon                       |  |
+        | spriteURLShiny       | The genderless, or male, shiny sprite for this Pokemon                 |  |
+        | femaleSpriteURL      | The female sprite for this Pokemon, if female variation exists         |  |
+        | femaleSpriteURLShiny | The female shint sprite for this Pokemon, if a female variation exists |  |
+        | forms                | The additional forms, if any exist, for this Pokemon                   |  |
+                     
+        ...
+         
+        ## **Example**
+         
+        *Request URL:*
+        ```js
+        `https://poketools.ino/request/details?name=${pokemonName}`
+        ```
+        *Response:*
+        ```json
+        {
+            "id": "6338a11e43d51d7d1a647544",
+            "dexNum": 1,
+            "name": "Bulbasaur",
+            "nickname": "",
+            "ability1": "",
+            "ability2": "",
+            "hability": "",
+            "eggGroup": "",
+            "catchRate": "",
+            "hatchRate": "",
+            "levelingRate": "",
+            "mPercent": "",
+            "fPercent": "",
+            "spriteURL": "https://poketools.info/images/sprites/001.gif",
+            "spriteURLShiny": "https://poketools.info/images/sprites/001-s.gif",
+            "femaleSpriteURL": "",
+            "femaleSpriteURLShiny": "",
+            "forms": {}
+        }
+        
     </md-block>
 </body>
 </html>
