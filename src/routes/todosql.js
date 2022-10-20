@@ -40,7 +40,7 @@ async function getUserDex(pool) {
   SELECT 
     p."dexnum", 
     p."name",
-    pm.username,
+    -- pm.username,
     coalesce(pm."caught", false), 
     coalesce(pm."shiny", false)  
   FROM public.pokemon p
