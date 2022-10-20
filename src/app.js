@@ -57,8 +57,8 @@ const authCheck = async function(req, res, next) {
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
-const todosRouter = require('./routes/todos');
-app.use('/todos', todosRouter);
+const apiRouter = require('./routes/api');
+app.use('/api', apiRouter);
 
 /**
  * Experimental route with SQL calls

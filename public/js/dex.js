@@ -64,12 +64,12 @@ const json2table = ({ id, dexnum, name, type1, type2, caught, shiny }) => `
 */
 window.onload = initTable;
 async function initTable() {
-    const adminAccess = await fetch('todos/users/isadmin');
+    const adminAccess = await fetch('api/users/isadmin');
     const d = await adminAccess.json();
     document.getElementById('username').innerHTML = d.username;
     if(d.adminAccess) { document.getElementById('admin').style.display = 'inline'}
     try {
-        await fetch('/todos/dex')
+        await fetch('/api/dex')
          .then((response) => { 
             if (response.ok) { return response.json() };
             throw new Error('Pokedex not found');
@@ -92,7 +92,7 @@ async function initTable() {
 const logoutButton = document.getElementById('logout');
 logoutButton.onclick = async () => {
     console.log('logging out...');
-    const response = await fetch(`/todos/logout`, {
+    const response = await fetch(`/api/logout`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -210,7 +210,7 @@ function logSortTotal() {
 
 async function getPokemonDetails(id, name, type1, type2) {
     try {
-        await fetch(`/todos/details/?name=${capitalizeFirstLetter(name)}`)
+        await fetch(`/api/details/?name=${capitalizeFirstLetter(name)}`)
          .then((response) => response.json())
          .then((d) => {
             if(!d) {
@@ -244,15 +244,15 @@ async function patchJob(e, id, bool) {
         e.target.classList.toggle("fa-regular");
         e.target.classList.toggle("fa-solid");
     };
-    const resp = await fetch(`/todos/dex/${id}`, {
+    const resp = await fetch(`/api/dex/${id}`, {
         method: "PATCH", 
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(bool)
     });
-    const todos = await resp.json();
-    console.log(todos)
+    const api = await resp.json();
+    console.log(api)
     await initTable();
     setSearchLogic();  
 }

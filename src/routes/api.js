@@ -66,6 +66,10 @@ const asyncMiddleware = fn => (req, res, next) => {
     .catch(next);
 };
 
+router.get('/', async(req, res) => {
+  res.send("<h1>Apis</h1>");
+});
+
 //auth route
 router.post("/login", async (req, res) => {
   const username = req.body.username;
@@ -306,7 +310,7 @@ router.post('/users/create', authenticationMiddleware, asyncMiddleware(async (re
   const username = req.body.username;
   const password = req.body.password;
   // try {
-    const result = await prisma.Users.create({
+    const results = await prisma.Users.create({
       data: {
         username: username,
         password: password,

@@ -10,15 +10,9 @@ const credentials = {
   port:       "5432",
 };
 
-
 router.get("/", async (req, res) => {
     const pool = new Pool(credentials);
-    //const results = await createUser(pool)
     const results = await getPosts(pool);
-    // console.log(
-    //   "Results: " +
-    //     JSON.stringify(results.rows, null, "  ")
-    // );
     res.json(results.rows)
     await pool.end();
 

@@ -4,7 +4,7 @@ lb.onclick = async () => {
     const username = document.getElementById('uname').value;
     const password = document.getElementById('pwrd').value;
     // console.log(username, password)
-    const response = await fetch(`/todos/login`, {
+    const response = await fetch(`/api/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
