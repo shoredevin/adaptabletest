@@ -39,6 +39,9 @@ const authenticationMiddleware = async function (req, res, next) {
   console.log('auth state: ', authenticatedState);
   next();
 }
+
+app.use(express.static(path.join(__dirname, '../public')));
+
 /* 
   Below is old to do list functionality
   if everything is working as expected
@@ -67,7 +70,7 @@ const asyncMiddleware = fn => (req, res, next) => {
 };
 
 router.get('/', async(req, res) => {
-  res.send("<h1>Apis</h1>");
+  res.sendFile(__dirname, '../public/api.html');
 });
 
 //auth route
