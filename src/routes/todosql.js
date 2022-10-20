@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("user-dex", async (req, res) => {
+router.get("/user-dex", async (req, res) => {
   res.json({ res: "here" })
 })
 
