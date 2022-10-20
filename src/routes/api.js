@@ -40,7 +40,7 @@ const authenticationMiddleware = async function (req, res, next) {
   next();
 }
 
-app.use(express.static(path.join(__dirname, '../public')));
+router.use(express.static(path.join(__dirname, '../public')));
 
 /* 
   Below is old to do list functionality
