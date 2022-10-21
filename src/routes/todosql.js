@@ -39,10 +39,10 @@ async function getPosts(pool) {
 async function getUserDex(username, pool) {
   const text = `
   SELECT 
-    p."dexnum", 
-    p."name",
-    coalesce(pm."caught", false), 
-    coalesce(pm."shiny", false)  
+    p."dexnum" as ndex, 
+    p."name" as name,
+    coalesce(pm."caught", false) as caught, 
+    coalesce(pm."shiny", false) as shiny  
   FROM public.pokemon p
   LEFT OUTER JOIN user_pokemon_mapping as pm
     ON p."dexnum" = pm."pokemonId" and pm.username = $1
