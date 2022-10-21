@@ -19,8 +19,9 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/user-dex", async (req, res) => {
+  const username = req.query.username
   const pool = new Pool(credentials);
-  const results = await getUserDex(pool);
+  const results = await getUserDex(username, pool);
   res.json(results.rows)
   await pool.end();
 
@@ -35,7 +36,7 @@ async function getPosts(pool) {
   return pool.query(text);
 }
 
-async function getUserDex(pool) {
+async function getUserDex(username, pool) {
   const text = `
   SELECT 
     p."dexnum", 
@@ -45,11 +46,12 @@ async function getUserDex(pool) {
     coalesce(pm."shiny", false)  
   FROM public.pokemon p
   LEFT OUTER JOIN user_pokemon_mapping as pm
-    ON p."dexnum" = pm."pokemonId" and pm.username = 'dshore'
+    ON p."dexnum" = pm."pokemonId" and pm.username = $1
   ORDER BY 
     p.dexnum asc
   `;
-  return pool.query(text);
+  const values = [username]
+  return pool.query(text, values);
 }
 
 module.exports = router;
