@@ -1,3 +1,4 @@
+const su = document.getElementById('signup')
 const lb = document.getElementById('login-button');
 
 lb.onclick = async () => {
@@ -23,4 +24,8 @@ lb.onclick = async () => {
     showSnackBar(data.res);
     // console.log('logged in');
 
+}
+
+su.onclick = async () => {
+    console.log('sign up')
 }
