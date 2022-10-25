@@ -40,7 +40,7 @@ body {
   row-gap: 10px;
   
 }
-.auth-container {
+#auth-container {
   display: flex;
   flex-direction: row;
   width: 100%;
