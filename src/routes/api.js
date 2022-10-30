@@ -274,7 +274,7 @@ router.get("/details", asyncMiddleware(async (req, res) => {
 }));
 
 router.get("/details/all", asyncMiddleware(async (req, res) => {
-  const details = await prisma.PokemonDetails.findAll({});
+  const details = await prisma.PokemonDetails.findMany({});
   res.json(details);
 }));
 
