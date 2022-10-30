@@ -273,6 +273,11 @@ router.get("/details", asyncMiddleware(async (req, res) => {
   res.json(details);
 }));
 
+router.get("/details/all", asyncMiddleware(async (req, res) => {
+  const details = await prisma.PokemonDetails.findAll({});
+  res.json(details);
+}));
+
 /* 
   - To Do -
   this route should not be accessible publicly 
